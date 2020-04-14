@@ -1,12 +1,12 @@
 # Socialdataanalysis2020 - Plan and structure for final project
 
 
-*An explanation of the central idea behind your final project (what is the idea? which datasets do you need to explore the idea?, why is it interesting?)
+* An explanation of the central idea behind your final project (what is the idea? which datasets do you need to explore the idea?, why is it interesting?)
 
-Preliminary investigatino and exploration of New York led to the discovery of several interesting datasets. The first a 
+Preliminary investigation and exploration of New York led to the discovery of several interesting datasets. The first a 
 
 
-*A mock up of the visualization that you wish to build. (Anything is fine here. Pen and paper, MS Paint, Inkscape, D3, anything.).
+* A mock up of the visualization that you wish to build. (Anything is fine here. Pen and paper, MS Paint, Inkscape, D3, anything.).
 
 
 
