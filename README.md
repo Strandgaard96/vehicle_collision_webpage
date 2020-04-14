@@ -14,16 +14,18 @@ Preliminary investigation and exploration of New York led to the discovery of se
 
 ## Make sure you answer the questions
 * What genre is it? (for Genres, see section 4.3 of the Segel and Heer paper)
+
 The story we want to convey will be realized through multiple genres. There will be supporting texts to visualizations which is a form of the magazine style.
 Additionally there will be annotated charts and flow charts to direct the story. 
 
 
 * Why is that genre right for telling the story you want to communicate with the data
+
 The main genre is magazine style. Here there is a linear way of directing the reader by text and vizualisations to support the written text. 
 In this way the story is presented clearly, moving from point to point guiding the reader, 
 
 * An outline on the elements you'll need to get to your goal.
-- 
+- blabla
 
 
 ## The implementation plan.
