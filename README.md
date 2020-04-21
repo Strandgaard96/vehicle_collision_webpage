@@ -12,3 +12,16 @@
 - Some kind predicted probabvility for crash in shapefile with boroughs. 
 - Bokeh crash type as function of time of day. Interactive legend. 
 - Stacked bar plot. Crash type on x axis. 
+
+
+## What visualizations are we making ?
+
+### Magnus
+Seaborn heatmap of season or day of week. 
+
+
+
+### Anders D
+
+
+### Anders T
