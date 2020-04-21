@@ -1,0 +1,85 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    
+      <meta charset="utf-8">
+      <title>label.py example</title>
+      
+      
+        
+          
+        
+        
+          
+        <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.0.0.min.js" integrity="sha384-5Y+xuMRAbgBj/2WKUiL8yzV4fBFic1HJPo2hT3pq2IsEzbsJjj8kT2i0b1lZ7C2N" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            Bokeh.set_log_level("info");
+        </script>
+        
+      
+      
+    
+  </head>
+  
+  
+  <body>
+    
+      
+        
+          
+          
+            
+              <div class="bk-root" id="d916d0ea-d501-4e76-876c-ea477e26a3c1" data-root-id="30563"></div>
+            
+          
+        
+      
+      
+        <script type="application/json" id="31323">
+          {"198edcd8-1827-4bfa-b681-e0ce1beec40d":{"roots":{"references":[{"attributes":{"below":[{"id":"30574"}],"center":[{"id":"30577"},{"id":"30580"}],"left":[{"id":"30578"}],"plot_height":400,"plot_width":800,"renderers":[{"id":"30597"}],"title":{"id":"30564"},"toolbar":{"id":"30587"},"x_range":{"id":"30566"},"x_scale":{"id":"30570"},"y_range":{"id":"30568"},"y_scale":{"id":"30572"}},"id":"30563","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"30586","type":"HelpTool"},{"attributes":{},"id":"30581","type":"PanTool"},{"attributes":{"end":13000,"start":3000},"id":"30566","type":"Range1d"},{"attributes":{"source":{"id":"30562"}},"id":"30598","type":"CDSView"},{"attributes":{"formatter":{"id":"31173"},"ticker":{"id":"30579"}},"id":"30578","type":"CategoricalAxis"},{"attributes":{"data":{"count":[4058,4167,4216,4314,4347,4352,4438,4548,5254,6387,6397,6829,6853,8271,8751,11060,12057],"fruits":["NOSTRAND AVENUE","WOODHAVEN BOULEVARD","JAMAICA AVENUE","1 AVENUE","HYLAN BOULEVARD","7 AVENUE","10 AVENUE","8 AVENUE","5 AVENUE","FLATBUSH AVENUE","QUEENS BOULEVARD","LINDEN BOULEVARD","2 AVENUE","NORTHERN BOULEVARD","3 AVENUE","ATLANTIC AVENUE","BROADWAY"]},"selected":{"id":"31176"},"selection_policy":{"id":"31177"}},"id":"30562","type":"ColumnDataSource"},{"attributes":{},"id":"31175","type":"BasicTickFormatter"},{"attributes":{"text":"Total recorded accidents "},"id":"30564","type":"Title"},{"attributes":{},"id":"30584","type":"SaveTool"},{"attributes":{},"id":"30585","type":"ResetTool"},{"attributes":{"overlay":{"id":"31178"}},"id":"30583","type":"BoxZoomTool"},{"attributes":{"axis":{"id":"30574"},"ticker":null},"id":"30577","type":"Grid"},{"attributes":{"factors":["NOSTRAND AVENUE","WOODHAVEN BOULEVARD","JAMAICA AVENUE","1 AVENUE","HYLAN BOULEVARD","7 AVENUE","10 AVENUE","8 AVENUE","5 AVENUE","FLATBUSH AVENUE","QUEENS BOULEVARD","LINDEN BOULEVARD","2 AVENUE","NORTHERN BOULEVARD","3 AVENUE","ATLANTIC AVENUE","BROADWAY"],"range_padding":0.1},"id":"30568","type":"FactorRange"},{"attributes":{},"id":"30579","type":"CategoricalTicker"},{"attributes":{"data_source":{"id":"30562"},"glyph":{"id":"30595"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"30596"},"selection_glyph":null,"view":{"id":"30598"}},"id":"30597","type":"GlyphRenderer"},{"attributes":{},"id":"30582","type":"WheelZoomTool"},{"attributes":{},"id":"30572","type":"CategoricalScale"},{"attributes":{},"id":"30575","type":"BasicTicker"},{"attributes":{"bottom_units":"screen","fill_alpha":0.5,"fill_color":"lightgrey","left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"31178","type":"BoxAnnotation"},{"attributes":{},"id":"30570","type":"LinearScale"},{"attributes":{"formatter":{"id":"31175"},"ticker":{"id":"30575"}},"id":"30574","type":"LinearAxis"},{"attributes":{"fill_color":{"value":"#1f77b4"},"height":{"value":0.7},"line_color":{"value":"#1f77b4"},"right":{"field":"count"},"y":{"field":"fruits"}},"id":"30595","type":"HBar"},{"attributes":{"axis":{"id":"30578"},"dimension":1,"grid_line_color":null,"ticker":null},"id":"30580","type":"Grid"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"height":{"value":0.7},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"right":{"field":"count"},"y":{"field":"fruits"}},"id":"30596","type":"HBar"},{"attributes":{},"id":"31176","type":"Selection"},{"attributes":{},"id":"31177","type":"UnionRenderers"},{"attributes":{},"id":"31173","type":"CategoricalTickFormatter"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"30581"},{"id":"30582"},{"id":"30583"},{"id":"30584"},{"id":"30585"},{"id":"30586"}]},"id":"30587","type":"Toolbar"}],"root_ids":["30563"]},"title":"Bokeh Application","version":"2.0.0"}}
+        </script>
+        <script type="text/javascript">
+          (function() {
+            var fn = function() {
+              Bokeh.safely(function() {
+                (function(root) {
+                  function embed_document(root) {
+                    
+                  var docs_json = document.getElementById('31323').textContent;
+                  var render_items = [{"docid":"198edcd8-1827-4bfa-b681-e0ce1beec40d","root_ids":["30563"],"roots":{"30563":"d916d0ea-d501-4e76-876c-ea477e26a3c1"}}];
+                  root.Bokeh.embed.embed_items(docs_json, render_items);
+                
+                  }
+                  if (root.Bokeh !== undefined) {
+                    embed_document(root);
+                  } else {
+                    var attempts = 0;
+                    var timer = setInterval(function(root) {
+                      if (root.Bokeh !== undefined) {
+                        clearInterval(timer);
+                        embed_document(root);
+                      } else {
+                        attempts++;
+                        if (attempts > 100) {
+                          clearInterval(timer);
+                          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                        }
+                      }
+                    }, 10, root)
+                  }
+                })(window);
+              });
+            };
+            if (document.readyState != "loading") fn();
+            else document.addEventListener("DOMContentLoaded", fn);
+          })();
+        </script>
+    
+  </body>
+  
+</html>
