@@ -26,7 +26,7 @@ Seaborn heatmap of season or day of week.
 
 ### Anders T
 
-<iframe src="fruits.html"
+<iframe src="/Webpage_figures/fruits.html"
     sandbox="allow-same-origin allow-scripts"
     width="100%"
     height="500"
