@@ -9,7 +9,7 @@ will display on the webpage.
 docs folder
 
 
-<iframe src="Images/callback.html"
+<iframe src="callback.html"
     sandbox="allow-same-origin allow-scripts"
     width="100%"
     height="500"
