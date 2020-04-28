@@ -1,0 +1,553 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    
+      <meta charset="utf-8">
+      <title>Bokeh Plot</title>
+      
+      
+        
+          
+        <style>
+            table.panel-df {
+                    margin-left: auto;
+                    margin-right: auto;
+                    border: none;
+                    border-collapse: collapse;
+                    border-spacing: 0;
+                    color: black;
+                    font-size: 12px;
+                    table-layout: fixed;
+                    width: 100%;
+                }
+
+                .panel-df tr, th, td {
+                    text-align: right;
+                    vertical-align: middle;
+                    padding: 0.5em 0.5em !important;
+                    line-height: normal;
+                    white-space: normal;
+                    max-width: none;
+                    border: none;
+                }
+
+                .panel-df tbody {
+                    display: table-row-group;
+                    vertical-align: middle;
+                    border-color: inherit;
+                }
+
+                .panel-df tbody tr:nth-child(odd) {
+                    background: #f5f5f5;
+                }
+
+                .panel-df thead {
+                    border-bottom: 1px solid black;
+                    vertical-align: bottom;
+                }
+
+                .panel-df tr:hover {
+                    background: lightblue !important;
+                    cursor: pointer;
+                }
+
+        </style>
+        <style>
+            .json-formatter-row {
+                  font-family: monospace;
+                }
+                .json-formatter-row,
+                .json-formatter-row a,
+                .json-formatter-row a:hover {
+                  color: black;
+                  text-decoration: none;
+                }
+                .json-formatter-row .json-formatter-row {
+                  margin-left: 1rem;
+                }
+                .json-formatter-row .json-formatter-children.json-formatter-empty {
+                  opacity: 0.5;
+                  margin-left: 1rem;
+                }
+                .json-formatter-row .json-formatter-children.json-formatter-empty:after {
+                  display: none;
+                }
+                .json-formatter-row .json-formatter-children.json-formatter-empty.json-formatter-object:after {
+                  content: "No properties";
+                }
+                .json-formatter-row .json-formatter-children.json-formatter-empty.json-formatter-array:after {
+                  content: "[]";
+                }
+                .json-formatter-row .json-formatter-string,
+                .json-formatter-row .json-formatter-stringifiable {
+                  color: green;
+                  white-space: pre;
+                  word-wrap: break-word;
+                }
+                .json-formatter-row .json-formatter-number {
+                  color: blue;
+                }
+                .json-formatter-row .json-formatter-boolean {
+                  color: red;
+                }
+                .json-formatter-row .json-formatter-null {
+                  color: #855A00;
+                }
+                .json-formatter-row .json-formatter-undefined {
+                  color: #ca0b69;
+                }
+                .json-formatter-row .json-formatter-function {
+                  color: #FF20ED;
+                }
+                .json-formatter-row .json-formatter-date {
+                  background-color: rgba(0, 0, 0, 0.05);
+                }
+                .json-formatter-row .json-formatter-url {
+                  text-decoration: underline;
+                  color: blue;
+                  cursor: pointer;
+                }
+                .json-formatter-row .json-formatter-bracket {
+                  color: blue;
+                }
+                .json-formatter-row .json-formatter-key {
+                  color: #00008B;
+                  padding-right: 0.2rem;
+                }
+                .json-formatter-row .json-formatter-toggler-link {
+                  cursor: pointer;
+                }
+                .json-formatter-row .json-formatter-toggler {
+                  line-height: 1.2rem;
+                  font-size: 0.7rem;
+                  vertical-align: middle;
+                  opacity: 0.6;
+                  cursor: pointer;
+                  padding-right: 0.2rem;
+                }
+                .json-formatter-row .json-formatter-toggler:after {
+                  display: inline-block;
+                  transition: transform 100ms ease-in;
+                  content: "\25BA";
+                }
+                .json-formatter-row > a > .json-formatter-preview-text {
+                  opacity: 0;
+                  transition: opacity 0.15s ease-in;
+                  font-style: italic;
+                }
+                .json-formatter-row:hover > a > .json-formatter-preview-text {
+                  opacity: 0.6;
+                }
+                .json-formatter-row.json-formatter-open > .json-formatter-toggler-link .json-formatter-toggler:after {
+                  transform: rotate(90deg);
+                }
+                .json-formatter-row.json-formatter-open > .json-formatter-children:after {
+                  display: inline-block;
+                }
+                .json-formatter-row.json-formatter-open > a > .json-formatter-preview-text {
+                  display: none;
+                }
+                .json-formatter-row.json-formatter-open.json-formatter-empty:after {
+                  display: block;
+                }
+                .json-formatter-dark.json-formatter-row {
+                  font-family: monospace;
+                }
+                .json-formatter-dark.json-formatter-row,
+                .json-formatter-dark.json-formatter-row a,
+                .json-formatter-dark.json-formatter-row a:hover {
+                  color: white;
+                  text-decoration: none;
+                }
+                .json-formatter-dark.json-formatter-row .json-formatter-row {
+                  margin-left: 1rem;
+                }
+                .json-formatter-dark.json-formatter-row .json-formatter-children.json-formatter-empty {
+                  opacity: 0.5;
+                  margin-left: 1rem;
+                }
+                .json-formatter-dark.json-formatter-row .json-formatter-children.json-formatter-empty:after {
+                  display: none;
+                }
+                .json-formatter-dark.json-formatter-row .json-formatter-children.json-formatter-empty.json-formatter-object:after {
+                  content: "No properties";
+                }
+                .json-formatter-dark.json-formatter-row .json-formatter-children.json-formatter-empty.json-formatter-array:after {
+                  content: "[]";
+                }
+                .json-formatter-dark.json-formatter-row .json-formatter-string,
+                .json-formatter-dark.json-formatter-row .json-formatter-stringifiable {
+                  color: #31F031;
+                  white-space: pre;
+                  word-wrap: break-word;
+                }
+                .json-formatter-dark.json-formatter-row .json-formatter-number {
+                  color: #66C2FF;
+                }
+                .json-formatter-dark.json-formatter-row .json-formatter-boolean {
+                  color: #EC4242;
+                }
+                .json-formatter-dark.json-formatter-row .json-formatter-null {
+                  color: #EEC97D;
+                }
+                .json-formatter-dark.json-formatter-row .json-formatter-undefined {
+                  color: #ef8fbe;
+                }
+                .json-formatter-dark.json-formatter-row .json-formatter-function {
+                  color: #FD48CB;
+                }
+                .json-formatter-dark.json-formatter-row .json-formatter-date {
+                  background-color: rgba(255, 255, 255, 0.05);
+                }
+                .json-formatter-dark.json-formatter-row .json-formatter-url {
+                  text-decoration: underline;
+                  color: #027BFF;
+                  cursor: pointer;
+                }
+                .json-formatter-dark.json-formatter-row .json-formatter-bracket {
+                  color: #9494FF;
+                }
+                .json-formatter-dark.json-formatter-row .json-formatter-key {
+                  color: #23A0DB;
+                  padding-right: 0.2rem;
+                }
+                .json-formatter-dark.json-formatter-row .json-formatter-toggler-link {
+                  cursor: pointer;
+                }
+                .json-formatter-dark.json-formatter-row .json-formatter-toggler {
+                  line-height: 1.2rem;
+                  font-size: 0.7rem;
+                  vertical-align: middle;
+                  opacity: 0.6;
+                  cursor: pointer;
+                  padding-right: 0.2rem;
+                }
+                .json-formatter-dark.json-formatter-row .json-formatter-toggler:after {
+                  display: inline-block;
+                  transition: transform 100ms ease-in;
+                  content: "\25BA";
+                }
+                .json-formatter-dark.json-formatter-row > a > .json-formatter-preview-text {
+                  opacity: 0;
+                  transition: opacity 0.15s ease-in;
+                  font-style: italic;
+                }
+                .json-formatter-dark.json-formatter-row:hover > a > .json-formatter-preview-text {
+                  opacity: 0.6;
+                }
+                .json-formatter-dark.json-formatter-row.json-formatter-open > .json-formatter-toggler-link .json-formatter-toggler:after {
+                  transform: rotate(90deg);
+                }
+                .json-formatter-dark.json-formatter-row.json-formatter-open > .json-formatter-children:after {
+                  display: inline-block;
+                }
+                .json-formatter-dark.json-formatter-row.json-formatter-open > a > .json-formatter-preview-text {
+                  display: none;
+                }
+                .json-formatter-dark.json-formatter-row.json-formatter-open.json-formatter-empty:after {
+                  display: block;
+                }
+
+        </style>
+        <style>
+            .codehilite .hll { background-color: #ffffcc }
+                .codehilite  { background: #f8f8f8; }
+                .codehilite .c { color: #408080; font-style: italic } /* Comment */
+                .codehilite .err { border: 1px solid #FF0000 } /* Error */
+                .codehilite .k { color: #008000; font-weight: bold } /* Keyword */
+                .codehilite .o { color: #666666 } /* Operator */
+                .codehilite .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+                .codehilite .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+                .codehilite .cp { color: #BC7A00 } /* Comment.Preproc */
+                .codehilite .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+                .codehilite .c1 { color: #408080; font-style: italic } /* Comment.Single */
+                .codehilite .cs { color: #408080; font-style: italic } /* Comment.Special */
+                .codehilite .gd { color: #A00000 } /* Generic.Deleted */
+                .codehilite .ge { font-style: italic } /* Generic.Emph */
+                .codehilite .gr { color: #FF0000 } /* Generic.Error */
+                .codehilite .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+                .codehilite .gi { color: #00A000 } /* Generic.Inserted */
+                .codehilite .go { color: #888888 } /* Generic.Output */
+                .codehilite .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+                .codehilite .gs { font-weight: bold } /* Generic.Strong */
+                .codehilite .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+                .codehilite .gt { color: #0044DD } /* Generic.Traceback */
+                .codehilite .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+                .codehilite .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+                .codehilite .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+                .codehilite .kp { color: #008000 } /* Keyword.Pseudo */
+                .codehilite .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+                .codehilite .kt { color: #B00040 } /* Keyword.Type */
+                .codehilite .m { color: #666666 } /* Literal.Number */
+                .codehilite .s { color: #BA2121 } /* Literal.String */
+                .codehilite .na { color: #7D9029 } /* Name.Attribute */
+                .codehilite .nb { color: #008000 } /* Name.Builtin */
+                .codehilite .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+                .codehilite .no { color: #880000 } /* Name.Constant */
+                .codehilite .nd { color: #AA22FF } /* Name.Decorator */
+                .codehilite .ni { color: #999999; font-weight: bold } /* Name.Entity */
+                .codehilite .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+                .codehilite .nf { color: #0000FF } /* Name.Function */
+                .codehilite .nl { color: #A0A000 } /* Name.Label */
+                .codehilite .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+                .codehilite .nt { color: #008000; font-weight: bold } /* Name.Tag */
+                .codehilite .nv { color: #19177C } /* Name.Variable */
+                .codehilite .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+                .codehilite .w { color: #bbbbbb } /* Text.Whitespace */
+                .codehilite .mb { color: #666666 } /* Literal.Number.Bin */
+                .codehilite .mf { color: #666666 } /* Literal.Number.Float */
+                .codehilite .mh { color: #666666 } /* Literal.Number.Hex */
+                .codehilite .mi { color: #666666 } /* Literal.Number.Integer */
+                .codehilite .mo { color: #666666 } /* Literal.Number.Oct */
+                .codehilite .sa { color: #BA2121 } /* Literal.String.Affix */
+                .codehilite .sb { color: #BA2121 } /* Literal.String.Backtick */
+                .codehilite .sc { color: #BA2121 } /* Literal.String.Char */
+                .codehilite .dl { color: #BA2121 } /* Literal.String.Delimiter */
+                .codehilite .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+                .codehilite .s2 { color: #BA2121 } /* Literal.String.Double */
+                .codehilite .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+                .codehilite .sh { color: #BA2121 } /* Literal.String.Heredoc */
+                .codehilite .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+                .codehilite .sx { color: #008000 } /* Literal.String.Other */
+                .codehilite .sr { color: #BB6688 } /* Literal.String.Regex */
+                .codehilite .s1 { color: #BA2121 } /* Literal.String.Single */
+                .codehilite .ss { color: #19177C } /* Literal.String.Symbol */
+                .codehilite .bp { color: #008000 } /* Name.Builtin.Pseudo */
+                .codehilite .fm { color: #0000FF } /* Name.Function.Magic */
+                .codehilite .vc { color: #19177C } /* Name.Variable.Class */
+                .codehilite .vg { color: #19177C } /* Name.Variable.Global */
+                .codehilite .vi { color: #19177C } /* Name.Variable.Instance */
+                .codehilite .vm { color: #19177C } /* Name.Variable.Magic */
+                .codehilite .il { color: #666666 } /* Literal.Number.Integer.Long */
+
+                .markdown h1 { margin-block-start: 0.34em }
+                .markdown h2 { margin-block-start: 0.42em }
+                .markdown h3 { margin-block-start: 0.5em }
+                .markdown h4 { margin-block-start: 0.67em }
+                .markdown h5 { margin-block-start: 0.84em }
+                .markdown h6 { margin-block-start: 1.17em }
+                .markdown ul { padding-inline-start: 2em }
+                .markdown ol { padding-inline-start: 2em }
+                .markdown strong { font-weight: 600 }
+                .markdown a { color: -webkit-link }
+                .markdown a { color: -moz-hyperlinkText }
+
+        </style>
+        <style>
+            .widget-box {
+                	min-height: 20px;
+                	background-color: #f5f5f5;
+                	border: 1px solid #e3e3e3 !important;
+                	border-radius: 4px;
+                	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+                	box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+                	overflow-x: hidden;
+                	overflow-y: hidden;
+                }
+
+                .scrollable {
+                  overflow: scroll;
+                }
+
+                progress {
+                	appearance: none;
+                	-moz-appearance: none;
+                	-webkit-appearance: none;
+
+                	border: none;
+                	height: 20px;
+                	background-color: whiteSmoke;
+                	border-radius: 3px;
+                	box-shadow: 0 2px 3px rgba(0,0,0,.5) inset;
+                	color: royalblue;
+                	position: relative;
+                	margin: 0 0 1.5em;
+                }
+
+                progress[value]::-webkit-progress-bar {
+                	background-color: whiteSmoke;
+                	border-radius: 3px;
+                	box-shadow: 0 2px 3px rgba(0,0,0,.5) inset;
+                }
+
+                progress[value]::-webkit-progress-value {
+                	position: relative;
+
+                	background-size: 35px 20px, 100% 100%, 100% 100%;
+                	border-radius:3px;
+                }
+
+                progress.active:not([value])::before {
+                	background-position: 10%;
+                	animation-name: stripes;
+                	animation-duration: 3s;
+                	animation-timing-function: linear;
+                	animation-iteration-count: infinite;
+                }
+
+                progress[value]::-moz-progress-bar {
+                	background-size: 35px 20px, 100% 100%, 100% 100%;
+                	border-radius:3px;
+                }
+
+                progress:not([value])::-moz-progress-bar {
+                	border-radius:3px;
+                	background:
+                	linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, 0.2) 33%, rgba(0, 0, 0, 0.2) 66%, transparent 66%) left/2.5em 1.5em;
+
+                }
+
+                progress.active:not([value])::-moz-progress-bar {
+                	background-position: 10%;
+                	animation-name: stripes;
+                	animation-duration: 3s;
+                	animation-timing-function: linear;
+                	animation-iteration-count: infinite;
+                }
+
+                progress.active:not([value])::-webkit-progress-bar {
+                	background-position: 10%;
+                	animation-name: stripes;
+                	animation-duration: 3s;
+                	animation-timing-function: linear;
+                	animation-iteration-count: infinite;
+                }
+
+                progress.primary[value]::-webkit-progress-value { background-color: #007bff; }
+                progress.primary:not([value])::before { background-color: #007bff; }
+                progress.primary:not([value])::-webkit-progress-bar { background-color: #007bff; }
+                progress.primary::-moz-progress-bar { background-color: #007bff; }
+
+                progress.secondary[value]::-webkit-progress-value { background-color: #6c757d; }
+                progress.secondary:not([value])::before { background-color: #6c757d; }
+                progress.secondary:not([value])::-webkit-progress-bar { background-color: #6c757d; }
+                progress.secondary::-moz-progress-bar { background-color: #6c757d; }
+
+                progress.success[value]::-webkit-progress-value { background-color: #28a745; }
+                progress.success:not([value])::before { background-color: #28a745; }
+                progress.success:not([value])::-webkit-progress-bar { background-color: #28a745; }
+                progress.success::-moz-progress-bar { background-color: #28a745; }
+
+                progress.danger[value]::-webkit-progress-value { background-color: #dc3545; }
+                progress.danger:not([value])::before { background-color: #dc3545; }
+                progress.danger:not([value])::-webkit-progress-bar { background-color: #dc3545; }
+                progress.danger::-moz-progress-bar { background-color: #dc3545; }
+
+                progress.warning[value]::-webkit-progress-value { background-color: #ffc107; }
+                progress.warning:not([value])::before { background-color: #ffc107; }
+                progress.warning:not([value])::-webkit-progress-bar { background-color: #ffc107; }
+                progress.warning::-moz-progress-bar { background-color: #ffc107; }
+
+                progress.info[value]::-webkit-progress-value { background-color: #17a2b8; }
+                progress.info:not([value])::before { background-color: #17a2b8; }
+                progress.info:not([value])::-webkit-progress-bar { background-color: #17a2b8; }
+                progress.info::-moz-progress-bar { background-color: #17a2b8; }
+
+                progress.light[value]::-webkit-progress-value { background-color: #f8f9fa; }
+                progress.light:not([value])::before { background-color: #f8f9fa; }
+                progress.light:not([value])::-webkit-progress-bar { background-color: #f8f9fa; }
+                progress.light::-moz-progress-bar { background-color: #f8f9fa; }
+
+                progress.dark[value]::-webkit-progress-value { background-color: #343a40; }
+                progress.dark:not([value])::-webkit-progress-bar { background-color: #343a40; }
+                progress.dark:not([value])::before { background-color: #343a40; }
+                progress.dark::-moz-progress-bar { background-color: #343a40; }
+
+                progress:not([value])::-webkit-progress-bar {
+                	border-radius: 3px;
+                	background:
+                	linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, 0.2) 33%, rgba(0, 0, 0, 0.2) 66%, transparent 66%) left/2.5em 1.5em;
+                }
+                progress:not([value])::before {
+                	content:" ";
+                	position:absolute;
+                	height: 20px;
+                	top:0;
+                	left:0;
+                	right:0;
+                	bottom:0;
+                	border-radius: 3px;
+                	background:
+                	linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, 0.2) 33%, rgba(0, 0, 0, 0.2) 66%, transparent 66%) left/2.5em 1.5em;
+                }
+
+                @keyframes stripes {
+                  from {background-position: 0%}
+                  to {background-position: 100%}
+                }
+        </style>
+        
+        
+          
+        <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.0.1.min.js" integrity="sha384-JpP8FXbgAZLkfur7LiK3j9AGBhHNIvF742meBJrjO2ShJDhCG2I1uVvW+0DUtrmc" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            Bokeh.set_log_level("info");
+        </script>
+        
+      
+      
+    
+  </head>
+  
+  
+  <body>
+    
+      
+        
+          
+          
+            
+              <div class="bk-root" id="792eec50-0176-4d33-91c4-a76ca5937203" data-root-id="16337"></div>
+            
+          
+        
+      
+      
+        <script type="application/json" id="16842">
+          {"b8a04deb-4228-4168-be53-ad9c0130b87b":{"roots":{"references":[{"attributes":{"below":[{"id":"16348"}],"center":[{"id":"16350"},{"id":"16354"}],"left":[{"id":"16351"}],"outline_line_color":null,"plot_height":300,"plot_width":800,"renderers":[{"id":"16374"}],"title":{"id":"16338"},"toolbar":{"id":"16363"},"x_range":{"id":"16340"},"x_scale":{"id":"16344"},"y_range":{"id":"16342"},"y_scale":{"id":"16346"}},"id":"16337","subtype":"Figure","type":"Plot"},{"attributes":{"fill_color":{"field":"CRASHDATE_BOROUGH","transform":{"id":"16335"}},"line_color":{"value":"white"},"top":{"field":"NUMBER OF PERSONS INJURED_count"},"width":{"value":1},"x":{"field":"CRASHDATE_BOROUGH"}},"id":"16372","type":"VBar"},{"attributes":{},"id":"16355","type":"PanTool"},{"attributes":{},"id":"16693","type":"BasicTickFormatter"},{"attributes":{"overlay":{"id":"16361"}},"id":"16357","type":"BoxZoomTool"},{"attributes":{"formatter":{"id":"16693"},"ticker":{"id":"16352"}},"id":"16351","type":"LinearAxis"},{"attributes":{"data_source":{"id":"15826"},"glyph":{"id":"16372"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"16373"},"selection_glyph":null,"view":{"id":"16375"}},"id":"16374","type":"GlyphRenderer"},{"attributes":{"text":"Injuries"},"id":"16338","type":"Title"},{"attributes":{"source":{"id":"15826"}},"id":"16375","type":"CDSView"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"16355"},{"id":"16356"},{"id":"16357"},{"id":"16358"},{"id":"16359"},{"id":"16360"},{"id":"16362"}]},"id":"16363","type":"Toolbar"},{"attributes":{},"id":"16344","type":"CategoricalScale"},{"attributes":{},"id":"16352","type":"BasicTicker"},{"attributes":{"bottom_units":"screen","fill_alpha":0.5,"fill_color":"lightgrey","left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"16361","type":"BoxAnnotation"},{"attributes":{"formatter":{"id":"16691"},"major_label_orientation":1.2,"ticker":{"id":"16349"}},"id":"16348","type":"CategoricalAxis"},{"attributes":{"axis":{"id":"16348"},"grid_line_color":null,"ticker":null},"id":"16350","type":"Grid"},{"attributes":{"callback":null,"tooltips":[["Inuries","@Time_count"]]},"id":"16362","type":"HoverTool"},{"attributes":{"axis":{"id":"16351"},"dimension":1,"ticker":null},"id":"16354","type":"Grid"},{"attributes":{"start":0},"id":"16342","type":"DataRange1d"},{"attributes":{},"id":"16691","type":"CategoricalTickFormatter"},{"attributes":{},"id":"16349","type":"CategoricalTicker"},{"attributes":{},"id":"16359","type":"ResetTool"},{"attributes":{"factors":[["2012","BRONX"],["2012","BROOKLYN"],["2012","MANHATTAN"],["2012","QUEENS"],["2012","STATEN ISLAND"],["2013","BRONX"],["2013","BROOKLYN"],["2013","MANHATTAN"],["2013","QUEENS"],["2013","STATEN ISLAND"],["2014","BRONX"],["2014","BROOKLYN"],["2014","MANHATTAN"],["2014","QUEENS"],["2014","STATEN ISLAND"],["2015","BRONX"],["2015","BROOKLYN"],["2015","MANHATTAN"],["2015","QUEENS"],["2015","STATEN ISLAND"],["2016","BRONX"],["2016","BROOKLYN"],["2016","MANHATTAN"],["2016","QUEENS"],["2016","STATEN ISLAND"],["2017","BRONX"],["2017","BROOKLYN"],["2017","MANHATTAN"],["2017","QUEENS"],["2017","STATEN ISLAND"],["2018","BRONX"],["2018","BROOKLYN"],["2018","MANHATTAN"],["2018","QUEENS"],["2018","STATEN ISLAND"],["2019","BRONX"],["2019","BROOKLYN"],["2019","MANHATTAN"],["2019","QUEENS"],["2019","STATEN ISLAND"],["2020","BRONX"],["2020","BROOKLYN"],["2020","MANHATTAN"],["2020","QUEENS"],["2020","STATEN ISLAND"]],"range_padding":0.05},"id":"16340","type":"FactorRange"},{"attributes":{},"id":"16360","type":"HelpTool"},{"attributes":{},"id":"16179","type":"UnionRenderers"},{"attributes":{"data":{"COLLISION_ID_25%":{"__ndarray__":"AAAAALjn80AAAAAA5n4AQQAAAADAn9BAAAAAAJzVCkEAAAAAwHMRQQAAAABwZfRAAAAAANDLAEEAAAAAoLTSQAAAAAAkMwtBAAAAAP+jEUEAAAAAXzsTQQAAAAAAVBNBAAAAAPBpE0EAAAAAAjYTQQAAAABL5BJBAAAAwJpqSEEAAAAAumxIQQAAAID6dEhBAAAAoEVrSEEAAACA32lIQQAAAEAjCkpBAAAAAGoTSkEAAAAAwvtJQQAAAIClI0pBAAAAQBosSkEAAAAAQtJLQQAAAGC91UtBAAAAoITXS0EAAADA9NVLQQAAACBA0ktBAAAAAHKXTUEAAACAtpZNQQAAACCSl01BAAAAAJSYTUEAAAAAXqBNQQAAAADvW09BAAAAAFtcT0EAAACAwV1PQQAAAIDQXE9BAAAAQK00T0EAAADQ4VFQQQAAAECXUlBBAAAA4MRRUEEAAAAwMlFQQQAAAPB0UVBB","dtype":"float64","shape":[45]},"COLLISION_ID_50%":{"__ndarray__":"AAAAACCf9kAAAAAAIAoDQQAAAACgTOBAAAAAADRTDUEAAAAArO4RQQAAAACg6vZAAAAAAHBcA0EAAAAAINrhQAAAAABYoQ1BAAAAAKIkEkEAAAAAOh4WQQAAAAA0LRZBAAAAAC4jFkEAAAAA2DoWQQAAAABE0hVBAAAAAOjTSEEAAAAAjNhIQQAAAADv2khBAAAAAPDXSEEAAACAJdhIQQAAAACgjkpBAAAAAKKPSkEAAACARo1KQQAAAADBlEpBAAAAQGGOSkEAAAAA5D5MQQAAAIDEQ0xBAAAAwAdHTEEAAAAA0EdMQQAAAACxRUxBAAAAgKwHTkEAAACAeQlOQQAAAMBXCk5BAAAAAIwLTkEAAAAAaBZOQQAAAACFw09BAAAAgCvET0EAAABAocdPQQAAAADGw09BAAAAgKmnT0EAAAAgxVtQQQAAAABeXFBBAAAAgOhaUEEAAADgh1tQQQAAAAAfXFBB","dtype":"float64","shape":[45]},"COLLISION_ID_75%":{"__ndarray__":"AAAAAEwn+UAAAAAA6pEFQQAAAAAAyulAAAAAAFUgEEEAAAAAOgUSQQAAAADAfPlAAAAAAKgTBkEAAAAAcJrqQAAAAAAQNRBBAAAAAL5MEkEAAACAYJMvQQAAAIBclC9BAAAAgM+IL0EAAAAAG5cvQQAAAACOei9BAAAAQF08SUEAAAAAOkJJQQAAAABpQElBAAAAYHBCSUEAAADAl0dJQQAAAKDL+EpBAAAAQB7+SkEAAAAAhvxKQQAAAIBl/0pBAAAAwK4FS0EAAAAAFLhMQQAAAKCGtkxBAAAAgM65TEEAAABAlLxMQQAAAMBWu0xBAAAAAER5TkEAAAAAfnlOQQAAAIBgfk5BAAAAAPR8TkEAAACAz4JOQQAAAMCNFVBBAAAAgC4UUEEAAABwkRZQQQAAALAFFFBBAAAAIMwRUEEAAABgBmZQQQAAAMCfZlBBAAAAoB5kUEEAAABweGVQQQAAAOBPZlBB","dtype":"float64","shape":[45]},"COLLISION_ID_count":{"__ndarray__":"AAAAAAAYnkAAAAAAAPCxQAAAAAAAD7BAAAAAAAD4rUAAAAAAABiPQAAAAAAA6q5AAAAAAIA4wkAAAAAAgCvAQAAAAAAAp75AAAAAAABImkAAAAAAAEyuQAAAAAAA0sJAAAAAAAAjwEAAAAAAgA/AQAAAAAAAYJRAAAAAAACDsEAAAAAAgOjDQAAAAACApsBAAAAAAAChwEAAAAAAACyUQAAAAAAAAK5AAAAAAIB5wEAAAAAAAMG4QAAAAAAAjb1AAAAAAACQkkAAAAAAAFOwQAAAAAAAosFAAAAAAAC+t0AAAAAAAP+8QAAAAAAAgJJAAAAAAAAjsUAAAAAAgDLCQAAAAAAAsLdAAAAAAACfv0AAAAAAAJySQAAAAAAA4bBAAAAAAID6wEAAAAAAAPazQAAAAAAAqL5AAAAAAAC4hUAAAAAAAFCMQAAAAAAApJtAAAAAAABYikAAAAAAAPCXQAAAAAAAQGBA","dtype":"float64","shape":[45]},"COLLISION_ID_max":{"__ndarray__":"AAAAALAR+0AAAAAAyIpMQQAAAID0SUtBAAAAAAgnEUEAAAAAMHASQQAAAIBWU01BAAAAAP/8T0EAAAAA6btOQQAAAAD3hEpBAAAAAKDIEkEAAACA+dZLQQAAAABInkxBAAAAANSjTkEAAAAAvxVNQQAAAIDJBkhBAAAAAF/3TUEAAAAAcDpNQQAAAABB6U5BAAAAgPGpTUEAAAAAbFFLQQAAAADlUk9BAAAAACYLUEEAAACA37JOQQAAAIAbok9BAAAAgJ2yTkEAAAAA7LVOQQAAAIDqOVBBAAAAgAy2TkEAAAAAPilPQQAAAAD+tU5BAAAAgBSiT0EAAADArCtQQQAAAAB8R1BBAAAAwHcEUEEAAACAFPtOQQAAAIDDbFBBAAAAAFxZUEEAAAAAqWBQQQAAAIAoX1BBAAAAQPZKUEEAAAAA+m9QQQAAAMDWb1BBAAAAQOhvUEEAAABA+G9QQQAAAEBGb1BB","dtype":"float64","shape":[45]},"COLLISION_ID_mean":{"__ndarray__":"nVEvmlyI9kD8e+sIASgDQUPJoHaBX+FAGmBoxyFkDUGwZ2+l19MRQR7Z1M6HGvdAWJuTTZV6A0ELwSuvuUHiQJxbuEuRug1Bsv/4XvgHEkEf5quuPwYwQa48/YmHSjBBQ1YwfN1cL0H+M0avZagwQV13vNim+y9BIsVDC3rUSEF02iblEthIQW4T3ba12khBYXJSRRjXSEEbrvZsX9dIQQAAgI+cjkpBZimk5RKQSkGX6pFk6Y5KQQ/VCKfSlEpBj8oN0EWVSkGSITT/L0dMQbwIQ0F9SExBDxW6AflLTEFTXZIU30pMQW8wRSovR0xB43tHXaAJTkEdzYugBwpOQdfzlTaeDE5BCjBPyF0LTkHOwGlM8A9OQa1WaU5tw09B9B/Xux7DT0GmGQBN3cRPQZhV2GfLwk9BjJXmYu6uT0Exom0GDFxQQaEaCAhQXFBB4dTpukFbUEGSWwnOiltQQRQ7sfPAW1BB","dtype":"float64","shape":[45]},"COLLISION_ID_min":{"__ndarray__":"AAAAANC48UAAAAAAQLj7QAAAAAAAADlAAAAAAJCKCEEAAAAAjF8RQQAAAACw+fFAAAAAAFDt+0AAAAAAALyYQAAAAACQlQhBAAAAAGR/EUEAAAAAsILyQAAAAACAUPxAAAAAAACVskAAAAAA8KoIQQAAAACAtRFBAAAAAF0ASEEAAAAAeQBIQQAAAIBFAEhBAAAAAJ0ASEEAAACAwQBIQQAAAIA1qUlBAAAAAE6pSUEAAACADqlJQQAAAABoqUlBAAAAAFeqSUEAAAAAT2RLQQAAAICoY0tBAAAAgA5kS0EAAACAnGNLQQAAAABfZEtBAAAAgCIjTUEAAAAADyNNQQAAAADeIk1BAAAAgJEiTUEAAACAaidNQQAAAIBx8k5BAAAAAHDyTkEAAAAAWfJOQQAAAABu8k5BAAAAgFfyTkEAAAAAwkdQQQAAAIBsR1BBAAAAwMZHUEEAAACAf0dQQQAAAMClR1BB","dtype":"float64","shape":[45]},"COLLISION_ID_std":{"__ndarray__":"GzOJ/5AAx0DlKnuIEjzzQFFlGGo11OxA8me/sB0H2EAwMUbPwFO2QMcwqCSsru1An4TQMdad8EDLM62tA7jnQCyZFFAqfeVAlF4VQNVotkAdJ7skjowwQYWscvHxRDBBjglZcAt2MEFVsp3QTCQwQTFzz5Q+cy9B3QQ6MHMz70A/CLJTrQ/vQElEjROYIe9A0uGgPR1r70DsYICg6ADwQMne5o23/vJAGMwJWeoI9EB0DAi9oGf1QIY/EOUEAvRAfvT9Z5yE9EAlv2uusUrxQNQdDX1PIfFAGjS3GevX8UD6wUey00HxQMlPZ8xRPPFAfnUYXO+Z8EB6SfP1DJ3wQP45yo/KwPBAIEt7Aaef8EAnvKx4t6DwQJLcposX2e1A+w9cUbXZ7UDrP2v6gtztQGZ2H4OVte1An7m7fwwR8ECs7FIfiE/HQPtBO/1V6MZAGybpNeRYxkAMlZNs6l3HQIs9XAEcNshA","dtype":"float64","shape":[45]},"CRASHDATE_BOROUGH":[["2012","BRONX"],["2012","BROOKLYN"],["2012","MANHATTAN"],["2012","QUEENS"],["2012","STATEN ISLAND"],["2013","BRONX"],["2013","BROOKLYN"],["2013","MANHATTAN"],["2013","QUEENS"],["2013","STATEN ISLAND"],["2014","BRONX"],["2014","BROOKLYN"],["2014","MANHATTAN"],["2014","QUEENS"],["2014","STATEN ISLAND"],["2015","BRONX"],["2015","BROOKLYN"],["2015","MANHATTAN"],["2015","QUEENS"],["2015","STATEN ISLAND"],["2016","BRONX"],["2016","BROOKLYN"],["2016","MANHATTAN"],["2016","QUEENS"],["2016","STATEN ISLAND"],["2017","BRONX"],["2017","BROOKLYN"],["2017","MANHATTAN"],["2017","QUEENS"],["2017","STATEN ISLAND"],["2018","BRONX"],["2018","BROOKLYN"],["2018","MANHATTAN"],["2018","QUEENS"],["2018","STATEN ISLAND"],["2019","BRONX"],["2019","BROOKLYN"],["2019","MANHATTAN"],["2019","QUEENS"],["2019","STATEN ISLAND"],["2020","BRONX"],["2020","BROOKLYN"],["2020","MANHATTAN"],["2020","QUEENS"],["2020","STATEN ISLAND"]],"LATITUDE_25%":{"__ndarray__":"fM4nPDJqREDkJIOSuFBEQPHjHgGSXkRAKhoQxjRZRECUCQli6khEQMiH6vcOakRAsS2oFOBQREBfcLzxpF5EQFjHlooyWURAiMVe3tJHREBQMXMmEmpEQI4MzdDTUERAx3mkZrReREBL0F/oEVlEQDAzx01oR0RAQPRJk/dpREDKDpZW6FBEQHMxYY/kXkRADqsulthYREALRbqf00ZEQP02xHjNaURAigRTzaxQREB3oiQk0l5EQOEAn8SMWERAfgG9cOdGRED9ag4QzGlEQDDw3Hu4UERACRUcXpBeRECOBYVBmVhEQOEnDqDfR0RAG55eKctpREDrVPmekVBEQN+mP/uRXkRAu5nRj4ZYREBAvK5fsEdEQGFUUiegaURAPulEgqlQREDqmPOMfV5EQIv4Tsx6WERAtK7RcqBHREDQu7GgsGlEQDSAt0CCUERAmueIfJdeREBHeHsQAlhEQLzP8dFiR0RA","dtype":"float64","shape":[45]},"LATITUDE_50%":{"__ndarray__":"U3GIXYBsREC9ssF4PFREQG0qQTUUYURAB4PGp1tdREAPqbOk7UxEQHglyXN9bERAQZlGk4tUREAEE27oHGFEQEsk0csoXURAkgThCihMREA6/rBKjmxEQIIr6t1pVERAsgwW8xhhREA2uSkvQ11EQAr9p3ZhS0RA4Rl+gWpsREAZ1p6jn1REQKYol8YvYURA9VZus8JcREB/lMeJZUtEQFWH3Aw3bERAZw+0AkNUREBtKkE1FGFEQHicoiO5XERAse4O33hKREDgDz//PWxEQLrYtFIIVERATx+BP/xgREDXMEPjiVxEQC3saYe/S0RAo5I6AU1sREAg0m9fB1REQJARUOEIYURAwOyePCxcREBWDi2ynUtEQCHM7V7ua0RAW2H6XkNUREBm/PuMC2FEQMDsnjwsXERAuQGfH0ZMREBOnNzvUGxEQOXxtPzAU0RA5ZzYQ/tgREDK+WLvxVtEQFSH3Aw3TERA","dtype":"float64","shape":[45]},"LATITUDE_75%":{"__ndarray__":"NmFWg0tvREAWIvE8QldEQJJVtrQ/ZERAAhiFE4dgREAQ/X9Bd09EQEunGmJhb0RACXlOxGxXRECKYZhdQWREQLKyIg9pYERAJneOtwtPREA8eNymbm9EQIJaZ9dYV0RA+9TCdkFkRED0SM1odWBEQEt1AS/zTkRAMc9KWnFvREDjyckfZ1dEQFOF9TWBZERAhHNXwE5gREDz1grkI09EQE+WWu83b0RARBK9jGJXREDpYP2fw2REQKmDvB5MYERAZAeVuA5PREBaRBSTN29EQCUGgZVDV0RAXd+Hg4RkREAXS5F8JWBEQA8J3/sbT0RAoBaDh2lvRECPTl35LFdEQLIOR1dpZERA3CbcK/NfREDchlEQPE9EQDs7GRwlb0RAgT6RJ0lXREAi/8wgPmREQEKY273cX0RAKuW1ErpPREBi83FtqG9EQHprYKsEV0RAPBVwz/NkREBPHEC/719EQN+Mmq+ST0RA","dtype":"float64","shape":[45]},"LATITUDE_count":{"__ndarray__":"AAAAAAAYnkAAAAAAAPCxQAAAAAAAD7BAAAAAAAD4rUAAAAAAABiPQAAAAAAA6q5AAAAAAIA4wkAAAAAAgCvAQAAAAAAAp75AAAAAAABImkAAAAAAAEyuQAAAAAAA0sJAAAAAAAAjwEAAAAAAgA/AQAAAAAAAYJRAAAAAAACDsEAAAAAAgOjDQAAAAACApsBAAAAAAAChwEAAAAAAACyUQAAAAAAAAK5AAAAAAIB5wEAAAAAAAMG4QAAAAAAAjb1AAAAAAACQkkAAAAAAAFOwQAAAAAAAosFAAAAAAAC+t0AAAAAAAP+8QAAAAAAAgJJAAAAAAAAjsUAAAAAAgDLCQAAAAAAAsLdAAAAAAACfv0AAAAAAAJySQAAAAAAA4bBAAAAAAID6wEAAAAAAAPazQAAAAAAAqL5AAAAAAAC4hUAAAAAAAFCMQAAAAAAApJtAAAAAAABYikAAAAAAAPCXQAAAAAAAQGBA","dtype":"float64","shape":[45]},"LATITUDE_max":{"__ndarray__":"h7sfXKZ0REBc5nRZTF5EQIbj+Qyob0RAjON2HstlREBi4BSx41JEQFcSNMHLdERAZGXqZF9eRECG4/kMqG9EQN5CstvCZURAYuAUseNSREBXEjTBy3REQHyFYLB2XkRAhuP5DKhvREBGiOHZ1GVEQN3sD5TbUkRAZ+H8l7V0RED/eRowSF5EQIbj+Qyob0RAc5yAywhmRED4wmSqYGxEQPCT/rnDdERApDZxcr9zREB6AfbRqW9EQDykGCDRckRAq85qgT10REDBUl3Ay3REQCfYf52bckRAegH20alvREDCaixhbXBEQHReY5eoYkRAVoUGYtl0RECXcymuKmdEQBb7y+7Jc0RAyxDHurhlREB8SPje31JEQPeqlQm/dERALT4FwHheREBdUN8yp29EQM7fhEIEZkRAuMt+3elSREBWhQZi2XREQOUn1T4daURAgWCOHr9vREAaxXJLq2VEQNhkjXqIUkRA","dtype":"float64","shape":[45]},"LATITUDE_mean":{"__ndarray__":"+dypqdtsREDd/R+Z61NEQGcseqXHYURAFPCmO2FcREBsQxXF/EtEQA3t82HMbERAg9CszhJUREDLqCn0xWFEQItSD8ZVXERAOrkCA3NLRECO6iNl22xEQJSjZ9IFVERAl3mj/s1hREAfLiT0YFxEQN2kVEMYS0RANQfEIcBsREDsfy4/GFREQKQDNzD2YURA0R+bFyFcREBDLCYbBEtEQFU05tWRbERA9k/bgf5TREActwr+B2JEQCY7WG8CXERA5GK5QuRKREDShwFVkGxEQP2D6fTyU0RAYrB6gtZhREBAy6Zk6VtEQGZrI7xjS0RAbV+Ea6JsREARlFaY3FNEQGo3lo/YYURAOvFSjc1bREDj8iSSQ0tEQEEtr+tqbERAPr/jLO5TREARCl3uuGFEQETGlvvEW0RAZaj6z4VLREAUmufItWxEQNTnz+KoU0RAjkCQBfBhREDHtCd5oltEQHZL7dhVS0RA","dtype":"float64","shape":[45]},"LATITUDE_min":{"__ndarray__":"XC3B85xmREAljXaBN0lEQHDzIQPUWURAZh6v9mZHRECLFqBtNUBEQMayT7Y3ZkRA+suTEFFJREA+vPjsyllEQMzH/y59R0RAM58Y/nhAREDGsk+2N2ZEQLOVl/xPSURAPrz47MpZRECtr782LEdEQN9Yq9EGQERAxrJPtjdmREBtoRrlT0lEQHDzIQPUWURAV6lF6XdHREB3E3zT9D9EQP3bZb/uTERAfh04Z0RJREDL1voioU1EQJ5tJL80R0RAUxillYxAREAjoS3nUlREQC7kEdxISURAet/42jNPREB6VPzfEUdEQIAqbtxiQERAf2lRn+RWREDpgvqWOUlEQHTS+8bXTkRANEqX/iVHRECjWG5pNUBEQPs726M3ZkRA6bzGLlFJREDYD7HBwllEQI/DYP4KR0RAXqCkwAJAREDuzATDuWZEQOm8xi5RSURAduWzPA9aREDGUE60q0hEQOf9f5wwQURA","dtype":"float64","shape":[45]},"LATITUDE_std":{"__ndarray__":"KJw3ptAvmj8t+VU4VDGiPyRWvcUOgqI/0d1zxBcGpT8U3Uz6AgehP7M4DCmGMpo/w1xr150Moj+1DUNhX1qiP0ZNFsvRf6Q/z93rzZILoj/XhQkpnkmaP0QFGFF3GaI/f4NWtTBooj8L632SS4akPxkILG6lpqI/lDGfaceHmj9XwMYzeD+iP5wgrHdPfqI/0MxvAuPJpD/zJR6ZR+SjP9yqdT2Pe5s/pfjMFlZyoj8RXfeVlZCjP3FbnHTAFaU/h1gmohD8pD8j9pr58gmbP8uXudbyO6I/cyQfGemeoz+mvpiqU0ylP2VVX+E7saI//QixxtB8mz+nbtzscG2iP9Jyxy4CUKM/i9CPpj/LpD+Y0f4ohsqiP9yqxAI3HZs/FDVS6cZeoj/uRPnS5w2jP3zbTURdj6Q/ApGYzrohoz9ejBhD5PKaP8nNlFepLKI/OU1TpCWooz9Jp5TwDtmkPyb6FNypJ6Q/","dtype":"float64","shape":[45]},"LONGITUDE_25%":{"__ndarray__":"CvSJPOl5UsAiEFQyxX5SwIHV7NyPf1LAMOdjiK14UsDKGB9mb4pSwFfD6jT3eVLAreC3IcZ+UsDq1VtelH9SwBTdxNqpeFLAX10VqEWKUsDKviuC/3lSwIItwIjHflLAW5E955N/UsDjmeFQiXhSwANj2LyFiVLAINJvXwd6UsCf1bjtsX5SwLepy3OOf1LAKogm9Yp4UsAInjGC/IlSwKT+eoUFelLAVisTfql+UsD2O7lLh39SwMPTK2UZeFLALspskEmKUsBLdmwE4nlSwGebG9OTflLAMlpHVZN/UsAuHAjJAnhSwOWWVkPiiFLAlMFR8up5UsA7/DVZo35SwPa0w1+Tf1LAVHHjFvN3UsDUfQBSm4lSwNUEUfcBelLA3SQGgZV+UsD286YilX9SwCf3OxQFeFLAoYSZtn+JUsC0VN6O8HlSwAm/1M+bflLAkjoBTYR/UsAeUaG6OXhSwPWEJR7QiVLA","dtype":"float64","shape":[45]},"LONGITUDE_50%":{"__ndarray__":"nr5UIr94UsB4Md6gB31SwI/eFWbGflLASzygbEp1UsAGKogmdYhSwChXZ2uzeFLALcVEOQd9UsDgDKPFvn5SwBsD/GRWdVLA3ralxOSHUsBzIgvizXhSwBwKRPQQfVLA14LeG8N+UsA3RqEbUHVSwAUj5d1Hh1LAfS6uTNN4UsAStkTT/nxSwPYcohurflLAA3HDlC11UsAFI+XdR4dSwE2h8xq7eFLAErZE0/58UsBY+J+hpH5SwPIaYIsCdVLA1bK1vkiHUsBtOZfiqnhSwFd4l4v4fFLA2PULdsN+UsDvqDEh5nRSwHdKB+v/hlLAm3KFd7l4UsC3lzRG63xSwNTUsrW+flLARvC/lex0UsAwEtpyLodSwIYDIVnAeFLAWD7L8+B8UsDlXIqryn5SwDkLe9rhdFLAECOERxuHUsA4Mo/8wXhSwJj5Dn7ifFLAuMzpsph+UsDXhopx/nRSwMaFAyFZh1LA","dtype":"float64","shape":[45]},"LONGITUDE_75%":{"__ndarray__":"yI+dXPh2UsAI7ptWZXtSwKPMBplkfVLA1pkxu11yUsAiiV5GcYZSwADvLmH+dlLAPpHMj2R7UsCYgARqVn1SwJe9tshHclLAqJWd2QmGUsAUuTvG8HZSwH96Ij5me1LA52UDn1V9UsB8kK9OX3JSwCsI1FHEhVLA/pHYpBF3UsBQ4nMnWHtSwMjK1Mk+fVLAK5hCMUNyUsAHxgszvoVSwHVoR2ACd1LANGq+Sj57UsCemPViKH1SwAB0mC8vclLA7gOQ2sSFUsAbu0T11nZSwOmC+pY5e1LAMevFUE59UsB7hQX3A3JSwKjjMQOVhVLAKsHicOZ2UsBWYTPABXtSwBwlr84xfVLAnkFD/wRyUsDI0ocuqIVSwGbCL/XzdlLACmMLQQ57UsCw/s9hPn1SwHDrbp7qcVLA+pY5XZaFUsC28/3U+HZSwBCv6xfselLAF9S3zOl8UsBnRGlv8HFSwKcd/pqshVLA","dtype":"float64","shape":[45]},"LONGITUDE_count":{"__ndarray__":"AAAAAAAYnkAAAAAAAPCxQAAAAAAAD7BAAAAAAAD4rUAAAAAAABiPQAAAAAAA6q5AAAAAAIA4wkAAAAAAgCvAQAAAAAAAp75AAAAAAABImkAAAAAAAEyuQAAAAAAA0sJAAAAAAAAjwEAAAAAAgA/AQAAAAAAAYJRAAAAAAACDsEAAAAAAgOjDQAAAAACApsBAAAAAAAChwEAAAAAAACyUQAAAAAAAAK5AAAAAAIB5wEAAAAAAAMG4QAAAAAAAjb1AAAAAAACQkkAAAAAAAFOwQAAAAAAAosFAAAAAAAC+t0AAAAAAAP+8QAAAAAAAgJJAAAAAAAAjsUAAAAAAgDLCQAAAAAAAsLdAAAAAAACfv0AAAAAAAJySQAAAAAAA4bBAAAAAAID6wEAAAAAAAPazQAAAAAAAqL5AAAAAAAC4hUAAAAAAAFCMQAAAAAAApJtAAAAAAABYikAAAAAAAPCXQAAAAAAAQGBA","dtype":"float64","shape":[45]},"LONGITUDE_max":{"__ndarray__":"cxe8Q2VyUsB4aonwCndSwNCXg0VqelLA3xgCgONsUsDj99tD54NSwJt6ONwiclLAvFHQkux2UsDQl4NFanpSwBQ0HIXabFLA8qA0L+KDUsCbejjcInJSwLxR0JLsdlLAX5EEhlF6UsCq6/WT1mxSwPKgNC/ig1LAeWxwx0ByUsCWd9UD5nZSwF+RBIZRelLAVJxZAfRsUsAJv9TPm3pSwJ1LcVXZb1LAWcAEbt1vUsDdtYR80HdSwHQGRl7WbFLA3bWEfNB3UsDlZrgBn3BSwG7dzVMdblLAlDDT9q92UsB0BkZe1mxSwNejcD0Kd1LA4Ep2bARwUsDWyoRf6nZSwOzFUE60b1LAdAZGXtZsUsDIXu/+eHxSwDSeCOI8clLAflLt0/F2UsC4WFGDaXpSwOKS407pbFLAhxbZzveDUsChUE8fgXNSwGFUUiegdVLAVisTfql6UsDikuNO6WxSwK4q+64IhFLA","dtype":"float64","shape":[45]},"LONGITUDE_mean":{"__ndarray__":"n7cYwm14UsASgg2J/HxSwM+/1/NzflLAGqJTbmx1UsDancWVk4hSwL+kDxV3eFLAGZe1yvl8UsDE1ArJc35SwJNKsFZsdVLAmXIFG1CIUsBdrn7pdnhSwBYU+Jv+fFLAw00dwnJ+UsAprXAsY3VSwNiFafv5h1LA+RBkO4h4UsDgTH3p7XxSwLRs3tFmflLAE6ZmEkx1UsDWnxdzGIhSwMtCSXV4eFLAd/nGOOl8UsB9/BoSWX5SwLBRGBMtdVLAslW2fiSIUsDJxhLQV3hSwC8GfrnlfFLAscqzd2x+UsDMUGZ3CHVSwAmMav2mh1LALPjaSGZ4UsAZD2+n0HxSwAC8yBRlflLAUntRlwV1UsAZGs4f44dSwEEzzpl0eFLAzXhOmst8UsCETeHgbn5SwL74Duj9dFLARSehk9iHUsB38o2fcnhSwN0ulrnEfFLAW54UcUR+UsD1r/w4HHVSwComo30xiFLA","dtype":"float64","shape":[45]},"LONGITUDE_min":{"__ndarray__":"tu6L8Jt7UsCnlUIgl4JSwPhI78AlgVLArwRSYld9UsDtGdNdo49SwE8aD1ufe1LApJ0/EpuCUsD4SO/AJYFSwK8EUmJXfVLAift+IC+QUsBPGg9bn3tSwKSdPxKbglLAc0wW9x+BUsD0UxwHXn1SwEyjbgwmkFLATxoPW597UsCnlUIgl4JSwPhI78AlgVLAbFRMSmZ9UsDvfQXE/49SwKKYvAFmhFLA3KLMBpmCUsB0naETHYFSwII5evzehlLADxDM0eOPUsBLPQtCeX1SwBgJbTmXglLA5BQdyeWHUsD+8PPfg31SwMOC+wEPkFLAEOm3rwN/UsDDZKpgVIlSwMB4Bg39gVLAg6Pk1TmAUsBLXp1jQJBSwBmojH+fe1LAmPp5U5GCUsAs1JrmHYFSwJcEqKllfVLAln1XBP+PUsCEDU+vlHtSwMISDyibglLA93XgnBGBUsAUChFwCH1SwKQ2cXK/j1LA","dtype":"float64","shape":[45]},"LONGITUDE_std":{"__ndarray__":"jRc4S/Idnj/MP2NN2o+iPxbZ3C4H4JY/rlvo4jH8rj9UeW+a7+ykP74KO1pI+J0/f97hDDjJoj8phbyUBw2XP3NlQw8+WK8/7KXcfCQgpj94e3NDb06eP9yFommFwKI/mmGrs/ohlz8eD1I9KvuuP0QwYGJdHqc/B+5qWBbKnT+aASYq7syiP9x9t+5Ia5c/i3Q/z90Wrz+aD76fFPynP+5DM+7yh54/J+mzKpQcoz+dS4dhIdyXP48TaWPT5q4/zrBnhnizqT/NUn7CCHueP/QT7olLwKI/EGB6290AmD9uU5ebqmKuP/i9D+FAE6c/UmdcLyzynT+2Fs/Ed1ujP7C6DbbiUpg/Re8Vyos/rj+BKABwkLmmP/p5ykQn0Z0/HUCidDofoz8QBC+4a5eXP/7y5XfD364/AT1NlRpUpz9gt1eB0UqdP7grucEPKKQ/8tyE6lFYmD+MBBYZmh+vPxdZvyiYUak/","dtype":"float64","shape":[45]},"NUMBER OF CYCLIST INJURED_25%":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF CYCLIST INJURED_50%":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF CYCLIST INJURED_75%":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF CYCLIST INJURED_count":{"__ndarray__":"AAAAAAAYnkAAAAAAAPCxQAAAAAAAD7BAAAAAAAD4rUAAAAAAABiPQAAAAAAA6q5AAAAAAIA4wkAAAAAAgCvAQAAAAAAAp75AAAAAAABImkAAAAAAAEyuQAAAAAAA0sJAAAAAAAAjwEAAAAAAgA/AQAAAAAAAYJRAAAAAAACDsEAAAAAAgOjDQAAAAACApsBAAAAAAAChwEAAAAAAACyUQAAAAAAAAK5AAAAAAIB5wEAAAAAAAMG4QAAAAAAAjb1AAAAAAACQkkAAAAAAAFOwQAAAAAAAosFAAAAAAAC+t0AAAAAAAP+8QAAAAAAAgJJAAAAAAAAjsUAAAAAAgDLCQAAAAAAAsLdAAAAAAACfv0AAAAAAAJySQAAAAAAA4bBAAAAAAID6wEAAAAAAAPazQAAAAAAAqL5AAAAAAAC4hUAAAAAAAFCMQAAAAAAApJtAAAAAAABYikAAAAAAAPCXQAAAAAAAQGBA","dtype":"float64","shape":[45]},"NUMBER OF CYCLIST INJURED_max":{"__ndarray__":"AAAAAAAA8D8AAAAAAAAAQAAAAAAAAPA/AAAAAAAAAEAAAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAQAAAAAAAAABAAAAAAAAA8D8AAAAAAAAAQAAAAAAAAABAAAAAAAAAAEAAAAAAAADwPwAAAAAAAPA/AAAAAAAACEAAAAAAAAAAQAAAAAAAAPA/AAAAAAAAAEAAAAAAAADwPwAAAAAAAPA/AAAAAAAAAEAAAAAAAADwPwAAAAAAAABAAAAAAAAA8D8AAAAAAADwPwAAAAAAAABAAAAAAAAAAEAAAAAAAAAAQAAAAAAAAPA/AAAAAAAAAEAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAEAAAAAAAADwPwAAAAAAAABAAAAAAAAA8D8AAAAAAAAAQAAAAAAAAABAAAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAQAAAAAAAAPA/","dtype":"float64","shape":[45]},"NUMBER OF CYCLIST INJURED_mean":{"__ndarray__":"tcjv/qsTkj8i5kKrwNijP+hMA4XY5Zs/QC9xqLewlj+Gc/WCYXeAPxpqODjP6Yo/fgdfiZJknz9zQl2IqhOcP09M2xISOpQ/LQwYKbHqdT/jmN4uD1+QP96j6mDwmp4/cjmrx44AnT8XlnXhig2TP7MaRRw6aX8/3ua0RyB5kD/6jfvgYm+dPzAa+KKBL5o/U2J9+2rtlD+XGAwpM7p/P1VVVVVVVY0/Hfx/Hfx/nT+2qVcGI92eP6xmPvzqYJA/aC+hvYT2gj+pw6IFTF2PP6O3Hdrtn54/FNFy8wpCoD9SVseU2sKSP8ln3WCKfIY/pvhp+JWSkD871ERrwEGbPzYQOPcWOp4/VYg3XORVjD+4AUjnVINrP7DL0lpj05A/YJz6evBynT8zMjEvKyOjPwwH0eO7cJA/w4nGQ/iShz/mVUiAeRWCP8Cen4lhrpM/2Kj8QD65mj/JLMMktxKMPyD4gR/4gY8/","dtype":"float64","shape":[45]},"NUMBER OF CYCLIST INJURED_min":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF CYCLIST INJURED_std":{"__ndarray__":"cYy1pD/cwD/3yDSuwNrIP2L9eYgR18Q/mBh+KLwRwz/T+DcGs9+2P0gESwYpKL0/bFU1ZxMRxj9nzV/rh//EP07Rn2MbKcI/KS9AdXiusj+dVWWxXVHAP41EPT2PB8Y/CVBqqSVUxT+cfsOdNkzBPw5hY9U1V7Y/UoiIzvLPwD8MTj+L4ZzFP+UEwiLeNMQ/2A5iWYBtwj//Ok1su3O2PwX346Xia74/iC2ENJ+XxT9DKwpX6OLFP0omq3KOMcA/BxT3sJWHuD9UsYJy3HC/PxF7ItVFDcY/OQ9D5tCQxj+uqvYNpEvBP2IOBUY4sLo/oeqU0wCcwD8ZMWwqSMbEP69QaERuysU/PRbuoQpxvj9lIUI3Z6KtP1zY28RugcA/THa0UcJkxT9Taz+DeovIPz7lTNWyWMA/qdz0G7NTuz+MRhPZb/a3PwVZXjk5lME/W4SGaiBrxD9GShRnLS6/P/i2XB0sob8/","dtype":"float64","shape":[45]},"NUMBER OF CYCLIST KILLED_25%":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF CYCLIST KILLED_50%":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF CYCLIST KILLED_75%":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF CYCLIST KILLED_count":{"__ndarray__":"AAAAAAAYnkAAAAAAAPCxQAAAAAAAD7BAAAAAAAD4rUAAAAAAABiPQAAAAAAA6q5AAAAAAIA4wkAAAAAAgCvAQAAAAAAAp75AAAAAAABImkAAAAAAAEyuQAAAAAAA0sJAAAAAAAAjwEAAAAAAgA/AQAAAAAAAYJRAAAAAAACDsEAAAAAAgOjDQAAAAACApsBAAAAAAAChwEAAAAAAACyUQAAAAAAAAK5AAAAAAIB5wEAAAAAAAMG4QAAAAAAAjb1AAAAAAACQkkAAAAAAAFOwQAAAAAAAosFAAAAAAAC+t0AAAAAAAP+8QAAAAAAAgJJAAAAAAAAjsUAAAAAAgDLCQAAAAAAAsLdAAAAAAACfv0AAAAAAAJySQAAAAAAA4bBAAAAAAID6wEAAAAAAAPazQAAAAAAAqL5AAAAAAAC4hUAAAAAAAFCMQAAAAAAApJtAAAAAAABYikAAAAAAAPCXQAAAAAAAQGBA","dtype":"float64","shape":[45]},"NUMBER OF CYCLIST KILLED_max":{"__ndarray__":"AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF CYCLIST KILLED_mean":{"__ndarray__":"qoC0s3QDQT9CivtaJossPwmhugUc4i8/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADlOLAL6qkfP37BI4gVtCA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADPUwTrHeEfPwAAAAAAAAAAKUkYpR4CLz8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB54DyHwmFJPwAAAAAAAAAAHwAUHwAUHz8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv/9cUHosQD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvOj9yuedNj8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF CYCLIST KILLED_min":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF CYCLIST KILLED_std":{"__ndarray__":"aQVp1UNVlz+Vb8x+7ziOP6hcyYMK8Y8/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAsTKc6GoKGP2QBIneWHoc/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADaBvSJsJWGPwAAAAAAAAAABIvLkA+Ajz8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+rz593X+cPwAAAAAAAAAA4QPREJJMhj8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARo2sowa/lj8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/7SxhUoFkz8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF MOTORIST INJURED_25%":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF MOTORIST INJURED_50%":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF MOTORIST INJURED_75%":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF MOTORIST INJURED_count":{"__ndarray__":"AAAAAAAYnkAAAAAAAPCxQAAAAAAAD7BAAAAAAAD4rUAAAAAAABiPQAAAAAAA6q5AAAAAAIA4wkAAAAAAgCvAQAAAAAAAp75AAAAAAABImkAAAAAAAEyuQAAAAAAA0sJAAAAAAAAjwEAAAAAAgA/AQAAAAAAAYJRAAAAAAACDsEAAAAAAgOjDQAAAAACApsBAAAAAAAChwEAAAAAAACyUQAAAAAAAAK5AAAAAAIB5wEAAAAAAAMG4QAAAAAAAjb1AAAAAAACQkkAAAAAAAFOwQAAAAAAAosFAAAAAAAC+t0AAAAAAAP+8QAAAAAAAgJJAAAAAAAAjsUAAAAAAgDLCQAAAAAAAsLdAAAAAAACfv0AAAAAAAJySQAAAAAAA4bBAAAAAAID6wEAAAAAAAPazQAAAAAAAqL5AAAAAAAC4hUAAAAAAAFCMQAAAAAAApJtAAAAAAABYikAAAAAAAPCXQAAAAAAAQGBA","dtype":"float64","shape":[45]},"NUMBER OF MOTORIST INJURED_max":{"__ndarray__":"AAAAAAAAFEAAAAAAAAAmQAAAAAAAABxAAAAAAAAAJEAAAAAAAAAYQAAAAAAAACJAAAAAAAAAKkAAAAAAAAAiQAAAAAAAACZAAAAAAAAAFEAAAAAAAAAcQAAAAAAAAC5AAAAAAAAAKEAAAAAAAAAoQAAAAAAAABRAAAAAAAAAHEAAAAAAAAAgQAAAAAAAABxAAAAAAAAAIEAAAAAAAAAcQAAAAAAAACBAAAAAAAAAIkAAAAAAAAAkQAAAAAAAACJAAAAAAAAAEEAAAAAAAAAzQAAAAAAAACpAAAAAAAAAIkAAAAAAAAAgQAAAAAAAABhAAAAAAAAAJkAAAAAAAAAkQAAAAAAAABxAAAAAAAAAHEAAAAAAAAAYQAAAAAAAAChAAAAAAAAAJkAAAAAAAAAYQAAAAAAAABxAAAAAAAAAHEAAAAAAAAAQQAAAAAAAABRAAAAAAAAAEEAAAAAAAAAUQAAAAAAAAAhA","dtype":"float64","shape":[45]},"NUMBER OF MOTORIST INJURED_mean":{"__ndarray__":"jCbltnDIyj+Bsac8xFzIP3CIfwCICLk/MLTjFdJTyj/3wEbviszHP3eQS7CPp8o/UEzTrMY4yz8PO4Zt5ry1P8TCosW6pcg/nRXxqC0ayj8FNHJFhj3KP1k1ejJdm8o/IDMNWcHwsT/qFuDe19bFP+Hb/BVmNco/32GQkA/Vxj+nNoDfreXHP9wSvC3B27I/WEgtrz+9xT82cxH4d8nIP4mIiIiICMc/lwkslwksxz+zqLCr5jK0P15bRIzLxcc/YRAlzcLuwz8nEXhI+97IPy7oMcgrHsY/oZcIplPBtz9fzmD3Ba3JP/JZN5gin80/8mVveRUwyD/B+lIkHuvHP17PVxq7UbU/FVbiFTTPyD9u6W6kReTGPx/wi4ZBbss/paHzk+CeyT+amZmZmZm5P+KpIQMknso/TyYoBZ5F1T/cMm4Zt4zLP1QOlepzh8g/Glv8oywnvT9PdjFK72bKP/ADP/ADP9A/","dtype":"float64","shape":[45]},"NUMBER OF MOTORIST INJURED_min":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF MOTORIST INJURED_std":{"__ndarray__":"aRNW/eAx5D9ZbqQi7EzkP8ze0PJ1Ldw/K5dxQsr05D8PPFRRPgHjP1mji2IwSeU/w/EFhl5E5T+XHO3lXkHbPxq0JnxR+uM/qGGIyGC34j9wNtUvnhDlPxDJ4pTZheU/9P5sohni1z84ikKMqYPjPwPlMt8kBeM/ShmQh7Te4j8SUTOxE7njP5Hv/C8CfNc/61n60g264T+eJCut4CbkP/bj+jPiyuM/7Jur941Y4z+pfOPM7PHYP8qOWYOyn+I/ylcDGUj43z9bi46Z9fDlPyfD0HhP3uI/4fkfCeT52j887YyRaubjP7z7FpqbT+Q/vnY74ONE4z+jfJxKNHPjP0wC6CcgJdg/I5VOZYoQ4z9RrEemjw7iP8OouaChGOU/GH8GcHB95D8tVtzeKCraPx/uM0KhgOM/Ll3rP4zm6D929bHG3P/iP5+glVpopOI/qRFXNqGQ2j86w6UBnTriP1J0WNwW0uI/","dtype":"float64","shape":[45]},"NUMBER OF MOTORIST KILLED_25%":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF MOTORIST KILLED_50%":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF MOTORIST KILLED_75%":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF MOTORIST KILLED_count":{"__ndarray__":"AAAAAAAYnkAAAAAAAPCxQAAAAAAAD7BAAAAAAAD4rUAAAAAAABiPQAAAAAAA6q5AAAAAAIA4wkAAAAAAgCvAQAAAAAAAp75AAAAAAABImkAAAAAAAEyuQAAAAAAA0sJAAAAAAAAjwEAAAAAAgA/AQAAAAAAAYJRAAAAAAACDsEAAAAAAgOjDQAAAAACApsBAAAAAAAChwEAAAAAAACyUQAAAAAAAAK5AAAAAAIB5wEAAAAAAAMG4QAAAAAAAjb1AAAAAAACQkkAAAAAAAFOwQAAAAAAAosFAAAAAAAC+t0AAAAAAAP+8QAAAAAAAgJJAAAAAAAAjsUAAAAAAgDLCQAAAAAAAsLdAAAAAAACfv0AAAAAAAJySQAAAAAAA4bBAAAAAAID6wEAAAAAAAPazQAAAAAAAqL5AAAAAAAC4hUAAAAAAAFCMQAAAAAAApJtAAAAAAABYikAAAAAAAPCXQAAAAAAAQGBA","dtype":"float64","shape":[45]},"NUMBER OF MOTORIST KILLED_max":{"__ndarray__":"AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAAAQQAAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/","dtype":"float64","shape":[45]},"NUMBER OF MOTORIST KILLED_mean":{"__ndarray__":"qoC0s3QDQT9CivtaJos8PwmhugUc4i8/BpayXZ8VMT9ILXBEErNoP61oNvvhjzA/Nr9IdS4TRT/lOLAL6qk/P37BI4gVtFA/AAAAAAAAAAAAAAAAAAAAAJg+u26+AEE/AAAAAAAAAABVyaMt+uRLPyni0En7IFk/AAAAAAAAAADSwkOW0bcZPwAAAAAAAAAADB39L6IXRz8AAAAAAAAAAAAAAAAAAAAAFwBPFwBPNz8AAAAAAAAAAH9qycB7UzE/I/8YKx6VWz+pw6IFTF0vP+JWYg1qCS0//1TRFaOQJT/Pahnhf3w6P9C6wRT5rFs/AAAAAAAAAADiFGgk1yIsP4DZ2nQJNkA/VSn7xhQxQD+4AUjnVINbPwAAAAAAAAAASJfT0+vYQj8AAAAAAAAAADkLAQyKs0A/w4nGQ/iSVz8AAAAAAAAAAAAAAAAAAAAAEpL9F3NvUz8AAAAAAAAAACD4gR/4gX8/","dtype":"float64","shape":[45]},"NUMBER OF MOTORIST KILLED_min":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF MOTORIST KILLED_std":{"__ndarray__":"xgVp1UNVlz8rTKRkPl6VP6BcyYMK8Y8/7QUGH4mIkD//ARtY4RWsP9YLwghSR5A/zYgXM1P2mT8Ua5LpDoGWP+ZJdVE7BKQ/AAAAAAAAAAAAAAAAAAAAAIZpJVUqUpc/AAAAAAAAAAAIitJd2JuoP/NrM580C6Q/AAAAAAAAAAB+6srIAUmEPwAAAAAAAAAAU9nPDDM4oz8AAAAAAAAAAAAAAAAAAAAA5H93vhLumD8AAAAAAAAAAKlVFtkUppA/Rv30967/pD+kC1iQPa6PP0onyf0Pe44/3ljKOPVEij/UtwTZSpWUP2/q06m/CKU/AAAAAAAAAABHu8E5GgGOP0BCY969xZY/y4k4GSTClj8x1GIe6vikPwAAAAAAAAAAxTB3cLgNnT8AAAAAAAAAAOaNRkoUHZc/TXlKJ9hroz8AAAAAAAAAAAAAAAAAAAAArkDFBlyioT8AAAAAAAAAAAM69i7jc7Y/","dtype":"float64","shape":[45]},"NUMBER OF PEDESTRIANS INJURED_25%":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF PEDESTRIANS INJURED_50%":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF PEDESTRIANS INJURED_75%":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF PEDESTRIANS INJURED_count":{"__ndarray__":"AAAAAAAYnkAAAAAAAPCxQAAAAAAAD7BAAAAAAAD4rUAAAAAAABiPQAAAAAAA6q5AAAAAAIA4wkAAAAAAgCvAQAAAAAAAp75AAAAAAABImkAAAAAAAEyuQAAAAAAA0sJAAAAAAAAjwEAAAAAAgA/AQAAAAAAAYJRAAAAAAACDsEAAAAAAgOjDQAAAAACApsBAAAAAAAChwEAAAAAAACyUQAAAAAAAAK5AAAAAAIB5wEAAAAAAAMG4QAAAAAAAjb1AAAAAAACQkkAAAAAAAFOwQAAAAAAAosFAAAAAAAC+t0AAAAAAAP+8QAAAAAAAgJJAAAAAAAAjsUAAAAAAgDLCQAAAAAAAsLdAAAAAAACfv0AAAAAAAJySQAAAAAAA4bBAAAAAAID6wEAAAAAAAPazQAAAAAAAqL5AAAAAAAC4hUAAAAAAAFCMQAAAAAAApJtAAAAAAABYikAAAAAAAPCXQAAAAAAAQGBA","dtype":"float64","shape":[45]},"NUMBER OF PEDESTRIANS INJURED_max":{"__ndarray__":"AAAAAAAACEAAAAAAAAAAQAAAAAAAAAhAAAAAAAAAAEAAAAAAAAAAQAAAAAAAAAhAAAAAAAAAFEAAAAAAAAAIQAAAAAAAAAhAAAAAAAAAAEAAAAAAAAAUQAAAAAAAABBAAAAAAAAAFEAAAAAAAAAQQAAAAAAAAABAAAAAAAAAAEAAAAAAAAAIQAAAAAAAAAhAAAAAAAAACEAAAAAAAAAAQAAAAAAAABRAAAAAAAAACEAAAAAAAAAIQAAAAAAAAAhAAAAAAAAA8D8AAAAAAAAIQAAAAAAAAAhAAAAAAAAAO0AAAAAAAAAAQAAAAAAAAABAAAAAAAAACEAAAAAAAAAAQAAAAAAAAAhAAAAAAAAACEAAAAAAAADwPwAAAAAAAAhAAAAAAAAAEEAAAAAAAAAAQAAAAAAAAABAAAAAAAAA8D8AAAAAAAAAQAAAAAAAAAhAAAAAAAAA8D8AAAAAAAAAQAAAAAAAAABA","dtype":"float64","shape":[45]},"NUMBER OF PEDESTRIANS INJURED_mean":{"__ndarray__":"2kQ/hm3MtT8i5kKrwNizPwk79HKWcLA/H3TzkF/mrz90Kikg4SenP1hZzy8JarU/Ef9By6F4tD+Pv3vSP5CxP7XOwAZnRq4/vyVk//G9oD8B8i1MpfSxP6BHrtihBbM/gsQ/STZcsD+yswyYlEWrP5+pXHe82KI/KZ+Uzg8prj+ZgrDMCrKvPwwcwsAhDKw/aPo8yr0sqD/VzRbHvNihPyIiIiIiIrA/HhCfHRCfrT8S9xzz/pmsP9Sd6D7xg6k/AefU4Wrknz978b6BHvqvPyCkCbtfdK4/hUcxKcnUrj8R+TY6mD6nP+sGU+SzbqA/NmkHC2ELrz/c9Rw6eXStP2e4HTzF1K8/6dCOJARjqz/GQYKOb1+cP4dSb8m48bA/A9qhaENzrj9W3/EWYfWtP1CchQAGxak/HskSm32trz9Tln6glKWvP8f58klZf7A/h+md6MazsD91L8cqQGCwP5IbuZEbubE/","dtype":"float64","shape":[45]},"NUMBER OF PEDESTRIANS INJURED_min":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF PEDESTRIANS INJURED_std":{"__ndarray__":"9pB4tqno0j8AEhd8cpTRPzFZ15OjQNA/MU5cuBygzz9CEqOmrNLLP/0B9VRYvtI/6PV+TBOh0j+8nJN23RnRP9cL4G2hrc8/dIgyRAUyxz+ZQAWRtOPRP+lvjwep49E//rsxmBp10D86vLKerH7OP+xPhj1/oMg/30DyMbNmzz8Sy5KUAwPQP2GIUs0JGs4/Gs9sEh4gzD9uCUOtaAXIPwGRumeJndA/GjgUFqDGzz/4aTufe2/OP5M8g3SA/8w/RzvGln0+xj/GeubLylnQP0ObRaTdGNA/ZbXW+Qju2j9I692yulXMP8tlBOLaLMc/mrQLkLUq0D8zOxid23LOP7by7/EFOdA/Kngahfgszj+3hJ4jnQTFP3kPYLxB5dA/IUVDYeC7zz8XE03fShjPP00FG7iT8Mw/5NSGqSjczj8zJDUIG2zPPwpyDO4tIdE/DC5u/AGhzz/qQjzlrqjQP9yq35jbJtI/","dtype":"float64","shape":[45]},"NUMBER OF PEDESTRIANS KILLED_25%":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF PEDESTRIANS KILLED_50%":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF PEDESTRIANS KILLED_75%":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF PEDESTRIANS KILLED_count":{"__ndarray__":"AAAAAAAYnkAAAAAAAPCxQAAAAAAAD7BAAAAAAAD4rUAAAAAAABiPQAAAAAAA6q5AAAAAAIA4wkAAAAAAgCvAQAAAAAAAp75AAAAAAABImkAAAAAAAEyuQAAAAAAA0sJAAAAAAAAjwEAAAAAAgA/AQAAAAAAAYJRAAAAAAACDsEAAAAAAgOjDQAAAAACApsBAAAAAAAChwEAAAAAAACyUQAAAAAAAAK5AAAAAAIB5wEAAAAAAAMG4QAAAAAAAjb1AAAAAAACQkkAAAAAAAFOwQAAAAAAAosFAAAAAAAC+t0AAAAAAAP+8QAAAAAAAgJJAAAAAAAAjsUAAAAAAgDLCQAAAAAAAsLdAAAAAAACfv0AAAAAAAJySQAAAAAAA4bBAAAAAAID6wEAAAAAAAPazQAAAAAAAqL5AAAAAAAC4hUAAAAAAAFCMQAAAAAAApJtAAAAAAABYikAAAAAAAPCXQAAAAAAAQGBA","dtype":"float64","shape":[45]},"NUMBER OF PEDESTRIANS KILLED_max":{"__ndarray__":"AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF PEDESTRIANS KILLED_mean":{"__ndarray__":"qoC0s3QDQT+ypzzEXGhFP8f4SwSV6Vc/BpayXZ8VQT+Gc/WCYXdQP9kCBHras1Q/AkpnDPyPQT/lOLAL6qlPP52SPq4lO00/AAAAAAAAAAAAAAAAAAAAAJIEjSmRGlY/3YTg05e6Pz/PUwTrHeEvPwAAAAAAAAAAKUkYpR4CPz93Sntj14BGPxAXAHEBEDc/DB39L6IXNz8AAAAAAAAAAJqZmZmZmUk/HwAUHwAULz/Whc+vAK9EP39qycB7U0E/I/8YKx6VSz8AAAAAAAAAAOJWYg1qCT0/XyoXs47eUj+KnLtAVahBP9C6wRT5rEs/u4A23mCsUj/iFGgk1yJMPwAAAAAAAAAAVYg3XORVTD8AAAAAAAAAAMbXhpxuVT4/vOj9yuedRj9nmgHQbKZJPzkLAQyKs0A/AAAAAAAAAAAAAAAAAAAAAPEceHIBhkI/EpL9F3NvUz8pPt3LsQpgPwAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF PEDESTRIANS KILLED_min":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF PEDESTRIANS KILLED_std":{"__ndarray__":"WwVp1UNVlz8uLgFQ7CqaP01djgdZjKM/xikXyO1glz/tntcBQzugP/Pt7ovZMKI/0l0z8I+zlz9c+PK2ZdGfP387D7aPkp4/AAAAAAAAAAAAAAAAAAAAACrKuDtNy6I/xcfQ5fqGlj+q1hvuC/CPPwAAAAAAAAAAr1oDNnpFlj9bvwocrtOaPwgnJFoGNZM/O9rPDDM4kz8AAAAAAAAAAGhh5Ro9nZw/l03dx6iIjz/jbFFmibiZP2Yn7EOyipc/UoSHn5G1nT8AAAAAAAAAAAnIRq/8jJU/AgPQ8vFdoT8Y0wBzC8SXP3RVpL5nwp0/Gw0rsPVGoT/36arVoP6dPwAAAAAAAAAA26MXxNQZnj8AAAAAAAAAAK0xb6MiB5Y/+XxgXQflmj9l8n/oKKScPwqORkoUHZc/AAAAAAAAAAAAAAAAAAAAAEwUQmayWJg/o0DFBlyioT/RzPnhYqSmPwAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF PERSONS INJURED_25%":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF PERSONS INJURED_50%":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF PERSONS INJURED_75%":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/","dtype":"float64","shape":[45]},"NUMBER OF PERSONS INJURED_count":{"__ndarray__":"AAAAAAAYnkAAAAAAAPCxQAAAAAAAD7BAAAAAAAD4rUAAAAAAABiPQAAAAAAA6q5AAAAAAIA4wkAAAAAAgCvAQAAAAAAAp75AAAAAAABImkAAAAAAAEyuQAAAAAAA0sJAAAAAAAAjwEAAAAAAgA/AQAAAAAAAYJRAAAAAAACDsEAAAAAAgOjDQAAAAACApsBAAAAAAAChwEAAAAAAACyUQAAAAAAAAK5AAAAAAIB5wEAAAAAAAMG4QAAAAAAAjb1AAAAAAACQkkAAAAAAAFOwQAAAAAAAosFAAAAAAAC+t0AAAAAAAP+8QAAAAAAAgJJAAAAAAAAjsUAAAAAAgDLCQAAAAAAAsLdAAAAAAACfv0AAAAAAAJySQAAAAAAA4bBAAAAAAID6wEAAAAAAAPazQAAAAAAAqL5AAAAAAAC4hUAAAAAAAFCMQAAAAAAApJtAAAAAAABYikAAAAAAAPCXQAAAAAAAQGBA","dtype":"float64","shape":[45]},"NUMBER OF PERSONS INJURED_max":{"__ndarray__":"AAAAAAAAFEAAAAAAAAAmQAAAAAAAACBAAAAAAAAAJEAAAAAAAAAYQAAAAAAAACJAAAAAAAAAKkAAAAAAAAAiQAAAAAAAACZAAAAAAAAAFEAAAAAAAAAcQAAAAAAAAC5AAAAAAAAAKEAAAAAAAAAoQAAAAAAAABRAAAAAAAAAHEAAAAAAAAAgQAAAAAAAABxAAAAAAAAAIEAAAAAAAAAcQAAAAAAAACBAAAAAAAAAIkAAAAAAAAAkQAAAAAAAACJAAAAAAAAAEEAAAAAAAAAzQAAAAAAAACpAAAAAAAAAO0AAAAAAAAAgQAAAAAAAABhAAAAAAAAAJkAAAAAAAAAkQAAAAAAAABxAAAAAAAAAHEAAAAAAAAAYQAAAAAAAAChAAAAAAAAAJkAAAAAAAAAYQAAAAAAAABxAAAAAAAAAHEAAAAAAAAAQQAAAAAAAABRAAAAAAAAAEEAAAAAAAAAUQAAAAAAAAAhA","dtype":"float64","shape":[45]},"NUMBER OF PERSONS INJURED_mean":{"__ndarray__":"CGHxfI740z/wrSMozabTP1lLWkpKOcg/kFuXd8CR0j/MYoBP+Z3OP+Jh252YhdM/ZBbQ8dSw1D+epQxxCCnHP/0v12RLX9E/bt8Ssv/4zj8RgLJo3aHSP9JWdxXG+NM//+Ibqo3GxD+Z9hFh7gnPPx4vtgTf5s8/QhOWxjs30D/CSH/0qcHRP7eTbTvZtsM/PDMsgRxmzj9whx/DeD3OP5qZmZmZmdA/0dcj0dcj0T/Pt7py6AbFP6m6RJUZPNA/N8A5dbgayT8vlJ+B1GHRPxUEHLmgx9A/od1nsfqgxz8r0+u2uOzQPzeYIp91g9E/qj+fPaAC0T9nEM9Qx2LRPwM0KVm0T8Y/BeLLj6O00D+uUdzpQN7KP2z5TivFANM/2bW9vgd10j8vkVXe7xLJP+yY3n++jtE/wbOoeuX32T/oLsnsuUvSP4g/YWB2ntE/bLdsjqFEyj9roPBoHSzSP5ZaqZVaqdU/","dtype":"float64","shape":[45]},"NUMBER OF PERSONS INJURED_min":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"NUMBER OF PERSONS INJURED_std":{"__ndarray__":"iXfHxq6t5T/yAHuB0P7lPwcgrGjbteA/wiVv6esX5j/OnjbxyurjP2snlmWcquY/yoKWsUjb5j8P/VEf2WzgPx+D3KSkROU/YyshFxth4z+BZ4pnVHDmP1cknr7KB+c/jraJrlpQ3j9qrdMrgtbkP5Qv2O4K++M/AieUacY15D8W0VoByR/lP+UaiT1I39w/1VZ8TOP+4j8ukvLKKdbkP0D8UO8HTuU/y9hV18bO5D8q+CMfIWLeP757eGQQ2+M/+aXd6M/a4D9DNbGjuhvnP3cb4g94heQ//WVy0+qG4z/HD6uBKffkP6a0k9+E3+Q/m6zn65OR5D+xvavjpcXkP+/s7XOZAd4/OO7M/Y4+5D9H4/6hhJbiP52RtpXMauY/GxAhwn7W5T9fkX4ZI5HfP/URth13huQ/k5hzPPhZ6T+ovOVH4BjkPyFJKPBQWeQ/1ShJJfP+3j8uqNA6fp7jP668X/FMJOQ/","dtype":"float64","shape":[45]},"Time_25%":{"__ndarray__":"AAAAAAAAIkAAAAAAAAAkQAAAAAAAACRAAAAAAAAAJEAAAAAAAAAmQAAAAAAAACRAAAAAAAAAJEAAAAAAAAAkQAAAAAAAACRAAAAAAAAAJEAAAAAAAAAiQAAAAAAAACRAAAAAAAAAJEAAAAAAAAAkQAAAAAAAACRAAAAAAAAAJEAAAAAAAAAkQAAAAAAAACRAAAAAAAAAJEAAAAAAAAAkQAAAAAAAACJAAAAAAAAAIkAAAAAAAAAiQAAAAAAAACJAAAAAAAAAJEAAAAAAAAAiQAAAAAAAACRAAAAAAAAAIkAAAAAAAAAiQAAAAAAAACRAAAAAAAAAIkAAAAAAAAAkQAAAAAAAACJAAAAAAAAAIkAAAAAAAAAkQAAAAAAAACJAAAAAAAAAIkAAAAAAAAAiQAAAAAAAACJAAAAAAAAAJEAAAAAAAAAiQAAAAAAAACJAAAAAAAAAIkAAAAAAAAAiQAAAAAAAACRA","dtype":"float64","shape":[45]},"Time_50%":{"__ndarray__":"AAAAAAAALEAAAAAAAAAsQAAAAAAAACxAAAAAAAAALEAAAAAAAAAsQAAAAAAAACxAAAAAAAAALEAAAAAAAAAsQAAAAAAAACxAAAAAAAAALEAAAAAAAAAsQAAAAAAAACxAAAAAAAAALEAAAAAAAAAsQAAAAAAAACxAAAAAAAAALEAAAAAAAAAsQAAAAAAAACxAAAAAAAAALEAAAAAAAAAsQAAAAAAAACxAAAAAAAAALEAAAAAAAAAsQAAAAAAAACxAAAAAAAAALEAAAAAAAAAsQAAAAAAAACxAAAAAAAAALEAAAAAAAAAsQAAAAAAAACxAAAAAAAAALEAAAAAAAAAsQAAAAAAAACxAAAAAAAAALEAAAAAAAAAsQAAAAAAAACxAAAAAAAAALEAAAAAAAAAsQAAAAAAAACxAAAAAAAAALEAAAAAAAAAqQAAAAAAAACxAAAAAAAAAKkAAAAAAAAAsQAAAAAAAAC5A","dtype":"float64","shape":[45]},"Time_75%":{"__ndarray__":"AAAAAAAAMkAAAAAAAAAyQAAAAAAAADJAAAAAAAAAMUAAAAAAAAAyQAAAAAAAADJAAAAAAAAAMkAAAAAAAAAyQAAAAAAAADJAAAAAAAAAMUAAAAAAAAAyQAAAAAAAADJAAAAAAAAAMkAAAAAAAAAyQAAAAAAAADFAAAAAAAAAMkAAAAAAAAAxQAAAAAAAADJAAAAAAAAAMUAAAAAAAAAxQAAAAAAAADJAAAAAAAAAMUAAAAAAAAAyQAAAAAAAADFAAAAAAAAAMUAAAAAAAAAxQAAAAAAAADFAAAAAAAAAMkAAAAAAAAAxQAAAAAAAADFAAAAAAAAAMUAAAAAAAAAxQAAAAAAAADJAAAAAAAAAMUAAAAAAAAAyQAAAAAAAADFAAAAAAAAAMUAAAAAAAAAxQAAAAAAAADFAAAAAAAAAMUAAAAAAAAAxQAAAAAAAADFAAAAAAAAAMUAAAAAAAAAxQAAAAAAAADJA","dtype":"float64","shape":[45]},"Time_count":{"__ndarray__":"AAAAAAAYnkAAAAAAAPCxQAAAAAAAD7BAAAAAAAD4rUAAAAAAABiPQAAAAAAA6q5AAAAAAIA4wkAAAAAAgCvAQAAAAAAAp75AAAAAAABImkAAAAAAAEyuQAAAAAAA0sJAAAAAAAAjwEAAAAAAgA/AQAAAAAAAYJRAAAAAAACDsEAAAAAAgOjDQAAAAACApsBAAAAAAAChwEAAAAAAACyUQAAAAAAAAK5AAAAAAIB5wEAAAAAAAMG4QAAAAAAAjb1AAAAAAACQkkAAAAAAAFOwQAAAAAAAosFAAAAAAAC+t0AAAAAAAP+8QAAAAAAAgJJAAAAAAAAjsUAAAAAAgDLCQAAAAAAAsLdAAAAAAACfv0AAAAAAAJySQAAAAAAA4bBAAAAAAID6wEAAAAAAAPazQAAAAAAAqL5AAAAAAAC4hUAAAAAAAFCMQAAAAAAApJtAAAAAAABYikAAAAAAAPCXQAAAAAAAQGBA","dtype":"float64","shape":[45]},"Time_max":{"__ndarray__":"AAAAAAAAN0AAAAAAAAA3QAAAAAAAADdAAAAAAAAAN0AAAAAAAAA3QAAAAAAAADdAAAAAAAAAN0AAAAAAAAA3QAAAAAAAADdAAAAAAAAAN0AAAAAAAAA3QAAAAAAAADdAAAAAAAAAN0AAAAAAAAA3QAAAAAAAADdAAAAAAAAAN0AAAAAAAAA3QAAAAAAAADdAAAAAAAAAN0AAAAAAAAA3QAAAAAAAADdAAAAAAAAAN0AAAAAAAAA3QAAAAAAAADdAAAAAAAAAN0AAAAAAAAA3QAAAAAAAADdAAAAAAAAAN0AAAAAAAAA3QAAAAAAAADdAAAAAAAAAN0AAAAAAAAA3QAAAAAAAADdAAAAAAAAAN0AAAAAAAAA3QAAAAAAAADdAAAAAAAAAN0AAAAAAAAA3QAAAAAAAADdAAAAAAAAAN0AAAAAAAAA3QAAAAAAAADdAAAAAAAAAN0AAAAAAAAA3QAAAAAAAADdA","dtype":"float64","shape":[45]},"Time_mean":{"__ndarray__":"sXg+R/zZKkCJ2pWoXQkrQHEQiBk69SpAmgGGdrzCKkAyKvR5Ir4rQEsBvE5j3SpAWF6yXK4OK0CUMOvGubgqQDJ2f/tlJitAAiMlVr0CK0BlBxjO3dAqQHvOAZd7LStAuyal/aGuKkDYznSogyUrQAbUM5XrTitAb0anEkQ0K0A/ziyIMuQqQBEnF3FyEStAn09Uxl7YKkA6ztCJe1MrQGZmZmZmrCpAStBLStBLKkC4tpUGnREqQJMUIHxcXypA4YMPPvjgKkC6Fp9ZcycqQD2Zac1dtSpA/3NB6bFAKkDHi9UwiG0qQGGKfNYN9ipALZLdWdQjKkAjPaNvDcsqQLA0dqPKXCpAqXlnyGGUKkC5vB4npo0rQF23Cdw+OypAP9kTJkdQKkBqoQ/spBYqQNDXMb3/PCpAjYfwJS+AKkBoqN7+GaopQEYKUVANBCpAsYscpneiKUDuZBej9O4pQORGbuRGbitA","dtype":"float64","shape":[45]},"Time_min":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"Time_std":{"__ndarray__":"qLNn2vZ7FkD3grjYrWkWQPEKgvVkJBdA9SSOKgGYFUCvYdpkmWoUQIVXyelg2BVATUalZMemFUBGjc+v8ZQWQBw4S/ILShVAoVEw+2ffFEAkZxWtFO0VQDWngoy2axVAzR4PmZB4FkD5nBGdUoMVQMDVBmA14hNAFRx6NGrvFUBIeu/Z8ckVQFvoG4F1xhZA0RWQ68Y2FUDkLI/Xe10UQNMinAyhnhZAzAxyjtksFkCfsKeVd8oXQBWzXumJcBZATkIXJ8pIFUCn0tLtqaYWQMYyMsnd+hVAOkoyX5zUF0DQhBkMG0EWQAlCZQ6NMxRAGuQ0zr5TFkAs3ypkgyUWQD83hHvSoxdABQbyqcFaFkDkJGzaPCsUQPZlsNwXfBZAewLPE1diFkBCHtLCgJYXQJaXdJXqiRZAcRzLkVwyFUBoIE7SV7IVQBEZShTETBZA01+Absj5FkAPpAr7kFMWQC9P6p+7bxdA","dtype":"float64","shape":[45]},"killed_25%":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"killed_50%":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"killed_75%":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"killed_count":{"__ndarray__":"AAAAAAAYnkAAAAAAAPCxQAAAAAAAD7BAAAAAAAD4rUAAAAAAABiPQAAAAAAA6q5AAAAAAIA4wkAAAAAAgCvAQAAAAAAAp75AAAAAAABImkAAAAAAAEyuQAAAAAAA0sJAAAAAAAAjwEAAAAAAgA/AQAAAAAAAYJRAAAAAAACDsEAAAAAAgOjDQAAAAACApsBAAAAAAAChwEAAAAAAACyUQAAAAAAAAK5AAAAAAIB5wEAAAAAAAMG4QAAAAAAAjb1AAAAAAACQkkAAAAAAAFOwQAAAAAAAosFAAAAAAAC+t0AAAAAAAP+8QAAAAAAAgJJAAAAAAAAjsUAAAAAAgDLCQAAAAAAAsLdAAAAAAACfv0AAAAAAAJySQAAAAAAA4bBAAAAAAID6wEAAAAAAAPazQAAAAAAAqL5AAAAAAAC4hUAAAAAAAFCMQAAAAAAApJtAAAAAAABYikAAAAAAAPCXQAAAAAAAQGBA","dtype":"float64","shape":[45]},"killed_max":{"__ndarray__":"AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAAAQQAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAACEAAAAAAAADwPwAAAAAAAPA/AAAAAAAAAEAAAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAAAEAAAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/","dtype":"float64","shape":[45]},"killed_mean":{"__ndarray__":"/8CODS+FWT+ypzzEXGhVPwmhugUc4l8/CeGLDG+gST+Gc/WCYXdwPwSd0fjS11g/nATYQJVRUz86Ln8pDrpZP37BI4gVtGA/AAAAAAAAAAAAAAAAAAAAAN6j6mDwml4/3YTg05e6Pz9htOKysuxTPyni0En7IFk/3zbS+5ZBRz/SwkOW0bdJPxAXAHEBEDc/ydX9o7lRUT954DyHwmFJP5qZmZmZmUk/G4AxG4AxSz/Whc+vAK9EP74fLqE5/Uk/W79SoNavZD+pw6IFTF0vPyrBCYoPx0U/39T/PeCmXT/xUUgxleZOPxxMkc+6wWQ/4ADbPXRoVj8NDcF2xpVRP4DZ2nQJNkA/1ViZkXxDVj+4AUjnVINbP8bXhpxuVT4/MToowuNiWj9nmgHQbKZJPzkLAQyKs1A/w4nGQ/iSVz8AAAAAAAAAAPEceHIBhkI/EpL9F3NvYz8pPt3LsQpgPyD4gR/4gX8/","dtype":"float64","shape":[45]},"killed_min":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","dtype":"float64","shape":[45]},"killed_std":{"__ndarray__":"5vWCrU8ypD+MsnIsTn+iP7/ewH4dkaY/FjmnDg6hnD8WbMmK/DSwP7+AIYut7KM/1K6tZWCSoT870i99H0akPw7bd1Y01Kk/AAAAAAAAAAAAAAAAAAAAAK9oU+z4G6Y/xcfQ5fqGlj/AQ2qMK3qqP/NrM580C6Q/Zd87XQdGmz+VX52bf62cPwgnJFoGNZM/oBZmrSx8pT8+rz593X+cP2hh5Ro9nZw/3GeSuEy4oD/jbFFmibiZP8H4GG0w1Jw/dHHOhBC1qT+kC1iQPa6PP0sQxhwnZJo/JKsZaHPDpT+nS16mzm6fP+g9bSsnwKk/E07Rho7soj85eivGBcSgP0BCY969xZY/813Q1rDcoj8x1GIe6vikP60xb6MiB5Y/W71obpTzpT9l8n/oKKScP/luHp/wVqA/TXlKJ9hroz8AAAAAAAAAAEwUQmayWJg/+kFR5HnsqD/RzPnhYqSmPwM69i7jc7Y/","dtype":"float64","shape":[45]}},"selected":{"id":"16180"},"selection_policy":{"id":"16179"}},"id":"15826","type":"ColumnDataSource"},{"attributes":{},"id":"16356","type":"WheelZoomTool"},{"attributes":{},"id":"16358","type":"SaveTool"},{"attributes":{"end":1,"factors":["2012","2013","2014","2015","2016","2017","2018","2019","2020"],"palette":["#393b79","#5254a3","#6b6ecf","#9c9ede","#637939","#8ca252","#b5cf6b","#cedb9c","#8c6d31","#bd9e39","#e7ba52","#e7cb94","#843c39"]},"id":"16335","type":"CategoricalColorMapper"},{"attributes":{},"id":"16180","type":"Selection"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"field":"CRASHDATE_BOROUGH","transform":{"id":"16335"}},"line_alpha":{"value":0.1},"line_color":{"value":"white"},"top":{"field":"NUMBER OF PERSONS INJURED_count"},"width":{"value":1},"x":{"field":"CRASHDATE_BOROUGH"}},"id":"16373","type":"VBar"},{"attributes":{},"id":"16346","type":"LinearScale"}],"root_ids":["16337"]},"title":"Bokeh Application","version":"2.0.1"}}
+        </script>
+        <script type="text/javascript">
+          (function() {
+            var fn = function() {
+              Bokeh.safely(function() {
+                (function(root) {
+                  function embed_document(root) {
+                    
+                  var docs_json = document.getElementById('16842').textContent;
+                  var render_items = [{"docid":"b8a04deb-4228-4168-be53-ad9c0130b87b","root_ids":["16337"],"roots":{"16337":"792eec50-0176-4d33-91c4-a76ca5937203"}}];
+                  root.Bokeh.embed.embed_items(docs_json, render_items);
+                
+                  }
+                  if (root.Bokeh !== undefined) {
+                    embed_document(root);
+                  } else {
+                    var attempts = 0;
+                    var timer = setInterval(function(root) {
+                      if (root.Bokeh !== undefined) {
+                        clearInterval(timer);
+                        embed_document(root);
+                      } else {
+                        attempts++;
+                        if (attempts > 100) {
+                          clearInterval(timer);
+                          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                        }
+                      }
+                    }, 10, root)
+                  }
+                })(window);
+              });
+            };
+            if (document.readyState != "loading") fn();
+            else document.addEventListener("DOMContentLoaded", fn);
+          })();
+        </script>
+    
+  </body>
+  
+</html>
