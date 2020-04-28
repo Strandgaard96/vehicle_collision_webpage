@@ -1,12 +1,22 @@
-# Socialdataanalysis2020
+# Social dataanalysis 2020
 
 
-## Structure:
+## New York through data
 
-'/docs' is the source folder for github pages. Everything written in the markdown file 'pages'
-will display on the webpage. 
 
-docs folder
+## 
+
+
+
+## Dangerous intersections
+
+
+
+
+
+## Machine learning 
+
+
 
 
 <iframe src="callback.html"
