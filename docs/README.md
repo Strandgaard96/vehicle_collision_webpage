@@ -29,8 +29,8 @@
 
 <iframe src="Crashes_hours_weeks_months.html"
     sandbox="allow-same-origin allow-scripts"
-    width="80%"
-    height="400"
+    width="100%"
+    height="800"
     scrolling="no"
     seamless="seamless"
     frameborder="0">
