@@ -70,7 +70,14 @@ test text
 ## Machine learning 
 
 
-
+<iframe src="ML.html"
+    sandbox="allow-same-origin allow-scripts"
+    width="100%"
+    height="600"
+    scrolling="no"
+    seamless="seamless"
+    frameborder="0">
+</iframe>
 
 <iframe src="callback.html"
     sandbox="allow-same-origin allow-scripts"
