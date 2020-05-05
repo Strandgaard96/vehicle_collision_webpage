@@ -1,0 +1,85 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    
+      <meta charset="utf-8">
+      <title>Bokeh Plot</title>
+      
+      
+        
+          
+        
+        
+          
+        <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.0.0.min.js" integrity="sha384-5Y+xuMRAbgBj/2WKUiL8yzV4fBFic1HJPo2hT3pq2IsEzbsJjj8kT2i0b1lZ7C2N" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            Bokeh.set_log_level("info");
+        </script>
+        
+      
+      
+    
+  </head>
+  
+  
+  <body>
+    
+      
+        
+          
+          
+            
+              <div class="bk-root" id="b8b8391c-1f27-428a-a80f-22dd84831f17" data-root-id="2962"></div>
+            
+          
+        
+      
+      
+        <script type="application/json" id="3217">
+          {"1fca41b3-2900-422e-be5e-0748da16296c":{"roots":{"references":[{"attributes":{"below":[{"id":"2972"}],"center":[{"id":"2974"},{"id":"2978"}],"left":[{"id":"2975"}],"plot_height":500,"plot_width":850,"renderers":[{"id":"3001"},{"id":"3006"}],"title":{"id":"2963"},"toolbar":{"id":"2986"},"x_range":{"id":"2961"},"x_scale":{"id":"2968"},"y_range":{"id":"2966"},"y_scale":{"id":"2970"}},"id":"2962","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"2976","type":"BasicTicker"},{"attributes":{},"id":"2980","type":"WheelZoomTool"},{"attributes":{},"id":"3069","type":"CategoricalTickFormatter"},{"attributes":{"overlay":{"id":"3070"}},"id":"2981","type":"BoxZoomTool"},{"attributes":{"fields":[]},"id":"2994","type":"Stack"},{"attributes":{},"id":"2968","type":"CategoricalScale"},{"attributes":{},"id":"2979","type":"PanTool"},{"attributes":{"bottom":{"expr":{"id":"2996"}},"fill_color":{"value":"steelblue"},"line_color":{"value":"steelblue"},"top":{"expr":{"id":"2997"}},"width":{"value":0.9},"x":{"field":"GROUPED_AGE"}},"id":"3004","type":"VBar"},{"attributes":{},"id":"2982","type":"SaveTool"},{"attributes":{},"id":"2983","type":"ResetTool"},{"attributes":{"bottom":{"expr":{"id":"2994"}},"fill_color":{"value":"chocolate"},"line_color":{"value":"chocolate"},"top":{"expr":{"id":"2995"}},"width":{"value":0.9},"x":{"field":"GROUPED_AGE"}},"id":"2999","type":"VBar"},{"attributes":{"data_source":{"id":"2959"},"glyph":{"id":"3004"},"hover_glyph":null,"muted_glyph":null,"name":"M","nonselection_glyph":{"id":"3005"},"selection_glyph":null,"view":{"id":"3007"}},"id":"3006","type":"GlyphRenderer"},{"attributes":{"fields":["F"]},"id":"2995","type":"Stack"},{"attributes":{},"id":"3071","type":"Selection"},{"attributes":{"callback":null,"tooltips":[["PERSON_SEX1","$name"],["Fraction","@$name"]]},"id":"2985","type":"HoverTool"},{"attributes":{},"id":"3067","type":"BasicTickFormatter"},{"attributes":{"axis":{"id":"2975"},"dimension":1,"ticker":null},"id":"2978","type":"Grid"},{"attributes":{"data":{"F":{"__ndarray__":"SKqsHtHZsD/DkUE5eeW8P2FryEWZPtI//epnFXtfNkCymkVxCKhHQOIO2L/ojENApZ7btSAeQUC7C1NHNoM+QPHGAk/eXzpA9vb20Q7bNEB3OAvSIIEwQCdWTYRJdSdAzDKZv/TEHEBQQkW8YeEUQP0spTnFqg9AbrCiJCEgBEA+I+Q2dif+P6gF0f+OBuw/","dtype":"float64","shape":[18]},"GROUPED_AGE":["0-5","5-9","10-14","15-19","20-24","25-29","30-34","35-39","40-44","45-49","50-54","55-59","60-64","65-69","70-74","75-79","80-84","85 and over"],"M":{"__ndarray__":"9p+RNlexzD9gECRzZNfeP3KmBuborgZAZ8aufPMFUECR7ymp7fBhQLp0jiWltVxAnvFGoBt1WUBGKBvQW0xXQITrqyfM0VRAxJj6widnUUA6qLlpWo1MQPegE489+kVAbBGnxXbRO0BDoZsFoeAxQGuTQd9vlihAryviavw5HkDEA0mWXoEXQGsbSBTFcAdA","dtype":"float64","shape":[18]}},"selected":{"id":"3071"},"selection_policy":{"id":"3072"}},"id":"2959","type":"ColumnDataSource"},{"attributes":{"fields":["F","M"]},"id":"2997","type":"Stack"},{"attributes":{},"id":"3072","type":"UnionRenderers"},{"attributes":{"bottom":{"expr":{"id":"2996"}},"fill_alpha":{"value":0.1},"fill_color":{"value":"steelblue"},"line_alpha":{"value":0.1},"line_color":{"value":"steelblue"},"top":{"expr":{"id":"2997"}},"width":{"value":0.9},"x":{"field":"GROUPED_AGE"}},"id":"3005","type":"VBar"},{"attributes":{"fields":["F"]},"id":"2996","type":"Stack"},{"attributes":{"factors":["0-5","5-9","10-14","15-19","20-24","25-29","30-34","35-39","40-44","45-49","50-54","55-59","60-64","65-69","70-74","75-79","80-84","85 and over"]},"id":"2961","type":"FactorRange"},{"attributes":{"source":{"id":"2959"}},"id":"3007","type":"CDSView"},{"attributes":{},"id":"2966","type":"DataRange1d"},{"attributes":{"data_source":{"id":"2959"},"glyph":{"id":"2999"},"hover_glyph":null,"muted_glyph":null,"name":"F","nonselection_glyph":{"id":"3000"},"selection_glyph":null,"view":{"id":"3002"}},"id":"3001","type":"GlyphRenderer"},{"attributes":{"axis_label":"Crashes per 1000 peoples","formatter":{"id":"3067"},"ticker":{"id":"2976"}},"id":"2975","type":"LinearAxis"},{"attributes":{"axis":{"id":"2972"},"ticker":null},"id":"2974","type":"Grid"},{"attributes":{},"id":"2970","type":"LinearScale"},{"attributes":{"bottom_units":"screen","fill_alpha":0.5,"fill_color":"lightgrey","left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"3070","type":"BoxAnnotation"},{"attributes":{},"id":"2973","type":"CategoricalTicker"},{"attributes":{"source":{"id":"2959"}},"id":"3002","type":"CDSView"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"2979"},{"id":"2980"},{"id":"2981"},{"id":"2982"},{"id":"2983"},{"id":"2984"},{"id":"2985"}]},"id":"2986","type":"Toolbar"},{"attributes":{"text":"Crashes for different age groups from 2012 to 2020"},"id":"2963","type":"Title"},{"attributes":{"bottom":{"expr":{"id":"2994"}},"fill_alpha":{"value":0.1},"fill_color":{"value":"chocolate"},"line_alpha":{"value":0.1},"line_color":{"value":"chocolate"},"top":{"expr":{"id":"2995"}},"width":{"value":0.9},"x":{"field":"GROUPED_AGE"}},"id":"3000","type":"VBar"},{"attributes":{},"id":"2984","type":"HelpTool"},{"attributes":{"axis_label":"Age Groups","formatter":{"id":"3069"},"major_label_orientation":0.7853981633974483,"ticker":{"id":"2973"}},"id":"2972","type":"CategoricalAxis"}],"root_ids":["2962"]},"title":"Bokeh Application","version":"2.0.0"}}
+        </script>
+        <script type="text/javascript">
+          (function() {
+            var fn = function() {
+              Bokeh.safely(function() {
+                (function(root) {
+                  function embed_document(root) {
+                    
+                  var docs_json = document.getElementById('3217').textContent;
+                  var render_items = [{"docid":"1fca41b3-2900-422e-be5e-0748da16296c","root_ids":["2962"],"roots":{"2962":"b8b8391c-1f27-428a-a80f-22dd84831f17"}}];
+                  root.Bokeh.embed.embed_items(docs_json, render_items);
+                
+                  }
+                  if (root.Bokeh !== undefined) {
+                    embed_document(root);
+                  } else {
+                    var attempts = 0;
+                    var timer = setInterval(function(root) {
+                      if (root.Bokeh !== undefined) {
+                        clearInterval(timer);
+                        embed_document(root);
+                      } else {
+                        attempts++;
+                        if (attempts > 100) {
+                          clearInterval(timer);
+                          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                        }
+                      }
+                    }, 10, root)
+                  }
+                })(window);
+              });
+            };
+            if (document.readyState != "loading") fn();
+            else document.addEventListener("DOMContentLoaded", fn);
+          })();
+        </script>
+    
+  </body>
+  
+</html>
