@@ -76,7 +76,16 @@ test text
     frameborder="0">
 </iframe>
 
-<img src="imgtest3.html"/>
+
+<iframe src="imgtest3.html"
+    sandbox="allow-same-origin allow-scripts"
+    width="100%"
+    height="800"
+    scrolling="no"
+    seamless="seamless"
+    frameborder="0">
+</iframe>
+
     
 
 <iframe src="imgtest2.html"
