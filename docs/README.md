@@ -77,7 +77,7 @@ test text
 </iframe>
 
 
-<iframe src="imgtest3.html"
+<iframe src="testtabs.html"
     sandbox="allow-same-origin allow-scripts"
     width="100%"
     height="800"
