@@ -66,7 +66,7 @@ test text
 <iframe src="Crashes_hours_weeks_months.html"
     sandbox="allow-same-origin allow-scripts"
     width="100%"
-    height="1200"
+    height="1600"
     scrolling="no"
     seamless="seamless"
     frameborder="0">
