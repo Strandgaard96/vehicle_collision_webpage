@@ -46,6 +46,8 @@ test text
 
 ## Dangerous intersections
 
+![Drag Racing](output.png)
+
 <iframe src="Dangerous.html"
     sandbox="allow-same-origin allow-scripts"
     width="100%"
