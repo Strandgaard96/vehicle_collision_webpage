@@ -44,11 +44,10 @@ test text
 
 
 
-## Dangerous intersections
+## Dangerous roads
 
 ![Drag Racing](output.png)
 
-![Map of dangerous intersections](./roadmap.html) 
 
 <iframe src="Dangerous.html"
     sandbox="allow-same-origin allow-scripts"
@@ -59,11 +58,7 @@ test text
     frameborder="0">
 </iframe>
 
-[Download Page](./roadmap.html)
-
-<a href="./roadmap.html" target="_top">Download Page</a>
-
-
+[Map containing crashes at dangerous roads](./roadmap.html)
 
 
 
