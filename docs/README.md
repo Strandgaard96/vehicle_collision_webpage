@@ -72,35 +72,6 @@ test text
 </iframe>
 
 
-<iframe src="testtabs.html"
-    sandbox="allow-same-origin allow-scripts"
-    width="100%"
-    height="800"
-    scrolling="no"
-    seamless="seamless"
-    frameborder="0">
-</iframe>
-
-    
-
-<iframe src="imgtest2.html"
-    sandbox="allow-same-origin allow-scripts"
-    width="100%"
-    height="800"
-    scrolling="no"
-    seamless="seamless"
-    frameborder="0">
-</iframe>
-
-<iframe src="imgtest.html"
-    sandbox="allow-same-origin allow-scripts"
-    width="100%"
-    height="800"
-    scrolling="no"
-    seamless="seamless"
-    frameborder="0">
-</iframe>
-
 ## Machine learning 
 Traffic accident prediction is very difficult and requires non-accident data. It was therefore chosen to see if it was possible to predict whether an injury will occur in a traffic accident. Our hypothesis is that traffic injuries don't arise in a purely stochastic manner. It is believed their occurence is influenced by a multitude of factors such as drivers' physical conditions, car types, traffic condition and weather. 
 In this section we will therefore investigate the possibility of predicting whether or not a traffic incident will involve an injury.
