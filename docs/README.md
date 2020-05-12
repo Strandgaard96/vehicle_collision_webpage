@@ -40,7 +40,7 @@ Below we show a heatmap of the total distribution of crashes over the months for
 ![Heat map](output.png)
 
 The thing worth noticing here is the smaler amount of accidents early in the year and the increase in reported 
-accidents from 2015 to 2018(the increase in dark colors). The summer of 2016-2018 saw an increase of around
+accidents from 2015 to 2018 (the increase in dark colors). The summer of 2016-2018 saw an increase of around
 1500-2000 accidents compared to earlier years. It is dificult to predict what the main contributing factors were here. 
 Our initial guess was that higher temperatures in this period could contribute to higher outside traffic. However,
 according to the National Wheather Service, the summers of 2016-2018 in New York where not distinctly warmer than previous
@@ -74,7 +74,8 @@ more accidents beeing registered/reported without a significant change in actual
 
 ## Dangerous roads
 
-We now turn our attention to the different roads in New York. 
+We now turn our attention to the roads in New York. It is expected that some roads are more prone to have accidents than others,
+due to   
 
 
 
