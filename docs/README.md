@@ -33,6 +33,8 @@ All vizualisations generated in this study can be found at INSERT REF EXP NOTEBO
 </iframe>
 
 
+### Crash distribution heatmap
+
 Below we show a heatmap of the total distribution of crashes over the months for the period 2012-2019. 
 
 ![Heat map](output.png)
@@ -47,24 +49,6 @@ In 2014 New York initialized a 'Vision zero' program aimed at reducing the amoun
 vehicle accidents [Vision zero](https://www1.nyc.gov/content/visionzero/pages/). 
 This could either mean that the program was not very succesfull or that this program increased awareness around vehicle accidents leading to
 more accidents beeing registered/reported without a significant change in actual accident numbers.
-
-<iframe src="yearly_borough.html"
-    sandbox="allow-same-origin allow-scripts"
-    width="100%"
-    height="500"
-    scrolling="no"
-    seamless="seamless"
-    frameborder="0">
-</iframe>
-
-<iframe src="Crashes_agegroups.html"
-    sandbox="allow-same-origin allow-scripts"
-    width="100%"
-    height="600"
-    scrolling="no"
-    seamless="seamless"
-    frameborder="0">
-</iframe>
 
 
 
@@ -102,6 +86,31 @@ the crashes for the top three dangerous roads in each borough are visualized in 
   
 
 [Map containing crashes at dangerous roads](./roadmap.html)
+
+
+
+
+<iframe src="yearly_borough.html"
+    sandbox="allow-same-origin allow-scripts"
+    width="100%"
+    height="500"
+    scrolling="no"
+    seamless="seamless"
+    frameborder="0">
+</iframe>
+
+
+
+
+<iframe src="Crashes_agegroups.html"
+    sandbox="allow-same-origin allow-scripts"
+    width="100%"
+    height="600"
+    scrolling="no"
+    seamless="seamless"
+    frameborder="0">
+</iframe>
+
 
 
 <iframe src="Crashes_hours_weeks_months.html"
