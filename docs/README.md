@@ -14,8 +14,6 @@ All vizualisations generated in this study can be found at INSERT REF EXP NOTEBO
 
 ## New York through data
 
-Test text
-
 <iframe src="map.html"
     sandbox="allow-same-origin allow-scripts"
     width="100%"
@@ -62,6 +60,7 @@ more accidents beeing registered/reported without a significant change in actual
 <iframe src="Crashes_agegroups.html"
     sandbox="allow-same-origin allow-scripts"
     width="100%"
+    height="600"
     scrolling="no"
     seamless="seamless"
     frameborder="0">
@@ -84,7 +83,11 @@ The figure below shows the roads with the highest accident counts for each borou
     frameborder="0">
 </iframe>
 
-For most boroughs it is clear that 
+For near all boroughs, there are one or two roads responsible for a large portion of the crashes. In Queens for example, **Northern Boulevard** and 
+**Queens Boulevard** have around 100% and 50% more crashes than **Woodhaven Boulevard**. 
+Unless the reader is very well versed in New Yorks street plan, the location and
+names of these roads are likely unfamiliar. To better get a picture of the location and length of these roads,
+the crashes for the top three dangerous roads in each borough are visualized in a map below. 
 
 <iframe src="roadmap.html"
     sandbox="allow-same-origin allow-scripts"
@@ -94,6 +97,7 @@ For most boroughs it is clear that
     seamless="seamless"
     frameborder="0">
 </iframe>
+
 
   
 
