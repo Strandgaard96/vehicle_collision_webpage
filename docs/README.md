@@ -59,8 +59,6 @@ more accidents beeing registered/reported without a significant change in actual
     frameborder="0">
 </iframe>
 
-##
-
 <iframe src="Crashes_agegroups.html"
     sandbox="allow-same-origin allow-scripts"
     width="100%"
@@ -75,13 +73,8 @@ more accidents beeing registered/reported without a significant change in actual
 ## Dangerous roads
 
 We now turn our attention to the roads in New York. It is expected that some roads are more prone to have accidents than others,
-due to   
-
-
-
-
-
-
+due to factors like heavy traffic, poor road conditions, traffic nodes etc. 
+The figure below shows the roads with the highest accident counts for each borough.
 
 <iframe src="Dangerous.html"
     sandbox="allow-same-origin allow-scripts"
@@ -92,9 +85,20 @@ due to
     frameborder="0">
 </iframe>
 
+For most boroughs it is clear that
+
+<iframe src="roadmap.html"
+    sandbox="allow-same-origin allow-scripts"
+    width="100%"
+    height="800"
+    scrolling="no"
+    seamless="seamless"
+    frameborder="0">
+</iframe>
+
+  
+
 [Map containing crashes at dangerous roads](./roadmap.html)
-
-
 
 
 <iframe src="Crashes_hours_weeks_months.html"
