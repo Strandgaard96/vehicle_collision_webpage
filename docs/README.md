@@ -62,7 +62,6 @@ more accidents beeing registered/reported without a significant change in actual
 <iframe src="Crashes_agegroups.html"
     sandbox="allow-same-origin allow-scripts"
     width="100%"
-    height="500"
     scrolling="no"
     seamless="seamless"
     frameborder="0">
@@ -79,13 +78,13 @@ The figure below shows the roads with the highest accident counts for each borou
 <iframe src="Dangerous.html"
     sandbox="allow-same-origin allow-scripts"
     width="100%"
-    height="800"
+    height="500"
     scrolling="no"
     seamless="seamless"
     frameborder="0">
 </iframe>
 
-For most boroughs it is clear that
+For most boroughs it is clear that 
 
 <iframe src="roadmap.html"
     sandbox="allow-same-origin allow-scripts"
