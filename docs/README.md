@@ -146,7 +146,7 @@ bla bla bla something with weather model and it didnt predict better
     <img src="MLchoro.png" alt="Snow" style="width:100%">
   </div>
   <div class="column">
-    <img src="choro_colors.PNG" alt="Forest" style="width:100%">
+    <img src="choro_colors.PNG" alt="Forest" style="width:50%">
   </div>
 </div>
 ##
