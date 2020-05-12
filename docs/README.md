@@ -1,8 +1,15 @@
 # NYC Vehicle crashes 
 
 
-Since 2012 more than 1,000,000 traffic accidents have occured in New York. As a result of those accidents 200,000 people have gotten injured. Traffic incidents are therefore the leading cause of injuries in New York City. The aim of this project is to visualize, analyze and model the traffic incidents in order to find identifiable patterns that would be able to reduce the risk of injuries in New York City. 
-The questions we will try to answer are; Where are the crashes happening? etc etc  
+Since 2012 more than 1,000,000 traffic accidents have occured in New York.
+As a result of those accidents around 200,000 people have gotten injured.
+In fact, traffic incidents are the leading cause of injuries in New York City.
+The aim of this project is to visualize, analyze and model the traffic incidents in order to find identifiable patterns that could aid the process of reducing the risk of injuries in New York City. 
+The questions we will try to answer are; Where are the crashes happening? What are the leading causes of theese accidents and what vehicles are often involved?
+
+Some more introduction here ?  
+
+All vizualisations generated in this study can be found at INSERT REF EXP NOTEBOOK. 
 
 
 ## New York through data
@@ -26,9 +33,22 @@ Test text
     seamless="seamless"
     frameborder="0">
 </iframe>
-## 
 
-test text 
+
+Below we show a heatmap of the total distribution of crashes over the months for the period 2012-2019. 
+
+![Heat map](output.png)
+
+The thing worth noticing here is the smaler amount of accidents early in the year and the increase in reported 
+accidents from 2015 to 2018(the increase in dark colors). The summer of 2016-2018 saw an increase of around
+1500-2000 accidents compared to earlier years. It is dificult to predict what the main contributing factors were here. 
+Our initial guess was that higher temperatures in this period could contribute to higher outside traffic. However,
+according to the National Wheather Service, the summers of 2016-2018 in New York where not distinctly warmer than previous
+years [Central Park annual temperatures](https://www.weather.gov/media/okx/Climate/CentralPark/monthlyannualtemp.pdf).
+In 2014 New York initialized a 'Vision zero' program aimed at reducing the amount of injuries related to 
+vehicle accidents [Vision zero](https://www1.nyc.gov/content/visionzero/pages/). 
+This could either mean that the program was not very succesfull or that this program increased awareness around vehicle accidents leading to
+more accidents beeing registered/reported without a significant change in actual accident numbers.
 
 <iframe src="yearly_borough.html"
     sandbox="allow-same-origin allow-scripts"
@@ -54,7 +74,12 @@ test text
 
 ## Dangerous roads
 
-![Drag Racing](output.png)
+We now turn our attention to the different roads in New York. 
+
+
+
+
+
 
 
 <iframe src="Dangerous.html"
