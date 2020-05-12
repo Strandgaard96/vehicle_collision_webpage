@@ -137,8 +137,8 @@ To do this two different machine learning models are used and tested on differen
 bla bla bla something with weather model and it didnt predict better
 
 
-![](MLchoro.png)
-![](choro_colors.png)
+![](MLchoro.png) ![](choro_colors.PNG)
+![](choro_colors.PNG)
 
 
 <div class="row">
@@ -146,7 +146,7 @@ bla bla bla something with weather model and it didnt predict better
     <img src="MLchoro.png" alt="Snow" style="width:100%">
   </div>
   <div class="column">
-    <img src="choro_colors.png" alt="Forest" style="width:100%">
+    <img src="choro_colors.PNG" alt="Forest" style="width:100%">
   </div>
 </div>
 ##
