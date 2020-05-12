@@ -137,17 +137,6 @@ To do this two different machine learning models are used and tested on differen
 bla bla bla something with weather model and it didnt predict better
 
 
-![](MLchoro.png) ![](choro_colors.PNG)
-![](choro_colors.PNG)
+![](MLchoro.png) ![](choro_colors.PNG | width=50 height=50)
 
-
-<div class="row">
-  <div class="column">
-    <img src="MLchoro.png" alt="Snow" style="width:100%">
-  </div>
-  <div class="column">
-    <img src="choro_colors.PNG" alt="Forest" style="width:50%">
-  </div>
-</div>
-##
 
