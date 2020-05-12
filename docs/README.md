@@ -135,5 +135,8 @@ To do this two different machine learning models are used and tested on differen
 ![feature](feature.png)
 
 bla bla bla something with weather model and it didnt predict better
+
+
+![](MLchoro.png) ![](choro_colors.png)
 ##
 
