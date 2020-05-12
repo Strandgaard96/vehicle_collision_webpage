@@ -137,6 +137,6 @@ To do this two different machine learning models are used and tested on differen
 bla bla bla something with weather model and it didnt predict better
 
 
-![](MLchoro.png) ![](choro_colors.PNG | width=50)
+![](MLchoro.png) ![](choro_colors.PNG)
 
 
