@@ -162,10 +162,13 @@ The final set of visualizations pertaining to the raw data are the temporal deve
 
 
 ## Machine learning 
-Traffic accident prediction is very difficult and requires non-accident data. It was therefore chosen to see if it was possible to predict whether an injury will occur in a traffic accident. Our hypothesis is that traffic injuries don't arise in a purely stochastic manner. It is believed their occurence is influenced by a multitude of factors such as drivers' physical conditions, car types, traffic condition and weather. 
-In this section we will therefore investigate the possibility of predicting whether or not a traffic incident will involve an injury.
 
-To do this two different machine learning models are used and tested on different feature sets. We are predicting on the "NUMBER OF INJURY" column and have transformed the column into a binary variable by combining all injuries over 0 to 1. Therefore it has been made into a binary classification problem. 
+We will now try to use all the information gathered in the previous sections to make a machine learning model for traffic injuries.  We have chosen to see if it’s possible to make a model that predict whether an injury will occur in a traffic accident. Our hypothesis is that traffic injuries don’t arise in a purely stochastic manner. It is believed their occurrence is influenced by a multitude of factors such as drivers’ physical conditions, car types, traffic condition and weather. This is based on all the interesting founding we have discovered so far. Such as the reckless young drivers, the dangerous roads and the time distributions of accidents. All these findings let us to believe this model would be possibly to do. 
+
+No more motivation lets get to it. It might get a bit technical but hold on in. We are predicting on the “NUMBER OF INJURY” column and have transformed the column into a binary variable by combining all injuries over 0 to 1. Therefore, it has been made into a binary classification problem. 
+It was showed that boroughs, time, day of the week, age, contributing factors and vehicle type all influenced traffic incidents and injuries. We therefore chose to use these features in our model. In addition to these features we also incorporated weather conditions such as temperature, humidity, wind speed and description of the weather e.g. Rain, thunder, snow and sun. 
+The model we achieved the best results from was the random forest classifier from SciKit learn. 
+
 
 
 ![confmatrix](Confusion_ROC.png)
@@ -184,11 +187,3 @@ bla bla bla something with weather model and it didnt predict better
 
 ![](MLchoro.png) ![](choro_colors.PNG)
 
-<iframe src="foliumML.html"
-    sandbox="allow-same-origin allow-scripts"
-    width="100%"
-    height="600"
-    scrolling="no"
-    seamless="seamless"
-    frameborder="0">
-</iframe>
