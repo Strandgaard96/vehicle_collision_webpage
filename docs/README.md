@@ -139,4 +139,11 @@ bla bla bla something with weather model and it didnt predict better
 
 ![](MLchoro.png) ![](choro_colors.PNG)
 
-
+<iframe src="foliumML.html"
+    sandbox="allow-same-origin allow-scripts"
+    width="100%"
+    height="600"
+    scrolling="no"
+    seamless="seamless"
+    frameborder="0">
+</iframe>
