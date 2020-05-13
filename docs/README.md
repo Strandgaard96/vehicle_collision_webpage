@@ -19,7 +19,7 @@ All vizualisations generated in this study can be found at INSERT REF EXP NOTEBO
 
 
 ## New York through data
-As mentioned, lots of car crashes happen every day in NYC. In fact, so many happen that we are able to visualize the entire city just based on the GPS location of the individual crashes, when we sample over the 8 year span in which the data has been gathered. From the map below, we can recognize some of NYCs famous features such as Central Park in Manhattan (the black square in the left-most area) and the Hudson river which encircles Manhattan peninsula. 
+As mentioned, lots of car crashes happen every day in NYC. In fact, so many happen that we are able to visualize the entire city just based on the GPS location of the individual crashes, when we sample over the 8 year span in which the data has been gathered (2012 - 2020). From the map below, we can recognize some of NYCs famous features such as Central Park in Manhattan (the black square in the left-most area) and the Hudson river which encircles Manhattan peninsula. 
 
 Broaden our understanding of the city based solely on the car crash data sets.
 
@@ -32,14 +32,20 @@ Broaden our understanding of the city based solely on the car crash data sets.
     frameborder="0">
 </iframe>
 
-The goal of the following visualizations are primarily to get you, the reader, up to speed on how the distribution of car crashes looks like in NYC. What is the maximum number of people killed in a single car crash? What is the maximum number injured? How does the different age groups fare in the statistics? Where does the most of the car crashes happen?
+
 
 ## Basic statistics 
+The goal of the following visualizations are primarily to get you, the reader, up to speed on how the distribution of car crashes looks like in NYC. What is the maximum number of people killed in a single car crash? What is the maximum number injured? How does the different age groups fare in the statistics? Where does the most of the car crashes happen?
+
 ### Seaborn plots
+Using the data sets, we have plotted the number of persons, pedestrians, cyclists and motorists injured along with the number of persons killed on a logarithmic plot. This gives us a feeling for how many crashes are severe in a sense that they inflict injuries or even deaths. Fortunately, most crashes across all the trafic groups are seen to be non-lethal and even non-harmful. But still, a significant number of them result in an injury, and a few of them even have multiple people injured. If we look at the last columns of the persons, pedestrians and motorist plots, we can see a few which have a lot of people involved in the crash (43 persons injured in the same car crash!).
+
 ![Injuries](injuries_seaborn.png)
 
+Furthermore, the number of trafic accidents across the 5 boroughs in NYC are plotted in a bar plot, showing that Brooklyn has the highest number of car crashes when we count them up over the 8 year time span.
+
 ### Crash distribution heatmap
-Below we show a heatmap of the total distribution of crashes over the months for the period 2012-2019. 
+Below we show a heatmap of the total distribution of crashes over the months for the period 2012-2020. 
 
 ![Heat map](output.png)
 
@@ -74,7 +80,7 @@ more accidents beeing registered/reported without a significant change in actual
 </iframe>
 
 
-### Spatial distribution of the car crashes
+## Spatial distribution of the car crashes
 <iframe src="interaktivfoliummap.html"
     sandbox="allow-same-origin allow-scripts"
     width="100%"
@@ -84,7 +90,7 @@ more accidents beeing registered/reported without a significant change in actual
     frameborder="0">
 </iframe>
 
-#### Dangerous roads
+### Dangerous roads
 We now turn our attention to the roads in New York. It is expected that some roads are more prone to have accidents than others,
 due to factors like heavy traffic, poor road conditions, traffic nodes etc. 
 The figure below shows the roads with the highest accident counts for each borough.
