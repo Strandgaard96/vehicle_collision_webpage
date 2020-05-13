@@ -41,6 +41,8 @@ Broaden our understanding of the city based solely on the car crash data sets.
     frameborder="0">
 </iframe>
 
+![Injuries](injuries_seaborn.png)
+
 
 ### Crash distribution heatmap
 
