@@ -130,6 +130,8 @@ the crashes for the top three dangerous roads in each borough are visualized in 
 [Map containing crashes at dangerous roads](./roadmap.html)
 
 ## Temporal distributions of the car crashes
+The final set of visualizations pertaining to the raw data are the temporal developments of causes of crashes and vehicle types involved. The data is sorted by hour of the day, day of the week and months of the year, all separated into separate tabs. The contribution factors and vehicle types are selected by taken the top 14 and 11 causes of crashes, respectively. Click on the interactive legends to see how bar plots vary across hours, weeks and months.
+
 <iframe src="Crashes_hours_weeks_months.html"
     sandbox="allow-same-origin allow-scripts"
     width="100%"
@@ -139,8 +141,12 @@ the crashes for the top three dangerous roads in each borough are visualized in 
     frameborder="0">
 </iframe>
 
-
-
+**Our observations:**
+* If we sort by hours of the day, most of the violations shows the rush hour trafic pattern very clearly. For instance, for 'Driver Inattention/Distraction' the number of crashes increases between 8-9 am (morning rush hour) then drops slightly before increasing again around 4-6 pm.
+* In contrast, if we look at the hourly pattern from the 'Alcohol Involvement', the inverse pattern is seen where the wee hours of the morning see the largest number of crashes (our guess is people driving home from a night out).
+* We can also see that the weekly 'Alcohol Involvement' pattern sees an increase over the weekend in number of crashes, whereas 'Driver Inattention/Distraction' slightly drops over the weekend.
+* Another interesting pattern is the crashes where a bicycle or a motorbike was involved. If we sort by months, we can see that this type of crash increases over the summer months (better weather means more people on bicycles/motorbikes).
+* Furthermore, sorting by 'Bus' by weeks, we can see that most of the bus crashes are happening on workdays of the week, where an increased number of busses are sent in to accomodate the work-commuters.
 
 
 
