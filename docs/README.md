@@ -62,13 +62,18 @@ accidents from 2015 to 2018 (the increase in dark colors). The summer of 2016-20
 1500-2000 accidents compared to earlier years. It is dificult to predict what the main contributing factors were here. 
 Our initial guess was that higher temperatures in this period could contribute to higher outside traffic. However,
 according to the National Wheather Service, the summers of 2016-2018 in New York where not distinctly warmer than previous
-years [Central Park annual temperatures](https://www.weather.gov/media/okx/Climate/CentralPark/monthlyannualtemp.pdf).
+years [Central Park annual temperatures](https://www.weather.gov/media/okx/Climate/CentralPark/monthlyannualtemp.pdf). In reference to the 'Vision Zero' program, another explanation could be that the program was not very succesful, or that the program has increased general trafic awareness leading to an increase in reported/registered accidents corresponding to the effectiveness of the employment of the program.
+
+
+### Magnus' tekst del
 In 2014 New York initialized a 'Vision zero' program aimed at reducing the amount of injuries related to 
 vehicle accidents [Vision zero](https://www1.nyc.gov/content/visionzero/pages/). 
 This could either mean that the program was not very succesfull or that this program increased awareness around vehicle accidents leading to more accidents beeing registered/reported without a significant change in actual accident numbers.
 
 
 ### Age group and gender distribution
+Now, we look into another part of the data set, namely the data about the people involved in the crash. We have chosen to look at the drivers of the vehicles involved in the crashes, more specifically their age and genders, to attempt to discern if there are any patterns. The drivers are split into age groups for each gender (male/female), which are then normalized by the actual number of people in NYC within that age group (specific numbers are found [here](https://www.baruch.cuny.edu/nycdata/population-geography/age_distribution.htm)). This gives us a realistic method of comparing the number of crashes per people now found in each bar to a bar in a different age group. However, as we dont know how many people in a given age group have a drivers license and own a vehicle, there's still some error here, but we have unfortunately not been able to find such numbers.
+
 <iframe src="Crashes_agegroups.html"
     sandbox="allow-same-origin allow-scripts"
     width="100%"
@@ -78,6 +83,7 @@ This could either mean that the program was not very succesfull or that this pro
     frameborder="0">
 </iframe>
 
+We all know the prejudice about young males and fast cars, but there's actually something to it! We can see a vast majority of the crashes has a male driver between the age of 20 and 24 involved in the crash, whereas the older males has a significant lower amount of car crashes to their names. Funnily enough, we can see the same trend for young females! We can see that young males in this age group are involved in more than 3 times the amount of car crashes compared to their female counterparts, but when we look at the trend for females themselves, they also appear to be involved in more crashes when compared to their older age groups.
 
 ## Spatial distribution of the car crashes
 <iframe src="interaktivfoliummap.html"
