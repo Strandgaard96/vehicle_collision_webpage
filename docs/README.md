@@ -4,15 +4,22 @@
 Since 2012 more than 1,000,000 traffic accidents have occured in New York.
 As a result of those accidents around 200,000 people have gotten injured.
 In fact, traffic incidents are the leading cause of injuries in New York City.
-The aim of this project is to visualize, analyze and model the traffic incidents in order to find identifiable patterns that could aid the process of reducing the risk of injuries in New York City. 
-The questions we will try to answer are; Where are the crashes happening? What are the leading causes of theese accidents and what vehicles are often involved?
+The aim of this project is to visualize, analyze and model the traffic incidents in order to find identifiable patterns that could aid the process of reducing the risk of injuries in New York City. To enable this, the Motor Vehicle Collisions data sets from NYC database is used (the data can be found here: [Crash Data](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95), [Vehicle Data](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Vehicles/bm4k-52h4) and [Persons Data](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Person/f55k-p6yu)).
+More specifically, we ask the following questions; 
 
-Some more introduction here ?  
+* Where and when are the crashes happening? 
+    * Based on the different boroughs in NYC, the GPS locations and time and day of the crashes.
+* What are the leading causes of these accidents?
+    * Alcohol involvement and outside-of-the-car distractions are looked into.
+* What vehicles are often involved?
+    * A large number of vehicle types are reported in the crash data sets.
 
-All vizualisations generated in this study can be found at INSERT REF EXP NOTEBOOK. The data itself can be found here [Crash Data](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95), [Vehicle Data](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Vehicles/bm4k-52h4) and [Persons Data](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Person/f55k-p6yu).
+
+All vizualisations generated in this study can be found at INSERT REF EXP NOTEBOOK.
 
 
 ## New York through data
+As mentioned, lots of car crashes happen every day in NYC. In fact, so many happen that we are able to visualize the entire city just based on the GPS location of the individual crashes, when we sample over the 8 year span in which the data has been gathered. From the map below, we can recognize some of NYCs famous features such as Central Park in Manhattan (the black square in the left-most area) and the Hudson river which encircles Manhattan peninsula.
 
 <iframe src="map.html"
     sandbox="allow-same-origin allow-scripts"
@@ -22,6 +29,8 @@ All vizualisations generated in this study can be found at INSERT REF EXP NOTEBO
     seamless="seamless"
     frameborder="0">
 </iframe>
+
+Broaden our understanding of the city based solely on the car crash data sets.
 
 <iframe src="interaktivfoliummap.html"
     sandbox="allow-same-origin allow-scripts"
