@@ -19,7 +19,9 @@ All vizualisations generated in this study can be found at INSERT REF EXP NOTEBO
 
 
 ## New York through data
-As mentioned, lots of car crashes happen every day in NYC. In fact, so many happen that we are able to visualize the entire city just based on the GPS location of the individual crashes, when we sample over the 8 year span in which the data has been gathered. From the map below, we can recognize some of NYCs famous features such as Central Park in Manhattan (the black square in the left-most area) and the Hudson river which encircles Manhattan peninsula.
+As mentioned, lots of car crashes happen every day in NYC. In fact, so many happen that we are able to visualize the entire city just based on the GPS location of the individual crashes, when we sample over the 8 year span in which the data has been gathered. From the map below, we can recognize some of NYCs famous features such as Central Park in Manhattan (the black square in the left-most area) and the Hudson river which encircles Manhattan peninsula. 
+
+Broaden our understanding of the city based solely on the car crash data sets.
 
 <iframe src="map.html"
     sandbox="allow-same-origin allow-scripts"
@@ -30,22 +32,13 @@ As mentioned, lots of car crashes happen every day in NYC. In fact, so many happ
     frameborder="0">
 </iframe>
 
-Broaden our understanding of the city based solely on the car crash data sets.
+The goal of the following visualizations are primarily to get you, the reader, up to speed on how the distribution of car crashes looks like in NYC. What is the maximum number of people killed in a single car crash? What is the maximum number injured? How does the different age groups fare in the statistics? Where does the most of the car crashes happen?
 
-<iframe src="interaktivfoliummap.html"
-    sandbox="allow-same-origin allow-scripts"
-    width="100%"
-    height="600"
-    scrolling="no"
-    seamless="seamless"
-    frameborder="0">
-</iframe>
-
+## Basic statistics 
+### Seaborn plots
 ![Injuries](injuries_seaborn.png)
 
-
 ### Crash distribution heatmap
-
 Below we show a heatmap of the total distribution of crashes over the months for the period 2012-2019. 
 
 ![Heat map](output.png)
@@ -61,10 +54,28 @@ vehicle accidents [Vision zero](https://www1.nyc.gov/content/visionzero/pages/).
 This could either mean that the program was not very succesfull or that this program increased awareness around vehicle accidents leading to
 more accidents beeing registered/reported without a significant change in actual accident numbers.
 
+### Age group and gender distribution
+<iframe src="Crashes_agegroups.html"
+    sandbox="allow-same-origin allow-scripts"
+    width="100%"
+    height="600"
+    scrolling="no"
+    seamless="seamless"
+    frameborder="0">
+</iframe>
 
 
-## Dangerous roads
+### Spatial distribution of the car crashes
+<iframe src="interaktivfoliummap.html"
+    sandbox="allow-same-origin allow-scripts"
+    width="100%"
+    height="600"
+    scrolling="no"
+    seamless="seamless"
+    frameborder="0">
+</iframe>
 
+#### Dangerous roads
 We now turn our attention to the roads in New York. It is expected that some roads are more prone to have accidents than others,
 due to factors like heavy traffic, poor road conditions, traffic nodes etc. 
 The figure below shows the roads with the highest accident counts for each borough.
@@ -93,13 +104,17 @@ the crashes for the top three dangerous roads in each borough are visualized in 
     frameborder="0">
 </iframe>
 
-
-  
-
 [Map containing crashes at dangerous roads](./roadmap.html)
 
-
-
+### Temporal distributions of the car crashes
+<iframe src="Crashes_hours_weeks_months.html"
+    sandbox="allow-same-origin allow-scripts"
+    width="100%"
+    height="1600"
+    scrolling="no"
+    seamless="seamless"
+    frameborder="0">
+</iframe>
 
 <iframe src="yearly_borough.html"
     sandbox="allow-same-origin allow-scripts"
@@ -112,26 +127,6 @@ the crashes for the top three dangerous roads in each borough are visualized in 
 
 
 
-
-<iframe src="Crashes_agegroups.html"
-    sandbox="allow-same-origin allow-scripts"
-    width="100%"
-    height="600"
-    scrolling="no"
-    seamless="seamless"
-    frameborder="0">
-</iframe>
-
-
-
-<iframe src="Crashes_hours_weeks_months.html"
-    sandbox="allow-same-origin allow-scripts"
-    width="100%"
-    height="1600"
-    scrolling="no"
-    seamless="seamless"
-    frameborder="0">
-</iframe>
 
 
 ## Machine learning 
