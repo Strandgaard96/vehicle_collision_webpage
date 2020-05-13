@@ -22,7 +22,7 @@ As mentioned, lots of car crashes happen every day in NYC. In fact, so many happ
 <iframe src="map.html"
     sandbox="allow-same-origin allow-scripts"
     width="100%"
-    height="500"
+    height="520"
     scrolling="no"
     seamless="seamless"
     frameborder="0">
@@ -44,7 +44,7 @@ Furthermore, the number of trafic accidents across the 5 boroughs in NYC are plo
 <iframe src="yearly_borough.html"
     sandbox="allow-same-origin allow-scripts"
     width="100%"
-    height="350"
+    height="325"
     scrolling="no"
     seamless="seamless"
     frameborder="0">
@@ -77,7 +77,7 @@ Now, we look into another part of the data set, namely the data about the people
 <iframe src="Crashes_agegroups.html"
     sandbox="allow-same-origin allow-scripts"
     width="100%"
-    height="500"
+    height="525"
     scrolling="no"
     seamless="seamless"
     frameborder="0">
@@ -135,7 +135,7 @@ The final set of visualizations pertaining to the raw data are the temporal deve
 <iframe src="Crashes_hours_weeks_months.html"
     sandbox="allow-same-origin allow-scripts"
     width="100%"
-    height="1200"
+    height="1050"
     scrolling="no"
     seamless="seamless"
     frameborder="0">
