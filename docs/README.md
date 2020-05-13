@@ -71,7 +71,7 @@ vehicle accidents [Vision zero](https://www1.nyc.gov/content/visionzero/pages/).
 This could either mean that the program was not very succesfull or that this program increased awareness around vehicle accidents leading to more accidents beeing registered/reported without a significant change in actual accident numbers.
 
 
-### Age group and gender distribution
+## Age group and gender distribution
 Now, we look into another part of the data set, namely the data about the people involved in the crash. We have chosen to look at the drivers of the vehicles involved in the crashes, more specifically their age and genders, to attempt to discern if there are any patterns. The drivers are split into age groups for each gender (male/female), which are then normalized by the actual number of people in NYC within that age group (specific numbers are found [here](https://www.baruch.cuny.edu/nycdata/population-geography/age_distribution.htm)). This gives us a realistic method of comparing the number of crashes per people now found in each bar to a bar in a different age group. However, as we dont know how many people in a given age group have a drivers license and own a vehicle, there's still some error here, but we have unfortunately not been able to find such numbers.
 
 <iframe src="Crashes_agegroups.html"
@@ -83,9 +83,10 @@ Now, we look into another part of the data set, namely the data about the people
     frameborder="0">
 </iframe>
 
-We all know the prejudice about young males and fast cars, but there's actually something to it! We can see a vast majority of the crashes has a male driver between the age of 20 and 24 involved in the crash, whereas the older males has a significant lower amount of car crashes to their names. Funnily enough, we can see the same trend for young females! We can see that young males in this age group are involved in more than 3 times the amount of car crashes compared to their female counterparts, but when we look at the trend for females themselves, they also appear to be involved in more crashes when compared to their older age groups.
+We all know the prejudice about young males and fast cars, but there's actually something to it! We can see a vast majority of the crashes has a male driver between the age of 20 and 24 involved in the crash, whereas the older males has a significant lower amount of car crashes to their names. Funnily enough, we can see the same trend for young females! We can see that young males in this age group are involved in more than 3 times the amount of car crashes compared to their female counterparts, but when we look at the trend for females themselves, they also appear to be involved in more crashes when compared to their older age groups. As such, the same trend is visible for both males and females.
 
 ## Spatial distribution of the car crashes
+Phew, that was a lot of static bar plots! I think it's time for some interactive plots. In the following map, we have plotted the individual crashes on a Google Maps looking plot, where each crash is categorized by where it happened, how many people got injured in the crash, why the crash happened and what kind of vehicle was involved. The color of the initial circles represent the density of crashes, wh
 <iframe src="interaktivfoliummap.html"
     sandbox="allow-same-origin allow-scripts"
     width="100%"
@@ -94,6 +95,8 @@ We all know the prejudice about young males and fast cars, but there's actually 
     seamless="seamless"
     frameborder="0">
 </iframe>
+
+Have a look around, and try to see if you can spot some of the interesting cases we talked about earlier (hint: the insane 43 persons injured crash happened on Herkimer Street in Brooklyn!)
 
 ### Dangerous roads
 We now turn our attention to the roads in New York. It is expected that some roads are more prone to have accidents than others,
@@ -126,7 +129,7 @@ the crashes for the top three dangerous roads in each borough are visualized in 
 
 [Map containing crashes at dangerous roads](./roadmap.html)
 
-### Temporal distributions of the car crashes
+## Temporal distributions of the car crashes
 <iframe src="Crashes_hours_weeks_months.html"
     sandbox="allow-same-origin allow-scripts"
     width="100%"
