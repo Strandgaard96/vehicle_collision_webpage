@@ -52,6 +52,48 @@ Furthermore, the number of trafic accidents across the 5 boroughs in NYC are plo
 
 Building upon the crashes in the boroughs, we have plotted the yearly development for each borough, where the succes in reducing the number of crashes for i.e. Manhattan can be seen. This could be due to a program initialized in 2014 called 'Vision Zero', which was aimed at reducing the amount of injuries related to vehicle accidents. A link to the program can be found [here](https://www1.nyc.gov/content/visionzero/pages/). This program continues to this day, and employs increased trafic control (harder penalties for speeding, failing to yield to pedestrians etc.). As such, it wouldn't surpise us if this is the cause of this drop in injuries.
 
+
+### Cloropleth maps
+
+<iframe src="inj.html"
+    sandbox="allow-same-origin allow-scripts"
+    width="50%"
+	align = "left"
+    height="325"
+    scrolling="no"
+    seamless="seamless"
+    frameborder="0">
+</iframe>
+
+<iframe src="ped.html"
+    sandbox="allow-same-origin allow-scripts"
+    width="50%"
+	align = "left"
+    height="325"
+    scrolling="no"
+    seamless="seamless"
+    frameborder="0">
+</iframe>
+
+<iframe src="cyc.html"
+    sandbox="allow-same-origin allow-scripts"
+    width="100%"
+    height="325"
+    scrolling="no"
+    seamless="seamless"
+    frameborder="0">
+</iframe>
+
+<iframe src="mot.html"
+    sandbox="allow-same-origin allow-scripts"
+    width="100%"
+    height="325"
+    scrolling="no"
+    seamless="seamless"
+    frameborder="0">
+</iframe>
+
+
 ### Crash distribution heatmap
 Now we move on to the more number-heavy plots, where the number of crashes in each month (1 being January and 12 being December) are shown for the time period 2012-2020.
 
