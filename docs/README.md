@@ -77,7 +77,8 @@ Building upon the crashes in the boroughs, we have plotted the yearly developmen
 
 <iframe src="cyc.html"
     sandbox="allow-same-origin allow-scripts"
-    width="100%"
+    width="50%"
+	align = "left"
     height="325"
     scrolling="no"
     seamless="seamless"
@@ -86,7 +87,8 @@ Building upon the crashes in the boroughs, we have plotted the yearly developmen
 
 <iframe src="mot.html"
     sandbox="allow-same-origin allow-scripts"
-    width="100%"
+    width="50%"
+	align = "left"
     height="325"
     scrolling="no"
     seamless="seamless"
