@@ -173,8 +173,7 @@ The model we achieved the best results from was the random forest classifier fro
 
 ![confmatrix](Confusion_ROC.png)
 
-
-bla bla bla something with weather model and it didnt predict better
+A confusion matrix is a table that is often used to describe the performance of a classification model. It allows easy identification of confusion between the classes. In our case we can see it predict 87% of its non-injury predictions correctly and 69% of its injury predictions correctly. In addition to this from the ROC curve the model is possible to distinguish between the binary classes but not super impressive. But overall the model performs surprisingly well considering the classification problem. 
 
 <iframe src="ML_feature.html"
     sandbox="allow-same-origin allow-scripts"
