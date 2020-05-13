@@ -158,14 +158,13 @@ We will now try to use all the information gathered in the previous sections to 
 
 No more motivation lets get to it. It might get a bit technical but hold on in. We are predicting on the “NUMBER OF INJURY” column and have transformed the column into a binary variable by combining all injuries over 0 to 1. Therefore, it has been made into a binary classification problem. 
 It was showed that boroughs, time, day of the week, age, contributing factors and vehicle type all influenced traffic incidents and injuries. We therefore chose to use these features in our model. In addition to these features we also incorporated weather conditions such as temperature, humidity, wind speed and description of the weather e.g. Rain, thunder, snow and sun. 
-The model we achieved the best results from was the random forest classifier from SciKit learn. 
+The model we achieved the best results from was the random forest classifier from SciKit learn. With that model we achieved following results: 
 
 
 
 ![confmatrix](Confusion_ROC.png)
 
-
-bla bla bla something with weather model and it didnt predict better
+A confusion matrix is a table that is often used to describe the performance of a classification model. It allows easy identification of confusion between the classes. In our case we can see it predict 87% of its non-injury predictions correctly and 69% of its injury predictions correctly. In addition to this from the ROC curve the model is possible to distinguish between the binary classes but not super impressive. But overall the model performs surprisingly well considering the classification problem. 
 
 <iframe src="ML_feature.html"
     sandbox="allow-same-origin allow-scripts"
