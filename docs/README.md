@@ -89,12 +89,22 @@ We all know the prejudice about young males and fast cars, but there's actually 
 Phew, that was a lot of static bar plots! I think it's time for some interactive plots. In the following map, we have plotted the individual crashes on a Google Maps looking plot, where each crash is categorized by where it happened, how many people got injured in the crash, why the crash happened and what kind of vehicle was involved. The color of the initial circles represent the density of crashes, wh
 <iframe src="interaktivfoliummap.html"
     sandbox="allow-same-origin allow-scripts"
-    width="100%"
+    align = "right"
     height="600"
     scrolling="no"
     seamless="seamless"
     frameborder="0">
 </iframe>
+
+<iframe src="interaktivfoliummap.html"
+    sandbox="allow-same-origin allow-scripts"
+    align = "right"
+    height="600"
+    scrolling="no"
+    seamless="seamless"
+    frameborder="0">
+</iframe>
+
 
 Have a look around, and try to see if you can spot some of the interesting cases we talked about earlier (Hint: the 43 persons injured crash happened on Herkimer Street in Brooklyn, which can be found west of the Cemetery of the Evergreens along Atlantic Avenue).
 
