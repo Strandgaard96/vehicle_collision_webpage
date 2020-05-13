@@ -59,7 +59,7 @@ Building upon the crashes in the boroughs, we have plotted the yearly developmen
     sandbox="allow-same-origin allow-scripts"
     width="50%"
 	align = "left"
-    height="325"
+    height="400"
     scrolling="no"
     seamless="seamless"
     frameborder="0">
@@ -69,7 +69,7 @@ Building upon the crashes in the boroughs, we have plotted the yearly developmen
     sandbox="allow-same-origin allow-scripts"
     width="50%"
 	align = "right"
-    height="325"
+    height="400"
     scrolling="no"
     seamless="seamless"
     frameborder="0">
@@ -79,7 +79,7 @@ Building upon the crashes in the boroughs, we have plotted the yearly developmen
     sandbox="allow-same-origin allow-scripts"
     width="50%"
 	align = "left"
-    height="325"
+    height="400"
     scrolling="no"
     seamless="seamless"
     frameborder="0">
@@ -89,7 +89,7 @@ Building upon the crashes in the boroughs, we have plotted the yearly developmen
     sandbox="allow-same-origin allow-scripts"
     width="50%"
 	align = "right"
-    height="325"
+    height="400"
     scrolling="no"
     seamless="seamless"
     frameborder="0">
