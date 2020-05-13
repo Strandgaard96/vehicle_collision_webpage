@@ -96,7 +96,7 @@ Phew, that was a lot of static bar plots! I think it's time for some interactive
     frameborder="0">
 </iframe>
 
-Have a look around, and try to see if you can spot some of the interesting cases we talked about earlier (hint: the insane 43 persons injured crash happened on Herkimer Street in Brooklyn!)
+Have a look around, and try to see if you can spot some of the interesting cases we talked about earlier (Hint: the 43 persons injured crash happened on Herkimer Street in Brooklyn, which can be found west of the Cemetery of the Evergreens along Atlantic Avenue).
 
 ### Dangerous roads
 We now turn our attention to the roads in New York. It is expected that some roads are more prone to have accidents than others,
