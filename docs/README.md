@@ -158,7 +158,7 @@ In this section we will therefore investigate the possibility of predicting whet
 To do this two different machine learning models are used and tested on different feature sets. We are predicting on the "NUMBER OF INJURY" column and have transformed the column into a binary variable by combining all injuries over 0 to 1. Therefore it has been made into a binary classification problem. 
 
 
-![confmatrix](Confusion_Coc.png)
+![confmatrix](Confusion_ROC.png)
 
 
 bla bla bla something with weather model and it didnt predict better
