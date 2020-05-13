@@ -9,7 +9,7 @@ The questions we will try to answer are; Where are the crashes happening? What a
 
 Some more introduction here ?  
 
-All vizualisations generated in this study can be found at INSERT REF EXP NOTEBOOK. 
+All vizualisations generated in this study can be found at INSERT REF EXP NOTEBOOK. The data itself can be found here [Crash Data](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95), [Vehicle Data](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Vehicles/bm4k-52h4) and [Persons Data](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Person/f55k-p6yu).
 
 
 ## New York through data
