@@ -54,6 +54,15 @@ vehicle accidents [Vision zero](https://www1.nyc.gov/content/visionzero/pages/).
 This could either mean that the program was not very succesfull or that this program increased awareness around vehicle accidents leading to
 more accidents beeing registered/reported without a significant change in actual accident numbers.
 
+<iframe src="yearly_borough.html"
+    sandbox="allow-same-origin allow-scripts"
+    width="100%"
+    height="500"
+    scrolling="no"
+    seamless="seamless"
+    frameborder="0">
+</iframe>
+
 ### Age group and gender distribution
 <iframe src="Crashes_agegroups.html"
     sandbox="allow-same-origin allow-scripts"
@@ -116,14 +125,7 @@ the crashes for the top three dangerous roads in each borough are visualized in 
     frameborder="0">
 </iframe>
 
-<iframe src="yearly_borough.html"
-    sandbox="allow-same-origin allow-scripts"
-    width="100%"
-    height="500"
-    scrolling="no"
-    seamless="seamless"
-    frameborder="0">
-</iframe>
+
 
 
 
