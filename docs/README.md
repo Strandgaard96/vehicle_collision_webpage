@@ -90,6 +90,7 @@ Phew, that was a lot of static bar plots! I think it's time for some interactive
 
 <iframe src="interaktivfoliummap.html"
     sandbox="allow-same-origin allow-scripts"
+	width="100%"
     height="600"
     scrolling="no"
     seamless="seamless"
