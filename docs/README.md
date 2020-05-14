@@ -35,7 +35,7 @@ As mentioned, lots of car crashes happen every day in NYC. In fact, so many happ
 By using the data freely available to us, we hope to broaden ours and yours understanding of the city based solely on the car crash data sets. A big task, we know, but stay with us!
 
 ## Basic statistics 
-The goal of the following visualizations is primarily to get you, the reader, up to speed on how the distribution of car crashes looks like in NYC. What is the maximum number of people killed in a single car crash? What is the maximum number injured? How do the different age groups fare in the statistics? Where do most of the car crashes happen? Lots of plots, but they hide some very interesting information if analyzed a bit!
+The goal of the following visualizations is primarily to get you, the reader, up to speed on how the distribution of car crashes looks like in NYC. What is the maximum number of people killed in a single car crash? What is the maximum number injured? How do the different age groups fare in the statistics? Where do most of the car crashes happen? Lots of plots, but they contain some fascinating information!
 
 
 ### Crash distribution heatmap
@@ -69,9 +69,8 @@ Furthermore, the number of traffic accidents across the 5 boroughs in NYC are pl
 
 Building upon the crashes in the boroughs, we have plotted the yearly development for each borough, where the success in reducing the number of crashes for i.e. Manhattan over the years can be seen. This could be due to a program initialized in 2014 called 'Vision Zero', which was aimed at reducing the amount of injuries related to vehicle accidents. A link to the program can be found [here](https://www1.nyc.gov/content/visionzero/pages/). This program continues to this day, and employs increased traffic control (harder penalties for speeding, failing to yield to pedestrians etc.). As such, it wouldn't surprise us if this is the cause of this drop in injuries.
 
-
-
-### Cloropleth maps
+### Borough maps 
+Another interesting aspect of these reported injuries, is how the types of injuries are distributed in the borougs. The below visualizations show injury percentages for different injury types.   
 
 <iframe src="inj.html"
     sandbox="allow-same-origin allow-scripts"
@@ -113,6 +112,7 @@ Building upon the crashes in the boroughs, we have plotted the yearly developmen
     frameborder="0">
 </iframe>
 
+COMMENT HERE
 
 
 ## Age group and gender distribution
@@ -145,9 +145,7 @@ Phew, that was a lot of static bar plots! I think it's time for some interactive
 Have a look around, and try to see if you can spot some of the interesting cases we talked about earlier (Hint: the 43 persons injured crash happened on Herkimer Street in Brooklyn, which can be found west of the Cemetery of the Evergreens along Atlantic Avenue, the marker is colored red).
 
 ### Dangerous roads
-We now turn our attention to the roads in New York. It is expected that some roads are more prone to have accidents than others,
-due to factors like heavy traffic, poor road conditions, traffic nodes etc. 
-The figure below shows the roads with the highest accident counts for each borough.
+We now turn our attention to the roads in New York. It is expected that some roads are more prone to have accidents than others, due to factors like heavy traffic, poor road conditions, traffic nodes etc. The figure below shows the roads with the highest accident counts for each borough.
 
 <iframe src="Dangerous.html"
     sandbox="allow-same-origin allow-scripts"
@@ -162,7 +160,7 @@ For near all boroughs, there are one or two roads responsible for a large portio
 **Queens Boulevard** have around 100% and 50% more crashes than **Woodhaven Boulevard**. 
 Unless the reader is very well versed in New Yorks street plan, the location and
 names of these roads are likely unfamiliar. To better get a picture of the location and length of these roads,
-the crashes for the top three dangerous roads in each borough are visualized in a map below. 
+the crashes for the top three dangerous roads in each borough in 2016 are visualized in two maps below. To open the map in a separate tab simply click [here](./roadmap.html). Try to click around, notice anything that seems odd?
 
 <iframe src="roadmap.html"
     sandbox="allow-same-origin allow-scripts"
@@ -173,7 +171,13 @@ the crashes for the top three dangerous roads in each borough are visualized in 
     frameborder="0">
 </iframe>
 
-[Map containing crashes at dangerous roads](./roadmap.html)
+For both the southern and northern boroughs the road outlines are clearly visible and the crashes are happening on almost all parts of the roads over the span of a year. Many locations also have more than one crash happen at the same coordinates. 
+Especially cross-sections seem to be a hotspot for multiple crashes. Take for example the cross-section between **Northern Bouleward** and **Broadway** at (-73.90,40.75) where over 10 accidents happened in 2016. 
+
+To some surprise, the map also shows a fair amount of outliers that reveal errors in the data. At (-73.87,40.67) in Queens there are three separate crashes having these coordinates, even though the roads are **Broadway** and **3 Avenue**  and the borough is Bronx. This is a good example of human error in the data and we can only guess what the reason behind this error is. Perhaps there is a police precinct at this location? Or maybe it is the home adress of people involved in the crash ? 
+Unfortunately we will never know. The amount of these corrupted data points are low, which makes them reglible in the analysises containing these variables. 
+
+
 
 ## Temporal distributions of the car crashes
 The final set of visualizations pertaining to the raw data are the temporal developments of causes of crashes and vehicle types involved. The data is sorted by the hour of the day, day of the week and months of the year, all separated into separate tabs. The contribution factors and vehicle types are selected by taking the top 14 and 11 causes of crashes, respectively. Click on the interactive legends to see how bar plots vary across hours, weeks and months.
