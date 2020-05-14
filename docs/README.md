@@ -180,19 +180,19 @@ The final set of visualizations pertaining to the raw data are the temporal deve
 </iframe>
 
 **Our observations:**
-* If we sort by hours of the day, most of the violations shows the rush hour trafic pattern very clearly. For instance, for 'Driver Inattention/Distraction' the number of crashes increases between 8-9 am (morning rush hour) then drops slightly before increasing again around 4-6 pm.
-* In contrast, if we look at the hourly pattern from the 'Alcohol Involvement', the inverse pattern is seen where the wee hours of the morning see the largest number of crashes (our guess is people driving home from a night out).
+* If we sort by hours of the day, most of the violations shows the rush hour traffic pattern very clearly. For instance, for 'Driver Inattention/Distraction' the number of crashes increases between 8-9 am (morning rush hour) then drops slightly before increasing again around 4-6 pm.
+* In contrast, if we look at the hourly pattern from the 'Alcohol Involvement', the inverse pattern is seen where the week hours of the morning see the largest number of crashes (our guess is people driving home from a night out).
 * We can also see that the weekly 'Alcohol Involvement' pattern sees an increase over the weekend in number of crashes, whereas 'Driver Inattention/Distraction' slightly drops over the weekend.
 * Another interesting pattern is the crashes where a bicycle or a motorbike was involved. If we sort by months, we can see that this type of crash increases over the summer months (better weather means more people on bicycles/motorbikes).
-* Furthermore, sorting by 'Bus' by weeks, we can see that most of the bus crashes are happening on workdays of the week, where an increased number of busses are sent in to accomodate the work-commuters.
+* Furthermore, sorting by 'Bus' by weeks, we can see that most of the bus crashes are happening on workdays of the week, where an increased number of busses are sent in to accommodate the work-commuters.
 
 
 ### Summary of important data features
-Now that we have seen a lot of plots of the data, and visualized it in a lot of different ways, we thought it a good idea to quickly summarize our finds and also discuss why we did the visualizations in the first place! As the aim was to visualize and model the trends in the data, we needed to filter the important features from the redundant.
+Now that we have seen a lot of plots of the data, and visualized it in a lot of different ways, we thought it a good idea to quickly summarize our findings and also discuss why we did the visualizations in the first place! As the aim was to visualize and model the trends in the data, we needed to filter the important features from the redundant.
 
-Firstly, we saw a temporal dependency on some of the contributing factors and vehicle types on the number of crashes, indicating that i.e. alcohol involvement or bicycles were good features to look at when selecting important features for a model. Furthermore, we found that age had a very distinct impact on number of crashes and finally that the number of crashes were very dependant on where in NYC you were looking, i.e. GPS coordinates or just the borough. 
+Firstly, we saw a temporal dependency on some of the contributing factors and vehicle types on the number of crashes, indicating that i.e. alcohol involvement or bicycles were good features to look at when selecting important features for a model. Furthermore, we found that age had a very distinct impact on the number of crashes and finally that the number of crashes was very dependant on where in NYC you were looking, i.e. GPS coordinates or just the borough. 
 
-To summarize, some of the variables seemed to be correlated with the number of crashes, which, combined with the assumption that a high number of crashes leads to a higher chance of an injury occuring, layed the foundations of the predictive modelling to come.
+To summarize, some of the variables seemed to be correlated with the number of crashes, which, combined with the assumption that a high number of crashes leads to a higher chance of an injury occurring, made the foundations of the predictive modelling to come.
 
 
 ## Machine learning 
