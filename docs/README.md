@@ -226,3 +226,5 @@ How the model uses the features to distinguish between the classes can be tough 
 
 ![](MLchoro.png) ![](choro_colors.PNG)
 
+Overall, we are quite satisfied with the model performance considering traffic injuries could be a stochastic manner. But it was possible to distinguish with some accuracy between the two different classes. 
+
