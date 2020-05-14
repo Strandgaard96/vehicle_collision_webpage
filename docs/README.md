@@ -33,7 +33,7 @@ As mentioned, lots of car crashes happen every day in NYC. In fact, so many happ
 </iframe>
 
 
-By using the data freely available to us, we hope to broaden ours and yours understanding of the city based solely on the car crash data sets. A big task, we know, but stay with us!
+By using the data freely available to us, we hope to broaden ours and your understanding of the city based solely on the car crash data sets. A big task, we know, but stay with us!
 
 ## Basic statistics 
 The goal of the following visualizations is primarily to get you, the reader, up to speed on how the distribution of car crashes looks like in NYC. What is the maximum number of people killed in a single car crash? What is the maximum number injured? How do the different age groups fare in the statistics? Where do most of the car crashes happen? Lots of plots, but they contain some fascinating information!
