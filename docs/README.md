@@ -190,28 +190,25 @@ The final set of visualizations pertaining to the raw data are the temporal deve
 
 
 ### Summary of important data features
-Now that we have seen a lot of plots of the data, visualized in a lot of different ways, we thought it a good idea to quickly summarize our finds and also why we did the visualizations in the first place!
-Firstly, 
+Now that we have seen a lot of plots of the data, and visualized it in a lot of different ways, we thought it a good idea to quickly summarize our finds and also discuss why we did the visualizations in the first place! As the aim was to visualize and model the trends in the data, we needed to filter the important features from the redundant.
 
-we saw a temporal dependency on some of the contributing factors and vehicle types on the number of crashes
-we found that age had a very distinct impact on number of crashes
-finally that the number of crashes were very dependant on where in NYC you were looking
+Firstly, we saw a temporal dependency on some of the contributing factors and vehicle types on the number of crashes, indicating that i.e. alcohol involvement or bicycles were good features to look at when selecting important features for a model. Furthermore, we found that age had a very distinct impact on number of crashes and finally that the number of crashes were very dependant on where in NYC you were looking, i.e. GPS coordinates or just the borough. 
 
-In essence, that we could see a correlation between these variables and the number of crashes. The final assumption would then be that more crashes leads to higher chance of injury, which is what the ML model would attempt to predict in a binary classification model.
+To summarize, some of the variables seemed to be correlated with the number of crashes, which, combined with the assumption that a high number of crashes leads to a higher chance of an injury occuring, layed the foundations of the predictive modelling to come.
+
 
 ## Machine learning 
 
-We will now try to use all the information gathered in the previous sections to make a machine learning model for traffic injuries.  We have chosen to see if it’s possible to make a model that predict whether an injury will occur in a traffic accident. Our hypothesis is that traffic injuries don’t arise in a purely stochastic manner. It is believed their occurrence is influenced by a multitude of factors such as drivers’ physical conditions, car types, traffic condition and weather. This is based on all the interesting founding we have discovered so far. Such as the reckless young drivers, the dangerous roads and the time distributions of accidents. All these findings let us to believe this model would be possibly to do. 
+We will now try to use all the information gathered in the previous sections to make a machine learning model for traffic injuries.  As mentioned, we have chosen to see if it’s possible to make a model that predict whether an injury will occur in a traffic accident. Our hypothesis is that traffic injuries don’t arise in a purely stochastic manner, meaning that they're not random. It is believed their occurrence is influenced by a multitude of factors such as drivers’ physical conditions, car types, traffic condition and weather. This is based on all the interesting trends we have discovered so far. Such as the reckless young drivers, the dangerous roads and the time distributions of accidents. All these findings let us to believe this model would be feasible. 
 
-No more motivation lets get to it. It might get a bit technical but hold on in. We are predicting on the number of injuries and have transformed it into a binary variable by combining all injuries over 0 to 1. Therefore, it has been made into a binary classification problem.  
-It was showed that boroughs, time, day of the week, age, contributing factors and vehicle type all influenced traffic incidents and injuries. We therefore chose to use these features in our model. In addition to these features we also incorporated weather conditions such as temperature, humidity, wind speed and description of the weather e.g. Rain, thunder, snow and sun. 
-The model we achieved the best results from was the random forest classifier from SciKit learn. With that model we achieved following results: 
+Enough small-talk, lets get to it! The model is attempting to predict whether an injury will occur, not the number of persons injured. As such, we have used the 'NUMBER OF PERSONS INJURED' column in the data, and binned all values above 1 to 1, thus turning it into a binary classification problem (injury or no injury). It was shown that boroughs, time, day of the week, age, contributing factors and vehicle type all influenced traffic incidents and injuries. We therefore chose to use these features in our model. In addition to these features, we also incorporated weather conditions such as temperature, humidity, wind speed and description of the weather e.g. rain, thunder, snow and sun. 
+The model we achieved the best results from was the Random Forest classifier from SciKit learn. To quickly summarize, the Random Forest classifier attempts to divide the data into reasonable sections using a decision tree, much like how a doctor would diagnose a disease. The algorithm then performs this modelling sequence a number of times and then takes the average as the final model. With such a model, we achieved the following results. 
 
 
 
 ![confmatrix](Confusion_ROC.png)
 
-A confusion matrix is a table that is often used to describe the performance of a classification model. It allows easy identification of confusion between the classes. In our case we can see it predict 87% of its non-injury predictions correctly and 69% of its injury predictions correctly. In addition to this from the ROC curve the model is possible to distinguish between the binary classes but not super impressive. But overall the model performs surprisingly well considering the classification problem. '
+To evaluate the model performance, we look at two figures; the confusion matrix and the reciever operations characteristics curve (ROC). A confusion matrix is a table that is often used to describe the performance of a classification model. It allows easy identification of confusion between the classes. In our case we can see it predict 87% of its non-injury predictions correctly and 69% of its injury predictions correctly. In addition to this, from the ROC curve the model is able to correctly distinguish between the binary classes 86% of the time. But overall the model performs surprisingly well considering the classification problem.
 From the feature importance we can see which features the model find most important. Try hover on the graph below to find out. You will discover features such as person type, latitude, longitude and some of the weather features play an important role. 
 
 
