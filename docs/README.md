@@ -15,8 +15,9 @@ More specifically, we ask the following questions;
     * Alcohol involvement and outside-of-the-car distractions are looked into.
 * What vehicles are often involved?
     * A large number of vehicle types are reported in the crash data sets.
+* Is it possible to model whether or not a trafic accident will result in an injury or not?
 
-All vizualisations generated in this study can be found at INSERT REF EXP NOTEBOOK.
+All vizualisations and modelling along with the code in this study can be found at INSERT REF EXP NOTEBOOK.
 
 
 ## New York through data
@@ -37,20 +38,6 @@ By using the data freely available to us, we hope to broaden ours and yours unde
 ## Basic statistics 
 The goal of the following visualizations is primarily to get you, the reader, up to speed on how the distribution of car crashes looks like in NYC. What is the maximum number of people killed in a single car crash? What is the maximum number injured? How do the different age groups fare in the statistics? Where do most of the car crashes happen? Lots of plots, but they contain some fascinating information!
 
-
-### Crash distribution heatmap
-Now we move on to the more number-heavy plots, where the number of crashes in each month (1 being January and 12 being December) are shown for the time period 2012-2020.
-
-![Heat map](output.png)
-
-The thing worth noticing here is the smaller amount of accidents early in the year and the increase in reported 
-accidents from 2015 to 2018 (the increase in dark colors). The summer of 2016-2018 saw an increase of around
-1500-2000 accidents compared to earlier years. It is difficult to predict what the main contributing factors were here. 
-Our initial guess was that higher temperatures in this period could contribute to higher outside traffic. However,
-according to the National Wheather Service, the summers of 2016-2018 in New York were not distinctly warmer than previous
-years [Central Park annual temperatures](https://www.weather.gov/media/okx/Climate/CentralPark/monthlyannualtemp.pdf). In reference to the 'Vision Zero' program, another explanation could be that the program was not very successful, or that the program has increased general traffic awareness leading to an increase in reported/registered accidents corresponding to the effectiveness of the employment of the program.
-
-
 ### Injuries and distribution in the boroughs
 Using the data sets, we have plotted the number of persons, pedestrians, cyclists and motorists injured along with the number of persons killed on a logarithmic plot. This gives us a feeling for how many crashes are severe in the sense that they inflict injuries or even deaths. Fortunately, most crashes across all the traffic groups are seen to be non-lethal and even non-harmful. But still, a significant number of them result in an injury, and a few of them even have multiple people injured. If we look at the last columns of the persons, pedestrians and motorist plots, we can see a few which have a lot of people involved in the crash (43 persons injured in the same car crash!).
 
@@ -68,6 +55,21 @@ Furthermore, the number of traffic accidents across the 5 boroughs in NYC are pl
 </iframe>
 
 Building upon the crashes in the boroughs, we have plotted the yearly development for each borough, where the success in reducing the number of crashes for i.e. Manhattan over the years can be seen. This could be due to a program initialized in 2014 called 'Vision Zero', which was aimed at reducing the amount of injuries related to vehicle accidents. A link to the program can be found [here](https://www1.nyc.gov/content/visionzero/pages/). This program continues to this day, and employs increased traffic control (harder penalties for speeding, failing to yield to pedestrians etc.). As such, it wouldn't surprise us if this is the cause of this drop in injuries.
+
+### Crash distribution heatmap
+The first plot shown here is a so called heat map, to get a feel for how the number of crashes vary over the months in a year for all the years in which the data has been gather. In the plot, month 1 is January and 12 is December.
+
+![Heat map](output.png)
+
+The thing worth noticing here is the smaller amount of accidents early in the year and the increase in reported 
+accidents from 2015 to 2018 (the increase in dark colors). The summer of 2016-2018 saw an increase of around
+1500-2000 accidents compared to earlier years. It is difficult to predict what the main contributing factors were here. 
+Our initial guess was that higher temperatures in this period could contribute to an increase in traffic. However,
+according to the National Wheather Service, the summers of 2016-2018 in New York were not distinctly warmer than previous
+years [Central Park annual temperatures](https://www.weather.gov/media/okx/Climate/CentralPark/monthlyannualtemp.pdf). In reference to the 'Vision Zero' program, another explanation could be that the program was not very successful, or that the program has increased general traffic awareness leading to an increase in reported/registered accidents corresponding to the effectiveness of the employment of the program.
+
+
+
 
 ### Borough maps 
 Another interesting aspect of these reported injuries, is how the types of road users are involved in the crashes in the boroughs. We imagine that there could be some correlation between borough and whether the injured persons are pedestrians/cyclists/motorists. The visualizations below show injury percentages for different road users in each borough.    
