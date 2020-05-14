@@ -206,6 +206,7 @@ Enough small-talk, lets get to it! The model is attempting to predict whether an
 The model we achieved the best results from was the Random Forest classifier from SciKit learn. To quickly summarize, the Random Forest classifier attempts to divide the data into reasonable sections using a decision tree, much like how a doctor would diagnose a disease to produce a prediction of a given class (here this would be either injury og non-injury). 
 
 ![RF](RF.png)
+([source](https://medium.com/@williamkoehrsen/random-forest-simple-explanation-377895a60d2d))
 
 The algorithm then performs this modelling sequence a number of times and then takes the average as the final model. With such a model, we achieved the following results. 
 
@@ -232,5 +233,8 @@ How the model uses the features to distinguish between the classes can be tough 
 
 As we can see on the map the model is highly effective in some areas, this could be due to some of the dangerous intersections where the model can distinguish for injuries.  On top of that the model tells us an increased focus should be on bicycle safety since it has an high feature importance and fatigued drivers. 
 
-Overall, we are quite satisfied with the model performance considering traffic injuries could be stochastic. But it was possible to distinguish with some accuracy between the two different classes and this knowledge could lead to increased safety for i.e. bicyclists in some of the heavily traficked areas of NYC. 
+
+## What is it good for! Absolutely nothing?
+Overall, we are quite satisfied with the model performance considering traffic injuries could be stochastic in nature. But we were able to capture some of the underlying structure of the data in the Random Forest classifier, enabling us to predict whether a crash would involve an injury or not with an overall accuracy of about 86%. So what can we use it for?
+One approach to this, is to look at the features that the model thought more important, and buckle down on initiatives in line with what 'Vision Zero' has implemented over the years. But to increase efficiency, based on the map of NYC with the model predictions above, the city could focus it's resources on areas where the likelihood of having an injury is higher. An example could be increasing safety measures for bus lanes, bicyle lanes etc. or to build pedestrian islands with protective fence around it to reduce the chance of being hit by a car in which the driver was fatigued/drowsy (as this feature was highlighted by the model).
 
