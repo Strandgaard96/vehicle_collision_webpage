@@ -57,7 +57,7 @@ Furthermore, the number of traffic accidents across the 5 boroughs in NYC are pl
 Building upon the crashes in the boroughs, we have plotted the yearly development for each borough, where the success in reducing the number of crashes for i.e. Manhattan over the years can be seen. This could be due to a program initialized in 2014 called 'Vision Zero', which was aimed at reducing the amount of injuries related to vehicle accidents. A link to the program can be found [here](https://www1.nyc.gov/content/visionzero/pages/). This program continues to this day, and employs increased traffic control (harder penalties for speeding, failing to yield to pedestrians etc.). As such, it wouldn't surprise us if this is the cause of this drop in injuries.
 
 ### Crash distribution heatmap
-The first plot shown here is a so called heat map, to get a feel for how the number of crashes vary over the months in a year for all the years in which the data has been gather. In the plot, month 1 is January and 12 is December.
+Next, we show a so called heat map, to get a feel for how the number of crashes vary over the months in a year for all the years in which the data has been gather. In the plot, month 1 is January and 12 is December.
 
 ![Heat map](output.png)
 
@@ -67,8 +67,6 @@ accidents from 2015 to 2018 (the increase in dark colors). The summer of 2016-20
 Our initial guess was that higher temperatures in this period could contribute to an increase in traffic. However,
 according to the National Wheather Service, the summers of 2016-2018 in New York were not distinctly warmer than previous
 years [Central Park annual temperatures](https://www.weather.gov/media/okx/Climate/CentralPark/monthlyannualtemp.pdf). In reference to the 'Vision Zero' program, another explanation could be that the program was not very successful, or that the program has increased general traffic awareness leading to an increase in reported/registered accidents corresponding to the effectiveness of the employment of the program.
-
-
 
 
 ### Borough maps 
@@ -115,14 +113,14 @@ Another interesting aspect of these reported injuries, is how the types of road 
 </iframe>
 
 The topleft image shows similar information as the *Injuries by Year and Borough* plot above.
-Brooklyn has the highest amount of injuries in this period. However, when looking at road users, Brooklyn is quite average. 
+Brooklyn has the highest amount of injuries in this period. However, when looking at road users, Brooklyn is quite average. Further observations are:
 
 * Manhatten has a high percentage of pedestrians and cyclists getting injured compared to other boroughs. 
 * All boroughs have a high percentage of motorists getting injured, with manhatten the lowest of 40 %. Staten Island have a whole 82% of motorists getting injured! At the same time, scoring low percentages for pedestrians and cyclists.
 
 
 ## Age group and gender distribution
-Now, we look into another part of the data set, namely the data about the people involved in the crash. We have chosen to look at the drivers of the vehicles involved in the crashes, more specifically their age and genders, to attempt to discern if there are any patterns. The drivers are split into age groups for each gender (male/female), which are then normalized by the actual number of people in NYC within that age group (specific numbers are found [here](https://www.baruch.cuny.edu/nycdata/population-geography/age_distribution.htm)). This gives us a realistic method of comparing the number of crashes per people now found in each bar to a bar in a different age group. However, as we don't know how many people in a given age group have a drivers license and own a vehicle, there's still some error here, but we have unfortunately not been able to find such numbers.
+Now, we look into another part of the data set, namely the data about the people involved in the crash. We have chosen to look at the drivers of the vehicles involved in the crashes, more specifically their age and genders, to attempt to discern if there are any patterns. The drivers are split into age groups for each gender (male/female), which are then normalized by the actual number of people in NYC within that age group (specific numbers are found [here](https://www.baruch.cuny.edu/nycdata/population-geography/age_distribution.htm)). This gives us a realistic method of comparing the number of crashes per 1000 people now found in each bar to a bar in a different age group. However, as we don't know how many people in a given age group have a drivers license and own a vehicle, there's still some error here, but we have unfortunately not been able to find such numbers.
 
 <iframe src="Crashes_agegroups.html"
     sandbox="allow-same-origin allow-scripts"
@@ -133,7 +131,7 @@ Now, we look into another part of the data set, namely the data about the people
     frameborder="0">
 </iframe>
 
-We all know the prejudice about young males and fast cars, but there's actually something to it! We can see a vast majority of the crashes has a male driver between the age of 20 and 24 involved in the crash, whereas the older males have a significantly lower amount of car crashes to their names. Funnily enough, we can see the same trend for young females! We can see that young males in this age group are involved in more than 3 times the amount of car crashes compared to their female counterparts, but when we look at the trend for females themselves, they also appear to be involved in more crashes when compared to their older age groups. As such, the same trend is visible for both males and females.
+We all know the prejudice about young males and fast cars, but there's actually something to it! We can see a large amount of the crashes has a male driver between the age of 20 and 24 involved in the crash, whereas the older males have a significantly lower amount of car crashes to their names. Funnily enough, we can see the same trend for young females! We can see that young males in this age group are involved in more than 3 times the amount of car crashes compared to their female counterparts, but when we look at the trend for females themselves, they also appear to be involved in more crashes when compared to their older age groups. As such, the same trend is visible for both males and females.
 
 ## Spatial distribution of the car crashes
 Phew, that was a lot of static bar plots! I think it's time for some interactive plots. In the following map, we have plotted the individual crashes on a map, where each crash is categorized by where it happened, how many people got injured in the crash, why the crash happened and what kind of vehicle was involved. The color of the initial circles represents the density of crashes, with a number corresponding to the crashes in a given area.
@@ -148,7 +146,7 @@ Phew, that was a lot of static bar plots! I think it's time for some interactive
 </iframe>
 
 
-Have a look around, and try to see if you can spot some of the interesting cases we talked about earlier (Hint: the 43 persons injured crash happened on Herkimer Street in Brooklyn, which can be found west of the Cemetery of the Evergreens along Atlantic Avenue, the marker is colored red).
+Have a look around, and try to see if you can spot some of the interesting cases we talked about earlier (Hint: the 43 persons injured crash happened on Herkimer Street in Brooklyn, which can be found west of the Cemetery of the Evergreens along Atlantic Avenue with a marker colored red).
 
 ### Dangerous roads
 We now turn our attention to the roads in New York. It is expected that some roads are more prone to have accidents than others, due to factors like heavy traffic, poor road conditions, traffic nodes etc. The figure below shows the roads with the highest accident counts for each borough.
@@ -219,14 +217,15 @@ We will now try to use all the information gathered in the previous sections to 
 
 Enough small-talk, lets get to it! The model is attempting to predict whether an injury will occur, not the number of persons injured. As such, we have used the 'NUMBER OF PERSONS INJURED' column in the data, and binned all values above 1 to 1, thus turning it into a binary classification problem (injury or no injury). It was shown that boroughs, time, day of the week, age, contributing factors and vehicle type all influenced traffic incidents and injuries. We therefore chose to use these features in our model. In addition to these features, we also incorporated weather conditions such as temperature, humidity, wind speed and description of the weather e.g. rain, thunder, snow and sun. At first glance, the weather conditions did not show any interesting dependencies of traffic incidents and therefore have not been presented earlier. However, from our assumptions that there must be a dependency it was chosen to be incorporated in the machine learning model. 
 
-The model we achieved the best results from was the Random Forest classifier from SciKit learn. To quickly summarize, the Random Forest classifier attempts to divide the data into reasonable sections using a decision tree, much like how a doctor would diagnose a disease to produce a prediction of a given class (here this would be either injury or non-injury). 
+### Predictive modelling
+The model we achieved the best results with was the Random Forest classifier. To quickly summarize, the Random Forest classifier attempts to divide the data into reasonable sections using a decision tree, much like how a doctor would diagnose a disease to produce a prediction of a given class (here this would be either injury or non-injury). 
 
 ![RF](RF.png)
 ([source](https://medium.com/@williamkoehrsen/random-forest-simple-explanation-377895a60d2d))
 
 The algorithm then performs this modelling sequence a number of times and then takes the average as the final model. With such a model, we achieved the following results. 
 
-
+### Results
 ![confmatrix](Confusion_ROC.png)
 
 To evaluate the model performance, we look at two figures; the confusion matrix and the receiver operations characteristics curve (ROC). A confusion matrix is a table that is often used to describe the performance of a classification model. It allows for easy identification of confusion between the classes. In our case, we can see it predict 87% of its non-injury predictions correctly and 69% of its injury predictions correctly. In addition to this, from the ROC curve, the model can correctly distinguish between the binary classes 78% of the time. Overall the model performs surprisingly well considering the classification problem.
@@ -250,7 +249,7 @@ How the model uses the features to distinguish between the classes can be tough 
 As we can see on the map the model is highly effective in some areas, this could be due to some of the dangerous intersections where the model can distinguish for injuries.  On top of that the model tells us an increased focus should be on bicycle safety since it has an high feature importance and fatigued drivers. 
 
 
-## What is it good for! Absolutely nothing?
+## Final conclusions
 Overall, we are quite satisfied with the model performance considering traffic injuries could be stochastic in nature. But we were able to capture some of the underlying structure of the data in the Random Forest classifier, enabling us to predict whether a crash would involve an injury or not with an overall accuracy of about 86%. So what can we use it for?
 One approach to this, is to look at the features that the model thought more important, and buckle down on initiatives in line with what 'Vision Zero' has implemented over the years. But to increase efficiency, based on the map of NYC with the model predictions above, the city could focus its resources on areas where the likelihood of having an injury is higher. An example could be increasing safety measures for bus lanes, bicycle lanes etc. or to build pedestrian islands with a protective fence around it to reduce the chance of being hit by a car in which the driver was fatigued/drowsy (as this feature was highlighted by the model).
 
