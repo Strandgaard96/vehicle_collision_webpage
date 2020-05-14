@@ -203,7 +203,7 @@ In essence, that we could see a correlation between these variables and the numb
 
 We will now try to use all the information gathered in the previous sections to make a machine learning model for traffic injuries.  We have chosen to see if it’s possible to make a model that predict whether an injury will occur in a traffic accident. Our hypothesis is that traffic injuries don’t arise in a purely stochastic manner. It is believed their occurrence is influenced by a multitude of factors such as drivers’ physical conditions, car types, traffic condition and weather. This is based on all the interesting founding we have discovered so far. Such as the reckless young drivers, the dangerous roads and the time distributions of accidents. All these findings let us to believe this model would be possibly to do. 
 
-No more motivation lets get to it. It might get a bit technical but hold on in. We are predicting on the “NUMBER OF INJURY” column and have transformed the column into a binary variable by combining all injuries over 0 to 1. Therefore, it has been made into a binary classification problem. 
+No more motivation lets get to it. It might get a bit technical but hold on in. We are predicting on the number of injuries and have transformed it into a binary variable by combining all injuries over 0 to 1. Therefore, it has been made into a binary classification problem.  
 It was showed that boroughs, time, day of the week, age, contributing factors and vehicle type all influenced traffic incidents and injuries. We therefore chose to use these features in our model. In addition to these features we also incorporated weather conditions such as temperature, humidity, wind speed and description of the weather e.g. Rain, thunder, snow and sun. 
 The model we achieved the best results from was the random forest classifier from SciKit learn. With that model we achieved following results: 
 
@@ -227,6 +227,8 @@ From the feature importance we can see which features the model find most import
 How the model uses the features to distinguish between the classes can be tough to figure out due to machine learning algorithms working like a black box. Instead we can try to figure out where in New York the model is most accurate and the best places for it to be implemented. In the choropleth map below a visual illustration of exactly this is shown. Here the colors indicating the percentual performance of the model in different New York communities. 
 
 ![](MLchoro.png) ![](choro_colors.PNG)
+
+As we can see on the map the model is highly effective in some areas, this could be due to some of the dangerous intersections where the model can distinguish for injuries.  On top of that the model tells us an increased focus should be on bicycle safety since it has an high feature importance and fatigued drivers. 
 
 Overall, we are quite satisfied with the model performance considering traffic injuries could be a stochastic manner. But it was possible to distinguish with some accuracy between the two different classes. 
 
