@@ -3,7 +3,7 @@
 
 Since 2012 more than 1,000,000 traffic accidents have occured in New York. 
 As a result of those accidents around 200,000 people have gotten injured. 
-In fact, traffic incidents are the leading cause of injuries in New York City INSERT CITATION HERE. 
+In fact, traffic incidents are the leading cause of injury related deaths in New York City, [cite](https://www.health.ny.gov/statistics/prevention/injury_prevention/traffic/county_of_residence.htm). 
 The aim of this project is to visualize, analyze and model the traffic incidents in order to find identifiable patterns that could aid the process of reducing the risk of injuries in New York City. 
 To enable this, the Motor Vehicle Collisions data sets from NYC database is used (the data can be found here: [Crash Data](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95), [Vehicle Data](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Vehicles/bm4k-52h4) and [Persons Data](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Person/f55k-p6yu)).
 
@@ -33,7 +33,7 @@ As mentioned, lots of car crashes happen every day in NYC. In fact, so many happ
 </iframe>
 
 
-By using the data freely available to us, we hope to broaden ours and yours understanding of the city based solely on the car crash data sets. A big task, we know, but stay with us!
+By using the data freely available to us, we hope to broaden ours and your understanding of the city based solely on the car crash data sets. A big task, we know, but stay with us!
 
 ## Basic statistics 
 The goal of the following visualizations is primarily to get you, the reader, up to speed on how the distribution of car crashes looks like in NYC. What is the maximum number of people killed in a single car crash? What is the maximum number injured? How do the different age groups fare in the statistics? Where do most of the car crashes happen? Lots of plots, but they contain some fascinating information!
