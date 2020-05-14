@@ -50,7 +50,7 @@ Furthermore, the number of trafic accidents across the 5 boroughs in NYC are plo
     frameborder="0">
 </iframe>
 
-Building upon the crashes in the boroughs, we have plotted the yearly development for each borough, where the succes in reducing the number of crashes for i.e. Manhattan can be seen. This could be due to a program initialized in 2014 called 'Vision Zero', which was aimed at reducing the amount of injuries related to vehicle accidents. A link to the program can be found [here](https://www1.nyc.gov/content/visionzero/pages/). This program continues to this day, and employs increased trafic control (harder penalties for speeding, failing to yield to pedestrians etc.). As such, it wouldn't surpise us if this is the cause of this drop in injuries.
+Building upon the crashes in the boroughs, we have plotted the yearly development for each borough, where the succes in reducing the number of crashes for i.e. Manhattan over the years can be seen. This could be due to a program initialized in 2014 called 'Vision Zero', which was aimed at reducing the amount of injuries related to vehicle accidents. A link to the program can be found [here](https://www1.nyc.gov/content/visionzero/pages/). This program continues to this day, and employs increased trafic control (harder penalties for speeding, failing to yield to pedestrians etc.). As such, it wouldn't surpise us if this is the cause of this drop in injuries.
 
 
 ### Cloropleth maps
@@ -108,13 +108,6 @@ Our initial guess was that higher temperatures in this period could contribute t
 according to the National Wheather Service, the summers of 2016-2018 in New York where not distinctly warmer than previous
 years [Central Park annual temperatures](https://www.weather.gov/media/okx/Climate/CentralPark/monthlyannualtemp.pdf). In reference to the 'Vision Zero' program, another explanation could be that the program was not very succesful, or that the program has increased general trafic awareness leading to an increase in reported/registered accidents corresponding to the effectiveness of the employment of the program.
 
-
-### Magnus' tekst del
-In 2014 New York initialized a 'Vision zero' program aimed at reducing the amount of injuries related to 
-vehicle accidents [Vision zero](https://www1.nyc.gov/content/visionzero/pages/). 
-This could either mean that the program was not very succesfull or that this program increased awareness around vehicle accidents leading to more accidents beeing registered/reported without a significant change in actual accident numbers.
-
-
 ## Age group and gender distribution
 Now, we look into another part of the data set, namely the data about the people involved in the crash. We have chosen to look at the drivers of the vehicles involved in the crashes, more specifically their age and genders, to attempt to discern if there are any patterns. The drivers are split into age groups for each gender (male/female), which are then normalized by the actual number of people in NYC within that age group (specific numbers are found [here](https://www.baruch.cuny.edu/nycdata/population-geography/age_distribution.htm)). This gives us a realistic method of comparing the number of crashes per people now found in each bar to a bar in a different age group. However, as we dont know how many people in a given age group have a drivers license and own a vehicle, there's still some error here, but we have unfortunately not been able to find such numbers.
 
@@ -130,7 +123,7 @@ Now, we look into another part of the data set, namely the data about the people
 We all know the prejudice about young males and fast cars, but there's actually something to it! We can see a vast majority of the crashes has a male driver between the age of 20 and 24 involved in the crash, whereas the older males has a significant lower amount of car crashes to their names. Funnily enough, we can see the same trend for young females! We can see that young males in this age group are involved in more than 3 times the amount of car crashes compared to their female counterparts, but when we look at the trend for females themselves, they also appear to be involved in more crashes when compared to their older age groups. As such, the same trend is visible for both males and females.
 
 ## Spatial distribution of the car crashes
-Phew, that was a lot of static bar plots! I think it's time for some interactive plots. In the following map, we have plotted the individual crashes on a Google Maps looking plot, where each crash is categorized by where it happened, how many people got injured in the crash, why the crash happened and what kind of vehicle was involved. The color of the initial circles represent the density of crashes, wh
+Phew, that was a lot of static bar plots! I think it's time for some interactive plots. In the following map, we have plotted the individual crashes on a map, where each crash is categorized by where it happened, how many people got injured in the crash, why the crash happened and what kind of vehicle was involved. The color of the initial circles represent the density of crashes, with a number corresponding to the crashes in a given area.
 
 <iframe src="interaktivfoliummap.html"
     sandbox="allow-same-origin allow-scripts"
@@ -195,7 +188,15 @@ The final set of visualizations pertaining to the raw data are the temporal deve
 * Furthermore, sorting by 'Bus' by weeks, we can see that most of the bus crashes are happening on workdays of the week, where an increased number of busses are sent in to accomodate the work-commuters.
 
 
+### Summary of important data features
+Now that we have seen a lot of plots of the data, visualized in a lot of different ways, we thought it a good idea to quickly summarize our finds and also why we did the visualizations in the first place!
+Firstly, 
 
+we saw a temporal dependency on some of the contributing factors and vehicle types on the number of crashes
+we found that age had a very distinct impact on number of crashes
+finally that the number of crashes were very dependant on where in NYC you were looking
+
+In essence, that we could see a correlation between these variables and the number of crashes. The final assumption would then be that more crashes leads to higher chance of injury, which is what the ML model would attempt to predict in a binary classification model.
 
 ## Machine learning 
 
