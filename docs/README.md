@@ -205,6 +205,7 @@ Enough small-talk, lets get to it! The model is attempting to predict whether an
 
 The model we achieved the best results from was the Random Forest classifier from SciKit learn. To quickly summarize, the Random Forest classifier attempts to divide the data into reasonable sections using a decision tree, much like how a doctor would diagnose a disease to produce a prediction of a given class (here this would be either injury og non-injury). 
 
+![RF](RF.png)
 
 The algorithm then performs this modelling sequence a number of times and then takes the average as the final model. With such a model, we achieved the following results. 
 
