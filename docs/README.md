@@ -219,7 +219,7 @@ The algorithm then performs this modelling sequence a number of times and then t
 
 ![confmatrix](Confusion_ROC.png)
 
-To evaluate the model performance, we look at two figures; the confusion matrix and the receiver operations characteristics curve (ROC). A confusion matrix is a table that is often used to describe the performance of a classification model. It allows for easy identification of confusion between the classes. In our case, we can see it predict 87% of its non-injury predictions correctly and 69% of its injury predictions correctly. In addition to this, from the ROC curve, the model can correctly distinguish between the binary classes 86% of the time. Overall the model performs surprisingly well considering the classification problem.
+To evaluate the model performance, we look at two figures; the confusion matrix and the receiver operations characteristics curve (ROC). A confusion matrix is a table that is often used to describe the performance of a classification model. It allows for easy identification of confusion between the classes. In our case, we can see it predict 87% of its non-injury predictions correctly and 69% of its injury predictions correctly. In addition to this, from the ROC curve, the model can correctly distinguish between the binary classes 78% of the time. Overall the model performs surprisingly well considering the classification problem.
 
 From the feature importance we can see which features the model find most important. You can hover over the graph below to find out. You will discover features such as person type, latitude, longitude and some of the weather features play an important role. 
 
