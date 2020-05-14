@@ -222,5 +222,7 @@ From the feature importance we can see which features the model find most import
     frameborder="0">
 </iframe>
 
+How the model uses the features to distinguish between the classes can be tough to figure out due to machine learning algorithms working like a black box. Instead we can try to figure out where in New York the model is most accurate and the best places for it to be implemented. In the choropleth map below a visual illustration of exactly this is shown. Here the colors indicating the percentual performance of the model in different New York communities. 
+
 ![](MLchoro.png) ![](choro_colors.PNG)
 
