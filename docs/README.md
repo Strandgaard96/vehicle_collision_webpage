@@ -70,7 +70,7 @@ Furthermore, the number of traffic accidents across the 5 boroughs in NYC are pl
 Building upon the crashes in the boroughs, we have plotted the yearly development for each borough, where the success in reducing the number of crashes for i.e. Manhattan over the years can be seen. This could be due to a program initialized in 2014 called 'Vision Zero', which was aimed at reducing the amount of injuries related to vehicle accidents. A link to the program can be found [here](https://www1.nyc.gov/content/visionzero/pages/). This program continues to this day, and employs increased traffic control (harder penalties for speeding, failing to yield to pedestrians etc.). As such, it wouldn't surprise us if this is the cause of this drop in injuries.
 
 ### Borough maps 
-Another interesting aspect of these reported injuries, is how the types of injuries are distributed in the borougs. The below visualizations show injury percentages for different injury types.   
+Another interesting aspect of these reported injuries, is how the types of road users are involved in the crashes in the boroughs. We imagine that there could be some correlation between borough and whether the injured persons are pedestrians/cyclists/motorists. The visualizations below show injury percentages for different road users in each borough.    
 
 <iframe src="inj.html"
     sandbox="allow-same-origin allow-scripts"
@@ -112,7 +112,11 @@ Another interesting aspect of these reported injuries, is how the types of injur
     frameborder="0">
 </iframe>
 
-COMMENT HERE
+The topleft image shows similar information as the *Injuries by Year and Borough* plot above.
+Brooklyn has the highest amount of injuries in this period. However, when looking at road users, Brooklyn is quite average. 
+
+* Manhatten has a high percentage of pedestrians and cyclists getting injured compared to other boroughs. 
+* All boroughs have a high percentage of motorists getting injured, with manhatten the lowest of 40 %. Staten Island have a whole 82% of motorists getting injured! At the same time, scoring low percentages for pedestrians and cyclists.
 
 
 ## Age group and gender distribution
