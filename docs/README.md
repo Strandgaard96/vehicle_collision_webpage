@@ -49,7 +49,7 @@ Furthermore, the number of traffic accidents across the 5 boroughs in NYC are pl
     frameborder="0">
 </iframe>
 
-Building upon the crashes in the boroughs, we have plotted the yearly development for each borough, where the succes in reducing the number of crashes for i.e. Manhattan over the years can be seen. This could be due to a program initialized in 2014 called 'Vision Zero', which was aimed at reducing the amount of injuries related to vehicle accidents. A link to the program can be found [here](https://www1.nyc.gov/content/visionzero/pages/). This program continues to this day, and employs increased trafic control (harder penalties for speeding, failing to yield to pedestrians etc.). As such, it wouldn't surpise us if this is the cause of this drop in injuries.
+Building upon the crashes in the boroughs, we have plotted the yearly development for each borough, where the success in reducing the number of crashes for i.e. Manhattan over the years can be seen. This could be due to a program initialized in 2014 called 'Vision Zero', which was aimed at reducing the amount of injuries related to vehicle accidents. A link to the program can be found [here](https://www1.nyc.gov/content/visionzero/pages/). This program continues to this day, and employs increased traffic control (harder penalties for speeding, failing to yield to pedestrians etc.). As such, it wouldn't surprise us if this is the cause of this drop in injuries.
 
 
 ### Cloropleth maps
@@ -100,12 +100,12 @@ Now we move on to the more number-heavy plots, where the number of crashes in ea
 
 ![Heat map](output.png)
 
-The thing worth noticing here is the smaler amount of accidents early in the year and the increase in reported 
+The thing worth noticing here is the smaller amount of accidents early in the year and the increase in reported 
 accidents from 2015 to 2018 (the increase in dark colors). The summer of 2016-2018 saw an increase of around
-1500-2000 accidents compared to earlier years. It is dificult to predict what the main contributing factors were here. 
+1500-2000 accidents compared to earlier years. It is difficult to predict what the main contributing factors were here. 
 Our initial guess was that higher temperatures in this period could contribute to higher outside traffic. However,
-according to the National Wheather Service, the summers of 2016-2018 in New York where not distinctly warmer than previous
-years [Central Park annual temperatures](https://www.weather.gov/media/okx/Climate/CentralPark/monthlyannualtemp.pdf). In reference to the 'Vision Zero' program, another explanation could be that the program was not very succesful, or that the program has increased general trafic awareness leading to an increase in reported/registered accidents corresponding to the effectiveness of the employment of the program.
+according to the National Wheather Service, the summers of 2016-2018 in New York were not distinctly warmer than previous
+years [Central Park annual temperatures](https://www.weather.gov/media/okx/Climate/CentralPark/monthlyannualtemp.pdf). In reference to the 'Vision Zero' program, another explanation could be that the program was not very successful, or that the program has increased general traffic awareness leading to an increase in reported/registered accidents corresponding to the effectiveness of the employment of the program.
 
 ## Age group and gender distribution
 Now, we look into another part of the data set, namely the data about the people involved in the crash. We have chosen to look at the drivers of the vehicles involved in the crashes, more specifically their age and genders, to attempt to discern if there are any patterns. The drivers are split into age groups for each gender (male/female), which are then normalized by the actual number of people in NYC within that age group (specific numbers are found [here](https://www.baruch.cuny.edu/nycdata/population-geography/age_distribution.htm)). This gives us a realistic method of comparing the number of crashes per people now found in each bar to a bar in a different age group. However, as we dont know how many people in a given age group have a drivers license and own a vehicle, there's still some error here, but we have unfortunately not been able to find such numbers.
