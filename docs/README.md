@@ -108,7 +108,7 @@ according to the National Wheather Service, the summers of 2016-2018 in New York
 years [Central Park annual temperatures](https://www.weather.gov/media/okx/Climate/CentralPark/monthlyannualtemp.pdf). In reference to the 'Vision Zero' program, another explanation could be that the program was not very successful, or that the program has increased general traffic awareness leading to an increase in reported/registered accidents corresponding to the effectiveness of the employment of the program.
 
 ## Age group and gender distribution
-Now, we look into another part of the data set, namely the data about the people involved in the crash. We have chosen to look at the drivers of the vehicles involved in the crashes, more specifically their age and genders, to attempt to discern if there are any patterns. The drivers are split into age groups for each gender (male/female), which are then normalized by the actual number of people in NYC within that age group (specific numbers are found [here](https://www.baruch.cuny.edu/nycdata/population-geography/age_distribution.htm)). This gives us a realistic method of comparing the number of crashes per people now found in each bar to a bar in a different age group. However, as we dont know how many people in a given age group have a drivers license and own a vehicle, there's still some error here, but we have unfortunately not been able to find such numbers.
+Now, we look into another part of the data set, namely the data about the people involved in the crash. We have chosen to look at the drivers of the vehicles involved in the crashes, more specifically their age and genders, to attempt to discern if there are any patterns. The drivers are split into age groups for each gender (male/female), which are then normalized by the actual number of people in NYC within that age group (specific numbers are found [here](https://www.baruch.cuny.edu/nycdata/population-geography/age_distribution.htm)). This gives us a realistic method of comparing the number of crashes per people now found in each bar to a bar in a different age group. However, as we don't know how many people in a given age group have a drivers license and own a vehicle, there's still some error here, but we have unfortunately not been able to find such numbers.
 
 <iframe src="Crashes_agegroups.html"
     sandbox="allow-same-origin allow-scripts"
@@ -119,10 +119,10 @@ Now, we look into another part of the data set, namely the data about the people
     frameborder="0">
 </iframe>
 
-We all know the prejudice about young males and fast cars, but there's actually something to it! We can see a vast majority of the crashes has a male driver between the age of 20 and 24 involved in the crash, whereas the older males has a significant lower amount of car crashes to their names. Funnily enough, we can see the same trend for young females! We can see that young males in this age group are involved in more than 3 times the amount of car crashes compared to their female counterparts, but when we look at the trend for females themselves, they also appear to be involved in more crashes when compared to their older age groups. As such, the same trend is visible for both males and females.
+We all know the prejudice about young males and fast cars, but there's actually something to it! We can see a vast majority of the crashes has a male driver between the age of 20 and 24 involved in the crash, whereas the older males have a significantly lower amount of car crashes to their names. Funnily enough, we can see the same trend for young females! We can see that young males in this age group are involved in more than 3 times the amount of car crashes compared to their female counterparts, but when we look at the trend for females themselves, they also appear to be involved in more crashes when compared to their older age groups. As such, the same trend is visible for both males and females.
 
 ## Spatial distribution of the car crashes
-Phew, that was a lot of static bar plots! I think it's time for some interactive plots. In the following map, we have plotted the individual crashes on a map, where each crash is categorized by where it happened, how many people got injured in the crash, why the crash happened and what kind of vehicle was involved. The color of the initial circles represent the density of crashes, with a number corresponding to the crashes in a given area.
+Phew, that was a lot of static bar plots! I think it's time for some interactive plots. In the following map, we have plotted the individual crashes on a map, where each crash is categorized by where it happened, how many people got injured in the crash, why the crash happened and what kind of vehicle was involved. The color of the initial circles represents the density of crashes, with a number corresponding to the crashes in a given area.
 
 <iframe src="interaktivfoliummap.html"
     sandbox="allow-same-origin allow-scripts"
@@ -134,7 +134,7 @@ Phew, that was a lot of static bar plots! I think it's time for some interactive
 </iframe>
 
 
-Have a look around, and try to see if you can spot some of the interesting cases we talked about earlier (Hint: the 43 persons injured crash happened on Herkimer Street in Brooklyn, which can be found west of the Cemetery of the Evergreens along Atlantic Avenue).
+Have a look around, and try to see if you can spot some of the interesting cases we talked about earlier (Hint: the 43 persons injured crash happened on Herkimer Street in Brooklyn, which can be found west of the Cemetery of the Evergreens along Atlantic Avenue, the marker is colored red).
 
 ### Dangerous roads
 We now turn our attention to the roads in New York. It is expected that some roads are more prone to have accidents than others,
@@ -168,7 +168,7 @@ the crashes for the top three dangerous roads in each borough are visualized in 
 [Map containing crashes at dangerous roads](./roadmap.html)
 
 ## Temporal distributions of the car crashes
-The final set of visualizations pertaining to the raw data are the temporal developments of causes of crashes and vehicle types involved. The data is sorted by hour of the day, day of the week and months of the year, all separated into separate tabs. The contribution factors and vehicle types are selected by taken the top 14 and 11 causes of crashes, respectively. Click on the interactive legends to see how bar plots vary across hours, weeks and months.
+The final set of visualizations pertaining to the raw data are the temporal developments of causes of crashes and vehicle types involved. The data is sorted by the hour of the day, day of the week and months of the year, all separated into separate tabs. The contribution factors and vehicle types are selected by taking the top 14 and 11 causes of crashes, respectively. Click on the interactive legends to see how bar plots vary across hours, weeks and months.
 
 <iframe src="Crashes_hours_weeks_months.html"
     sandbox="allow-same-origin allow-scripts"
