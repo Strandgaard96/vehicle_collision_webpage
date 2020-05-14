@@ -12,7 +12,7 @@ More specifically, we ask the following questions;
 * What vehicles are often involved?
     * A large number of vehicle types are reported in the crash data sets.
 
-![Injuries](NYCtrafic.jpg)
+![Trafic](NYCtrafic.jpg)
 
 All vizualisations generated in this study can be found at INSERT REF EXP NOTEBOOK.
 
