@@ -203,8 +203,10 @@ We will now try to use all the information gathered in the previous sections to 
 
 Enough small-talk, lets get to it! The model is attempting to predict whether an injury will occur, not the number of persons injured. As such, we have used the 'NUMBER OF PERSONS INJURED' column in the data, and binned all values above 1 to 1, thus turning it into a binary classification problem (injury or no injury). It was shown that boroughs, time, day of the week, age, contributing factors and vehicle type all influenced traffic incidents and injuries. We therefore chose to use these features in our model. In addition to these features, we also incorporated weather conditions such as temperature, humidity, wind speed and description of the weather e.g. rain, thunder, snow and sun. At a first glance the weather conditions did not show any interesting dependencies of traffic incidents and therefore have not been presented earlier. However, from our assumptions that there must be a dependency it was chosen to be incorporated in the machine learning model. 
 
-The model we achieved the best results from was the Random Forest classifier from SciKit learn. To quickly summarize, the Random Forest classifier attempts to divide the data into reasonable sections using a decision tree, much like how a doctor would diagnose a disease. The algorithm then performs this modelling sequence a number of times and then takes the average as the final model. With such a model, we achieved the following results. 
+The model we achieved the best results from was the Random Forest classifier from SciKit learn. To quickly summarize, the Random Forest classifier attempts to divide the data into reasonable sections using a decision tree, much like how a doctor would diagnose a disease to produce a prediction of a given class (here this would be either injury og non-injury). 
 
+
+The algorithm then performs this modelling sequence a number of times and then takes the average as the final model. With such a model, we achieved the following results. 
 
 
 ![confmatrix](Confusion_ROC.png)
