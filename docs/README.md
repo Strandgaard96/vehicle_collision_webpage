@@ -248,6 +248,8 @@ As we can see on the map the model is highly effective in some areas, this could
 
 
 ## Final conclusions
+
+### What is it good for! Absolutely nothing? 
 Overall, we are quite satisfied with the model performance considering traffic injuries could be stochastic in nature. But we were able to capture some of the underlying structure of the data in the Random Forest classifier, enabling us to predict whether a crash would involve an injury or not with an overall accuracy of about 78%. So what can we use it for?
 One approach to this, is to look at the features that the model thought more important, and buckle down on initiatives in line with what 'Vision Zero' has implemented over the years. But to increase efficiency, based on the map of NYC with the model predictions above, the city could focus its resources on areas where the likelihood of having an injury is higher. An example could be increasing safety measures for bus lanes, bicycle lanes etc. or to build pedestrian islands with a protective fence around it to reduce the chance of being hit by a car in which the driver was fatigued/drowsy (as this feature was highlighted by the model).
 
