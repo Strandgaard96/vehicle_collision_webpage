@@ -148,7 +148,7 @@ Phew, that was a lot of static bar plots! I think it's time for some interactive
 </iframe>
 
 
-Have a look around, and try to see if you can spot some of the interesting cases we talked about earlier (Hint: the 43 persons injured crash happened on Herkimer Street in Brooklyn, which can be found west of the Cemetery of the Evergreens along Atlantic Avenue with a marker colored red).
+Have a look around, and try to see if you can spot some of the interesting cases we talked about earlier (Hint: the 43 persons injured crash happened on Herkimer Street in Brooklyn, which can be found west of the Cemetery of the Evergreens along Atlantic Avenue with a marker colored red). A link to an article about the crash can be found [here](https://www.dnainfo.com/new-york/20130909/bed-stuy/43-people-injured-bed-stuy-when-car-collides-head-on-with-city-bus/).
 
 ### Dangerous roads
 We now turn our attention to the roads in New York. It is expected that some roads are more prone to have accidents than others, due to factors like heavy traffic, poor road conditions, traffic nodes etc. The figure below shows the roads with the highest accident counts for each borough.
