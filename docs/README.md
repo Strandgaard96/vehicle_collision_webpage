@@ -226,7 +226,7 @@ The model we achieved the best results with was the Random Forest classifier. To
 
 To evaluate the model performance, we look at two figures; the confusion matrix and the receiver operations characteristics curve (ROC). A confusion matrix is a table that is often used to describe the performance of a classification model. It allows for easy identification of confusion between the classes. In our case we can see that if the model predicts a non-injury it is correct 87% of the time and if it predicts an injury it is correct 69% of the time. Thus, it is better at predicting non-injury crashes. In addition to this, from the ROC curve, it is seen that the model can correctly distinguish between the binary classes 78% of the time. Overall the model performs surprisingly well considering the classification problem.
 
-From the feature importance we can see which features the model find most important. You can hover over the graph below to find out. You will discover that features such as person type, latitude, longitude and some of the weather features play an important role for what the model predicts.  
+From the feature importance we can see which features the model find most important. You can hover over the graph below to find out. You will discover that features such as person type (pedestrian, motorist, bicyclist etc.), latitude, longitude and some of the weather features play an important role for what the model predicts. Also fatigued drivers and failure to yield right of way are key elements for model predictions.   
 
 
 <iframe src="ML_feature.html"
@@ -242,7 +242,7 @@ How the model uses the features to distinguish between the classes can be tough 
 
 ![](MLchoro.png) ![](choro_colors.PNG)
 
-As we can see on the map the model is highly effective in some areas, this could be due to some of the dangerous intersections where the model can distinguish for injuries.  On top of that the model tells us an increased focus should be on bicycle safety since it has an high feature importance and fatigued drivers. 
+As we can see on the map the model is highly effective in some areas, this could be a result of more data in these areas as they contain high traffic intersections/roads where the frequency of crashes is high.
 
 
 ## Final conclusions
