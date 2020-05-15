@@ -1,5 +1,4 @@
-# New York through data
-
+# ## New York through data
 
 Since 2012 more than 1,000,000 traffic accidents have occured in New York. 
 As a result of those accidents around 200,000 people have gotten injured. 
@@ -20,7 +19,6 @@ We ask the following questions;
 All vizualisations and modelling along with the code in this study can be found in the  [Explainer notebook](https://nbviewer.jupyter.org/github/Strandgaard96/socialdataanalysis2020/blob/master/FinalProject%20-%20Explainer%20notebook.ipynb) for this project. 
 
 
-## NYC Vehicle Crashes  
 As mentioned, lots of car crashes happen every day in NYC. In fact, we can visualize the entire city solely based on the GPS location of the individual crashes when we sample over the 8-year span in which the data has been gathered (2012 - 2020). Each points is plottet as a colored pixel on a black background and displayed in the figure below. Here we can recognize some of NYCs famous features such as Central Park in Manhattan (the black square in the left-most area) and the Hudson river which encircles the Manhattan peninsula. 
 
 <iframe src="map.html"
@@ -120,7 +118,9 @@ Brooklyn has the highest amount of injuries in this period. However, when lookin
 
 
 ## Age group and gender distribution
-Now, we look into another part of the data set, namely the data about the people involved in the crash. We have chosen to look at the drivers of the vehicles involved in the crashes, more specifically their age and genders, to attempt to discern if there are any patterns. The drivers are split into age groups for each gender (male/female), which are then normalized by the actual number of people in NYC within that age group (specific numbers are found [here](https://www.baruch.cuny.edu/nycdata/population-geography/age_distribution.htm)). We further restrict ourselves to look at 2017. This gives us a realistic method of comparing the percentage of crashes now found in each bar to a bar in a different age group. However, as we don't know how many people in a given age group have a drivers license and own a vehicle, there's still some error here, but we have unfortunately not been able to find such numbers.
+Now, we look into another part of the data set, namely the data about the people involved in the crash. We have chosen to look at the drivers of the vehicles involved in the crashes, more specifically their age and genders, to attempt to discern if there are any patterns. The drivers are split into age groups for each gender (male/female), which are then normalized by the actual number of people in NYC within that age group (specific numbers are found [here](https://www.baruch.cuny.edu/nycdata/population-geography/age_distribution.htm)). We further restrict ourselves to look at 2017. This gives us a realistic method of comparing the percentage of crashes now found in each bar to a bar in a different age group. However, as we don't know how many people in a given age group have a drivers license and own a vehicle, there's still some error here. Unfortunately not been able to find such numbers. 
+
+The visualization below shows the percentage of 
 
 <iframe src="Crashes_agegroups.html"
     sandbox="allow-same-origin allow-scripts"
