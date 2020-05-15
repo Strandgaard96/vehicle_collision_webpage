@@ -1,4 +1,4 @@
-# NYC Vehicle Crashes 
+# New York through data
 
 
 Since 2012 more than 1,000,000 traffic accidents have occured in New York. 
@@ -20,7 +20,7 @@ More specifically, we ask the following questions;
 All vizualisations and modelling along with the code in this study can be found at INSERT REF EXP NOTEBOOK.
 
 
-## New York through data
+## NYC Vehicle Crashes  
 As mentioned, lots of car crashes happen every day in NYC. In fact, so many happen that we can visualize the entire city just based on the GPS location of the individual crashes when we sample over the 8-year span in which the data has been gathered (2012 - 2020). From the map below, we can recognize some of NYCs famous features such as Central Park in Manhattan (the black square in the left-most area) and the Hudson river which encircles the Manhattan peninsula. 
 
 <iframe src="map.html"
