@@ -15,7 +15,7 @@ More specifically, we ask the following questions;
     * Alcohol involvement, outside-of-the-car distractions and fatigue are looked into.
 * What vehicles are often involved?
     * A large number of vehicle types are reported in the crash data sets.
-* Is it possible to model whether or not a trafic accident will result in an injury or not?
+* Finally, is it possible to model whether or not a trafic accident will result in an injury or not?
 
 All vizualisations and modelling along with the code in this study can be found at INSERT REF EXP NOTEBOOK.
 
