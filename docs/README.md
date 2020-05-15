@@ -1,26 +1,26 @@
-# NYC Vehicle Crashes 
+# New York through data
 
 
 Since 2012 more than 1,000,000 traffic accidents have occured in New York. 
 As a result of those accidents around 200,000 people have gotten injured. 
 In fact, traffic incidents are the leading cause of injury related deaths in New York City, [cite](https://www.health.ny.gov/statistics/prevention/injury_prevention/traffic/county_of_residence.htm). 
 The aim of this project is to visualize, analyze and model the traffic incidents in order to find identifiable patterns that could aid the process of reducing the risk of injuries in New York City. 
-To enable this, the Motor Vehicle Collisions data sets from NYC database is used (the data can be found here: [Crash Data](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95), [Vehicle Data](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Vehicles/bm4k-52h4) and [Persons Data](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Person/f55k-p6yu)).
+To enable this, the Motor Vehicle Collisions data sets from NYC database is used (the data can be found here: [Crash Data](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95), [Vehicle Data](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Vehicles/bm4k-52h4) and [Persons Data](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Person/f55k-p6yu)). It contains information about over a million crashes, including the time and place, whether or not people were injured, what type of cars etc. connected by a unique collision ID. All these features contain interesting information which can help us understand why people crash in NYC and how to perhaps prevent it.
 
 More specifically, we ask the following questions; 
 
 * Where and when are the crashes happening? 
     * Based on the different boroughs in NYC, the GPS locations, time and day of the crashes.
 * What are the leading causes of these accidents?
-    * Alcohol involvement and outside-of-the-car distractions are looked into.
+    * Alcohol involvement, outside-of-the-car distractions and fatigue are looked into.
 * What vehicles are often involved?
     * A large number of vehicle types are reported in the crash data sets.
-* Is it possible to model whether or not a trafic accident will result in an injury or not?
+* Finally, is it possible to model whether or not a trafic accident will result in an injury or not?
 
 All vizualisations and modelling along with the code in this study can be found at INSERT REF EXP NOTEBOOK.
 
 
-## New York through data
+## NYC Vehicle Crashes  
 As mentioned, lots of car crashes happen every day in NYC. In fact, so many happen that we can visualize the entire city just based on the GPS location of the individual crashes when we sample over the 8-year span in which the data has been gathered (2012 - 2020). From the map below, we can recognize some of NYCs famous features such as Central Park in Manhattan (the black square in the left-most area) and the Hudson river which encircles the Manhattan peninsula. 
 
 <iframe src="map.html"
@@ -220,10 +220,9 @@ We will now try to use all the information gathered in the previous sections to 
 Enough small-talk, lets get to it! The model is attempting to predict whether an injury will occur, not the number of persons injured. As such, we have used the 'NUMBER OF PERSONS INJURED' column in the data, and binned all values above 1 to 1, thus turning it into a binary classification problem (injury or no injury). It was shown that boroughs, time, day of the week, age, contributing factors and vehicle type all influenced traffic incidents and injuries. We therefore chose to use these features in our model. In addition to these features, we also incorporated weather conditions such as temperature, humidity, wind speed and description of the weather e.g. rain, thunder, snow and sun (data can be found [here](https://www.kaggle.com/selfishgene/historical-hourly-weather-data)). At first glance, the weather conditions did not show any interesting dependencies of traffic incidents and therefore have not been presented earlier. However, from our assumptions that there must be a dependency it was chosen to be incorporated in the machine learning model. 
 
 ### Predictive modelling
-The model we achieved the best results with was the Random Forest classifier. To quickly summarize, the Random Forest classifier attempts to divide the data features into reasonable sections using a decision tree, much like how a doctor would diagnose a disease to produce a prediction of a given class (here this would be either injury or non-injury). An example could be to first look at the age of the driver and make a split at i.e. the age of 30. As such, the algorithm would divide the data into two sections; All below the age of 30 would be assigned to the class 'injury', and all above to 'non-injury'. This is then done for all features, creating a tree structure. The algorithm performs this modelling sequence a number of times (also known as bagging or bootstrap aggregating) and then takes the majority vote of all the sequential models as the final model. More information about the Random Forests can be found [here](https://en.wikipedia.org/wiki/Random_forest).
+The model we achieved the best results with was the Random Forest classifier. To quickly summarize, the Random Forest classifier attempts to divide the data features into reasonable sections using a decision tree, much like how a doctor would diagnose a disease to produce a prediction of a given class (here this would be either injury or non-injury). An example could be to first look at the age of the driver and make a split at i.e. the age of 30. As such, the algorithm would divide the data into two sections; All below the age of 30 would be assigned to the class 'injury', and all above to 'non-injury'. This is then done for all features, creating a tree structure. The algorithm performs this modelling sequence a number of times (also known as bagging or bootstrap aggregating) and then takes the majority vote of all the sequential models as the final model. More information about the Random Forests can be found [here](https://en.wikipedia.org/wiki/Random_forest). With such a model, we achieved the following results. 
 
 ### Results
-With such a model, we achieved the following results. 
 ![confmatrix](Confusion_ROC.png)
 
 To evaluate the model performance, we look at two figures; the confusion matrix and the receiver operations characteristics curve (ROC). A confusion matrix is a table that is often used to describe the performance of a classification model. It allows for easy identification of confusion between the classes. In our case, we can see it predict 87% of its non-injury predictions correctly and 69% of its injury predictions correctly. In addition to this, from the ROC curve, the model can correctly distinguish between the binary classes 78% of the time. Overall the model performs surprisingly well considering the classification problem.
