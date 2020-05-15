@@ -1,4 +1,4 @@
-# ## New York through data
+# New York through data
 
 Since 2012 more than 1,000,000 traffic accidents have occured in New York. 
 As a result of those accidents around 200,000 people have gotten injured. 
@@ -120,7 +120,7 @@ Brooklyn has the highest amount of injuries in this period. However, when lookin
 ## Age group and gender distribution
 Now, we look into another part of the data set, namely the data about the people involved in the crash. We have chosen to look at the drivers of the vehicles involved in the crashes, more specifically their age and genders, to attempt to discern if there are any patterns. The drivers are split into age groups for each gender (male/female), which are then normalized by the actual number of people in NYC within that age group (specific numbers are found [here](https://www.baruch.cuny.edu/nycdata/population-geography/age_distribution.htm)). We further restrict ourselves to look at 2017. This gives us a realistic method of comparing the percentage of crashes now found in each bar to a bar in a different age group. However, as we don't know how many people in a given age group have a drivers license and own a vehicle, there's still some error here. Unfortunately not been able to find such numbers. 
 
-The visualization below shows the percentage of 
+The visualization below shows the percentage of each age group that was involved in car crashes in New York in 2017.   
 
 <iframe src="Crashes_agegroups.html"
     sandbox="allow-same-origin allow-scripts"
