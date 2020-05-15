@@ -43,7 +43,7 @@ Using the data sets, we have plotted the number of persons, pedestrians, cyclist
 
 ![Injuries](injuries_seaborn.png)
 
-<img src="injuries_seaborn.png" alt="drawing" width="500"/>
+<img src="injuries_seaborn.png" alt="drawing" width="800"/>
 
 Furthermore, the number of traffic accidents across the 5 boroughs in NYC are plotted in a bar plot, showing that Brooklyn has the highest number of car crashes when we count them up over the 8-year time span.
 
