@@ -16,7 +16,8 @@ We ask the following questions;
     * A large number of vehicle types are reported in the crash data sets.
 * Finally, is it possible to use machine learning to model whether or not a trafic accident will result in an injury or not?
 
-All vizualisations and modelling along with the code in this study can be found in the [Explainer notebook](https://nbviewer.jupyter.org/github/Strandgaard96/socialdataanalysis2020/blob/master/FinalProject%20-%20Explainer%20notebook.ipynb) for this project. 
+All vizualisations and modelling along with the code in this study can be found in the [Explainer notebook](https://nbviewer.jupyter.org/github/Strandgaard96/socialdataanalysis2020/blob/master/FinalProject%20-%20Explainer%20notebook.ipynb) for this project. NBviewer had problems rendering an updated eploratory notebook, therefore the link to the notebook in github can be found here: [Raw github notebook](https://github.com/Strandgaard96/socialdataanalysis2020/blob/master/Explainer%20Notebook.ipynb). (Allowed by TA Germans). 
+If the **Contributions** section of the nbviewer version notebook does only contain contributions for 2 names, then this is the old verison. In this case, please refer to the github link.
 
 
 As mentioned, lots of car crashes happen every day in NYC. In fact, we can visualize the entire city solely based on the GPS location of the individual crashes when we sample over the 8-year span in which the data has been gathered (2012 - 2020). Each points is plottet as a colored pixel on a black background and displayed in the figure below. Here we can recognize some of NYCs famous features such as Central Park in Manhattan (the black square in the left-most area) and the Hudson river which encircles the Manhattan peninsula. 
