@@ -1,7 +1,4 @@
 # Socialdataanalysis2020
 
-
-## Structure:
-
-'/docs' is the source folder for github pages. Everything written in the markdown file 'pages'
-will display on the webpage. 
+Repository for the Course Social dataanalysis 2020. 
+/docs contain the source code for the final project webpage. 
