@@ -4,9 +4,12 @@
 @import "{{ site.theme }}";
 
 .inner {
-  max-width: 1200px;
+  max-width: 1000px;
 }
 
+img {
+  max-width: 1000px;
+}
 #forkme_banner {
   display : none;
 }
@@ -20,5 +23,5 @@ header{
 }
 
 #header_wrap .inner {
-    padding: 120px 10px 130px 10px;
+    padding: 150px 10px 50px 10px;
 }
