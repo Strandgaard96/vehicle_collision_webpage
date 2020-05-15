@@ -5,14 +5,14 @@ Since 2012 more than 1,000,000 traffic accidents have occured in New York.
 As a result of those accidents around 200,000 people have gotten injured. 
 In fact, traffic incidents are the leading cause of injury related deaths in New York City, [cite](https://www.health.ny.gov/statistics/prevention/injury_prevention/traffic/county_of_residence.htm). 
 The aim of this project is to visualize, analyze and model the traffic incidents in order to find identifiable patterns that could aid the process of reducing the risk of injuries in New York City. 
-To enable this, the Motor Vehicle Collisions data sets from NYC database is used (the data can be found here: [Crash Data](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95), [Vehicle Data](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Vehicles/bm4k-52h4) and [Persons Data](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Person/f55k-p6yu)).
+To enable this, the Motor Vehicle Collisions data sets from NYC database is used (the data can be found here: [Crash Data](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95), [Vehicle Data](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Vehicles/bm4k-52h4) and [Persons Data](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Person/f55k-p6yu)). It contains information about over a million crashes, including the time and place, whether or not people were injured, what type of cars etc. connected by a unique collision ID. All these features contain interesting information which can help us understand why people crash in NYC and how to perhaps prevent it.
 
 More specifically, we ask the following questions; 
 
 * Where and when are the crashes happening? 
     * Based on the different boroughs in NYC, the GPS locations, time and day of the crashes.
 * What are the leading causes of these accidents?
-    * Alcohol involvement and outside-of-the-car distractions are looked into.
+    * Alcohol involvement, outside-of-the-car distractions and fatigue are looked into.
 * What vehicles are often involved?
     * A large number of vehicle types are reported in the crash data sets.
 * Is it possible to model whether or not a trafic accident will result in an injury or not?
