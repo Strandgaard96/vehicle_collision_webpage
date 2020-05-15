@@ -133,10 +133,10 @@ The visualization below shows the percentage of each age group that was involved
 
 We all know the prejudice about young males and fast cars, but there's actually something to it! We can see a peak in the amount of the crashes has a male driver between the age of 20 and 24 involved in the crash (about 9.9%). As the males become older, they are involved in fewer and fewer crashes until they reach the age of about 35-40. We believe that this increase is due to som of the tendencies that many middle-aged men have of road-rage, impatience in traffic and general stress, causing them to be distracted and irritable in traffic. After the age of 55, their number begin to dwindle again, probably due to fewer older men having drivers license, and perhaps in less of a rush to get from A to B.
 Looking at the females in the young age groups, we can see that males are involved in about 3 times more crashes. That's a lot! Comparing younger females to older, we can see that they do not exhibit the same trend of increasing in number of crashes later in life, perhaps due to their more calm approach to traffic in general. 
-As a final sidenote, we can actually see very young drivers appear in the data as well! Apparently, some data points stem from people as young as 5-9 years of age. Whether this is an human error in the data or not, the number of these occurences are very small.
+As a final sidenote, we can actually see very young drivers appear in the data as well! Apparently, some data points stem from people as young as 5-9 years of age. As these are unlikely drivers this likely is a result of a reporting error. For example putting a 0 instead of an age or forgetting to write the second number (4 instead of 42 for example). 
 
 ## Spatial distribution of the car crashes
-Phew, that was a lot of static bar plots! I think it's time for some interactive plots. In the following map, we have plotted the individual crashes on a map, where each crash is categorized by where it happened, how many people got injured in the crash, why the crash happened and what kind of vehicle was involved. The color of the initial circles represents the density of crashes, with a number corresponding to the crashes in a given area. The map shows a sample of 10,000 traffic incidents.
+Phew, that was a lot of static bar plots! Now it's time for some interactive plots. In the following map, we have plotted the individual crashes on a map, where each crash is categorized by where it happened, how many people got injured in the crash, why the crash happened and what kind of vehicle was involved. The color of the initial circles represents the density of crashes, with a number corresponding to the crashes in a given area. The map shows a sample of 10,000 traffic incidents.
 
 <iframe src="interaktivfoliummap.html"
     sandbox="allow-same-origin allow-scripts"
@@ -210,8 +210,7 @@ Now that we have seen a lot of plots of the data, and visualized it in a lot of 
 
 Firstly, we saw a temporal dependency on some of the contributing factors and vehicle types on the number of crashes, indicating that i.e. alcohol involvement or bicycles were good features to look at when selecting important features for a model. Furthermore, we found that age had a very distinct impact on the number of crashes and finally that the number of crashes was very dependant on where in NYC you were looking, i.e. GPS coordinates or just the borough. 
 
-To summarize, some of the variables seemed to be correlated with the number of crashes, which, combined with the assumption that a high number of crashes leads to a higher chance of an injury occurring, made the foundations of the predictive modelling to come.
-
+To summarize, some of the variables seemed to be correlated with the number of crashes. This, combined with the assumption that a high number of crashes leads to a higher chance of an injury occurring, was the foundation for applying predictive modelling to the dataset. A fair warning for the unfamiliar, the following section is more theoretical and contains machine learning concepts so be prepared!
 
 ## Machine learning 
 
@@ -225,9 +224,9 @@ The model we achieved the best results with was the Random Forest classifier. To
 ### Results
 ![confmatrix](Confusion_ROC.png)
 
-To evaluate the model performance, we look at two figures; the confusion matrix and the receiver operations characteristics curve (ROC). A confusion matrix is a table that is often used to describe the performance of a classification model. It allows for easy identification of confusion between the classes. In our case, we can see it predict 87% of its non-injury predictions correctly and 69% of its injury predictions correctly. In addition to this, from the ROC curve, the model can correctly distinguish between the binary classes 78% of the time. Overall the model performs surprisingly well considering the classification problem.
+To evaluate the model performance, we look at two figures; the confusion matrix and the receiver operations characteristics curve (ROC). A confusion matrix is a table that is often used to describe the performance of a classification model. It allows for easy identification of confusion between the classes. In our case we can see that if the model predicts a non-injury it is correct 87% of the time and if it predicts an injury it is correct 69% of the time. Thus, it is better at predicting non-injury crashes. In addition to this, from the ROC curve, it is seen that the model can correctly distinguish between the binary classes 78% of the time. Overall the model performs surprisingly well considering the classification problem.
 
-From the feature importance we can see which features the model find most important. You can hover over the graph below to find out. You will discover features such as person type, latitude, longitude and some of the weather features play an important role. 
+From the feature importance we can see which features the model find most important. You can hover over the graph below to find out. You will discover that features such as person type, latitude, longitude and some of the weather features play an important role for what the model predicts.  
 
 
 <iframe src="ML_feature.html"
