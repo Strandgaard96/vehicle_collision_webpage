@@ -43,7 +43,6 @@ Using the datasets, we have plotted the number of persons, pedestrians, cyclists
 
 ![Injuries](injuries_seaborn.png)
 
-
 Furthermore, the number of traffic accidents across the 5 boroughs in NYC are plotted in a bar plot, showing that Brooklyn has the highest number of car crashes when we count them up over the 8-year time span.
 
 <iframe src="yearly_borough.html"
@@ -55,14 +54,14 @@ Furthermore, the number of traffic accidents across the 5 boroughs in NYC are pl
     frameborder="0">
 </iframe>
 
-Building upon the crashes in the boroughs, we have plotted the yearly development for each borough, where the success in reducing the number of crashes for i.e. Manhattan over the years can be seen. This could be due to a program initialized in 2014 called 'Vision Zero', which was aimed at reducing the amount of injuries related to vehicle accidents. A link to the program can be found [here](https://www1.nyc.gov/content/visionzero/pages/). This program continues to this day, and employs increased traffic control (harder penalties for speeding, failing to yield to pedestrians etc.). As such, it wouldn't surprise us if this is the cause of this drop in injuries.
+Building upon the crashes in the boroughs, we have plotted the yearly development for each borough, where the success in reducing the number of crashes for i.e. Manhattan over the years can be seen. This could be due to a program initialized in 2014 called 'Vision Zero', which was aimed at reducing the amount of injuries related to vehicle accidents in New York. A link to the program can be found [here](https://www1.nyc.gov/content/visionzero/pages/). This program continues to this day, and employs increased traffic control (harder penalties for speeding, failing to yield to pedestrians etc.). As such, it wouldn't surprise us if this is the cause of this drop in injuries.
 
 ### Crash distribution heatmap
-Next, we show a so called heat map, to get a feel for how the number of crashes vary over the months in a year for all the years in which the data has been gather. In the plot, month 1 is January and 12 is December.
+Next, we show a so called heat map, to get a feel for how the number of crashes vary over the months in a year for all the years in which the data has been gathered. In the plot, month 1 corresponds to January and 12 to December.
 
 ![Heat map](output.png)
 
-The thing worth noticing here is the smaller amount of accidents early in the year and the increase in reported 
+The thing worth noticing here is the smaller amount of accidents in the opening months of the year and the increase in reported 
 accidents from 2015 to 2018 (the increase in dark colors). The summer of 2016-2018 saw an increase of around
 1500-2000 accidents compared to earlier years. It is difficult to predict what the main contributing factors were here. 
 Our initial guess was that higher temperatures in this period could contribute to an increase in traffic. However,
@@ -117,7 +116,7 @@ The topleft image shows similar information as the *Injuries by Year and Borough
 Brooklyn has the highest amount of injuries in this period. However, when looking at road users, Brooklyn is quite average. Further observations are:
 
 * Manhatten has a high percentage of pedestrians and cyclists getting injured compared to other boroughs. 
-* All boroughs have a high percentage of motorists getting injured, with manhatten the lowest of 40 %. Staten Island have a whole 82% of motorists getting injured! At the same time, scoring low percentages for pedestrians and cyclists.
+* All boroughs have a high percentage of motorists getting injured, with manhatten the lowest of 40 %. Staten Island have a whole 82% percent of cases where the injured are motorists. At the same time, scoring low percentages for pedestrians and cyclists.
 
 
 ## Age group and gender distribution
