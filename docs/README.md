@@ -64,7 +64,7 @@ accidents from 2015 to 2018 (the increase in dark colors). The summer of 2016-20
 1500-2000 accidents compared to earlier years. It is difficult to predict what the main contributing factors were here. 
 Our initial guess was that higher temperatures in this period could contribute to an increase in traffic. However,
 according to the National Wheather Service, the summers of 2016-2018 in New York were not distinctly warmer than previous
-years [Central Park annual temperatures](https://www.weather.gov/media/okx/Climate/CentralPark/monthlyannualtemp.pdf). In reference to the 'Vision Zero' program, another explanation could be that the program was not very successful, or that the program has increased general traffic awareness leading to an increase in reported/registered accidents corresponding to the effectiveness of the employment of the program.
+years [Central Park annual temperatures](https://www.weather.gov/media/okx/Climate/CentralPark/monthlyannualtemp.pdf). In reference to the 'Vision Zero' program, another explanation could be that the program was not very successful, or that the program has increased general traffic awareness leading to an increase in reported/registered accidents corresponding to the effectiveness of the employment of the program. 
 
 
 ### Borough maps 
