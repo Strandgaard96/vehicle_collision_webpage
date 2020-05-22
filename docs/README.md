@@ -2,7 +2,7 @@
 
 Since 2012 more than 1,000,000 traffic accidents have occured in New York. 
 As a result of those accidents around 200,000 people have gotten injured. 
-In fact, traffic incidents are the leading cause of injury related deaths in New York City [Source](https://www.health.ny.gov/statistics/prevention/injury_prevention/traffic/county_of_residence.htm). 
+In fact, traffic incidents are the leading cause of injury related deaths in New York City ([Source](https://www.health.ny.gov/statistics/prevention/injury_prevention/traffic/county_of_residence.htm)). 
 The aim of this project is to visualize, analyze and model the traffic incidents in order to find identifiable patterns that could aid the process of reducing the risk of injuries in New York City. 
 To enable this, the Motor Vehicle Collisions data sets from NYC database is used (the data can be found here: [Crash Data](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95), [Vehicle Data](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Vehicles/bm4k-52h4) and [Persons Data](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Person/f55k-p6yu)). It contains crash reports for over a million crashes, including the time and place, whether or not people were injured, what type of cars etc. All three datasets are connected by a unique collision ID. These datasets contain interesting information which can help us understand why/where/how people crash in NYC and perhaps how to prevent these crashes.  
 
@@ -16,7 +16,8 @@ We ask the following questions;
     * A large number of vehicle types are reported in the crash data sets.
 * Finally, is it possible to use machine learning to model whether or not a trafic accident will result in an injury or not?
 
-All vizualisations and modelling along with the code in this study can be found in the  [Explainer notebook](https://nbviewer.jupyter.org/github/Strandgaard96/socialdataanalysis2020/blob/master/Explainer%20Notebook.ipynb) for this project. 
+All vizualisations and modelling along with the code in this study can be found in the  [Explainer notebook](https://nbviewer.jupyter.org/github/Strandgaard96/socialdataanalysis2020/blob/master/Explainer%20Notebook.ipynb) for this project. NBviewer had problems rendering an updated eploratory notebook, therefore the link to the notebook in github can be found here: [Raw github notebook](https://github.com/Strandgaard96/socialdataanalysis2020/blob/master/Explainer%20Notebook.ipynb). (Allowed by TA Germans). 
+If the **Contributions** section of the nbviewer version notebook does only contain contributions for 2 names, then this is the old verison. In this case, please refer to the github link.
 
 
 As mentioned, lots of car crashes happen every day in NYC. In fact, we can visualize the entire city solely based on the GPS location of the individual crashes when we sample over the 8-year span in which the data has been gathered (2012 - 2020). Each points is plottet as a colored pixel on a black background and displayed in the figure below. Here we can recognize some of NYCs famous features such as Central Park in Manhattan (the black square in the left-most area) and the Hudson river which encircles the Manhattan peninsula. 
@@ -52,7 +53,7 @@ Furthermore, the number of traffic accidents across the 5 boroughs in NYC are pl
     frameborder="0">
 </iframe>
 
-Building upon the crashes in the boroughs, we have plotted the yearly development for each borough, where the success in reducing the number of crashes for i.e. Manhattan over the years can be seen. This could be due to a program initialized in 2014 called 'Vision Zero', which was aimed at reducing the amount of injuries related to vehicle accidents in New York. A link to the program can be found [here](https://www1.nyc.gov/content/visionzero/pages/). This program continues to this day, and employs increased traffic control (harder penalties for speeding, failing to yield to pedestrians etc.). As such, it wouldn't surprise us if this is the cause of this drop in injuries.
+Building upon the crashes in the boroughs, we have plotted the yearly development of traffic injuries for each borough, where the success in reducing the number of injuries for i.e. Manhattan over the years can be seen. This could be due to a program initialized in 2014 called 'Vision Zero', which was aimed at reducing the amount of injuries related to vehicle accidents in New York. A link to the program can be found [here](https://www1.nyc.gov/content/visionzero/pages/). This program continues to this day, and employs increased traffic control (harder penalties for speeding, failing to yield to pedestrians etc.). As such, it wouldn't surprise us if this is the cause of this drop in injuries. However in recent years injury count seems to increase in some of the boroughs. 
 
 ### Crash distribution heatmap
 Next, we show a so called heat map, to get a feel for how the number of crashes vary over the months in a year for all the years in which the data has been gathered. In the plot, month 1 corresponds to January and 12 to December.
@@ -64,7 +65,7 @@ accidents from 2015 to 2018 (the increase in dark colors). The summer of 2016-20
 1500-2000 accidents compared to earlier years. It is difficult to predict what the main contributing factors were here. 
 Our initial guess was that higher temperatures in this period could contribute to an increase in traffic. However,
 according to the National Wheather Service, the summers of 2016-2018 in New York were not distinctly warmer than previous
-years [Central Park annual temperatures](https://www.weather.gov/media/okx/Climate/CentralPark/monthlyannualtemp.pdf). In reference to the 'Vision Zero' program, another explanation could be that the program was not very successful, or that the program has increased general traffic awareness leading to an increase in reported/registered accidents corresponding to the effectiveness of the employment of the program.
+years [Central Park annual temperatures](https://www.weather.gov/media/okx/Climate/CentralPark/monthlyannualtemp.pdf). In reference to the 'Vision Zero' program, another explanation could be that the program was not very successful, or that the program has increased general traffic awareness leading to an increase in reported/registered accidents corresponding to the effectiveness of the employment of the program. 
 
 
 ### Borough maps 
@@ -148,7 +149,7 @@ Phew, that was a lot of static bar plots! Now it's time for some interactive plo
 </iframe>
 
 
-Have a look around, and try to see if you can spot some of the interesting cases we talked about earlier (Hint: the 43 persons injured crash happened on Herkimer Street in Brooklyn, which can be found west of the Cemetery of the Evergreens along Atlantic Avenue with a marker colored red). A link to an article about the crash can be found [here](https://www.dnainfo.com/new-york/20130909/bed-stuy/43-people-injured-bed-stuy-when-car-collides-head-on-with-city-bus/).
+Have a look around, and try to see if you can spot some of the interesting cases we talked about earlier (Hint: the 43 persons injured crash happened on Herkimer Street in Brooklyn, which can be found west of the Cemetery of the Evergreens along Atlantic Avenue with a marker colored red and east of Saint Andrews Playground). A link to an article about the crash can be found [here](https://www.dnainfo.com/new-york/20130909/bed-stuy/43-people-injured-bed-stuy-when-car-collides-head-on-with-city-bus/).
 
 ### Dangerous roads
 We now turn our attention to the roads in New York. It is expected that some roads are more prone to have accidents than others, due to factors like heavy traffic, poor road conditions, traffic nodes etc. The figure below shows the roads with the highest accident counts for each borough.
